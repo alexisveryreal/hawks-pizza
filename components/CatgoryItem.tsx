@@ -4,32 +4,18 @@ import { Feather } from "@expo/vector-icons";
 import colors from "../assets/colors/colors";
 import { CategoriesObj } from "../assets/data/categoriesData";
 
-import {
-  useFonts,
-  Montserrat_600SemiBold,
-} from "@expo-google-fonts/montserrat";
-
-import AppLoading from "expo-app-loading";
-
 type CategoryItemProps = {
   item: CategoriesObj;
 };
 
 const CatgoryItem = ({ item }: CategoryItemProps) => {
-  let [fontsLoaded] = useFonts({
-    Montserrat_600SemiBold,
-  });
-
-  if (!fontsLoaded) {
-    return <AppLoading />;
-  }
-
   return (
     <View
       style={[
         styles.categoryItemWrapper,
         {
           backgroundColor: item.selected ? colors.primary : colors.white,
+          marginLeft: item.id === "1" ? 20 : 0,
         },
       ]}
     >
@@ -40,13 +26,12 @@ const CatgoryItem = ({ item }: CategoryItemProps) => {
           styles.categorySelectWrapper,
           {
             backgroundColor: item.selected ? colors.white : colors.secondary,
-            marginLeft: item.id === "1" ? 20 : 0,
           },
         ]}
       >
         <Feather
           name="chevron-right"
-          size={8}
+          size={12}
           color={item.selected ? colors.black : colors.white}
           style={styles.categorySelectIcon}
         />
@@ -70,6 +55,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.05,
     shadowRadius: 10,
     elevation: 2,
+    marginBottom: 5,
   },
   categoryItemImage: {
     width: 60,

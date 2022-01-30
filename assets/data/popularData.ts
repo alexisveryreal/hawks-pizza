@@ -4,7 +4,7 @@ type Ingredients = {
   image: any;
 };
 
-type PopularData = {
+export type PopularData = {
   id: string;
   image: any;
   title: string;

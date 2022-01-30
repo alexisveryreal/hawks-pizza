@@ -1,8 +1,7 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View, ScrollView } from "react-native";
 import React from "react";
 import AppLoading from "expo-app-loading";
 import colors from "../assets/colors/colors";
-import { Ionicons, Feather, MaterialCommunityIcons } from "@expo/vector-icons";
 import {
   useFonts,
   Montserrat_400Regular,
@@ -11,14 +10,23 @@ import {
   Montserrat_700Bold,
 } from "@expo-google-fonts/montserrat";
 
-import categoriesData from "../assets/data/categoriesData";
-import popularData from "../assets/data/popularData";
 import Header from "../components/Header";
 import Titles from "../components/Titles";
 import Search from "../components/Search";
 import Categories from "../components/Categories";
+import Popular from "../components/Popular";
 
-const Home = () => {
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { RootStackParamList } from "../App";
+
+export type HomeScreenProps = NativeStackScreenProps<
+  RootStackParamList,
+  "Home"
+>;
+
+export type HomeScreenNavigation = HomeScreenProps["navigation"];
+
+const Home = ({ navigation, route }: HomeScreenProps) => {
   let [fontsLoaded] = useFonts({
     Montserrat_400Regular,
     Montserrat_500Medium,
@@ -32,10 +40,16 @@ const Home = () => {
 
   return (
     <View style={styles.container}>
-      <Header />
-      <Titles />
-      <Search />
-      <Categories />
+      <ScrollView
+        contentInsetAdjustmentBehavior="automatic"
+        showsVerticalScrollIndicator={false}
+      >
+        <Header />
+        <Titles />
+        <Search />
+        <Categories />
+        <Popular navigation={navigation} />
+      </ScrollView>
     </View>
   );
 };

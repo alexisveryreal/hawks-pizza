@@ -1,23 +1,8 @@
-import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import {
-  useFonts,
-  Montserrat_400Regular,
-  Montserrat_700Bold,
-} from "@expo-google-fonts/montserrat";
-import AppLoading from "expo-app-loading";
 import colors from "../assets/colors/colors";
+import { StyleSheet, Text, View } from "react-native";
 
 const Titles = () => {
-  let [fontsLoaded] = useFonts({
-    Montserrat_400Regular,
-    Montserrat_700Bold,
-  });
-
-  if (!fontsLoaded) {
-    return <AppLoading />;
-  }
-
   return (
     <View style={styles.titleWrapper}>
       <Text style={styles.subTitle}>Food</Text>
