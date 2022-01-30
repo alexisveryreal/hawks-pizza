@@ -2,7 +2,7 @@ import React from "react";
 import colors from "../assets/colors/colors";
 import { StyleSheet, Text, View } from "react-native";
 
-const Titles = () => {
+const HomeTitles = () => {
   return (
     <View style={styles.titleWrapper}>
       <Text style={styles.subTitle}>Food</Text>
@@ -11,7 +11,7 @@ const Titles = () => {
   );
 };
 
-export default Titles;
+export default HomeTitles;
 
 const styles = StyleSheet.create({
   titleWrapper: {

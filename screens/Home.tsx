@@ -10,8 +10,8 @@ import {
   Montserrat_700Bold,
 } from "@expo-google-fonts/montserrat";
 
-import Header from "../components/Header";
-import Titles from "../components/Titles";
+import HomeHeader from "../components/HomeHeader";
+import HomeTitles from "../components/HomeTitles";
 import Search from "../components/Search";
 import Categories from "../components/Categories";
 import Popular from "../components/Popular";
@@ -44,8 +44,8 @@ const Home = ({ navigation, route }: HomeScreenProps) => {
         contentInsetAdjustmentBehavior="automatic"
         showsVerticalScrollIndicator={false}
       >
-        <Header />
-        <Titles />
+        <HomeHeader />
+        <HomeTitles />
         <Search />
         <Categories />
         <Popular navigation={navigation} />

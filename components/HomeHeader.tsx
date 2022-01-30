@@ -3,7 +3,7 @@ import { Image, StyleSheet, View } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import colors from "../assets/colors/colors";
 
-const Header = () => {
+const HomeHeader = () => {
   return (
     <View style={styles.headerWrapper}>
       <Image
@@ -15,7 +15,7 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HomeHeader;
 
 const styles = StyleSheet.create({
   container: {

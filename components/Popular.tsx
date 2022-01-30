@@ -1,9 +1,11 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+
 import popularData from "../assets/data/popularData";
-import { HomeScreenNavigation } from "../screens/Home";
-import colors from "../assets/colors/colors";
+
 import PopularCard from "./PopularCard";
+
+import { HomeScreenNavigation } from "../screens/Home";
 
 type PopularProps = {
   navigation: HomeScreenNavigation;
