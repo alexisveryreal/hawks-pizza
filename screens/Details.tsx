@@ -9,6 +9,9 @@ import Price from "../components/Price";
 import DetailTitles from "../components/DetailTitles";
 import DetailHeader from "../components/DetailHeader";
 import PizzaInfo from "../components/PizzaInfo";
+import Ingredients from "../components/Ingredients";
+import colors from "../assets/colors/colors";
+import PlaceOrderButton from "../components/PlaceOrderButton";
 
 export type DetailScreenProps = NativeStackScreenProps<
   RootStackParamList,
@@ -25,6 +28,8 @@ const Details = ({ navigation, route }: DetailScreenProps) => {
       <DetailTitles item={item} />
       <Price item={item} />
       <PizzaInfo item={item} />
+      <Ingredients ingredients={item.ingredients} />
+      <PlaceOrderButton />
     </View>
   );
 };
@@ -32,5 +37,5 @@ const Details = ({ navigation, route }: DetailScreenProps) => {
 export default Details;
 
 const styles = StyleSheet.create({
-  container: { flex: 1 },
+  container: { flex: 1, backgroundColor: colors.background },
 });
