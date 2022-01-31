@@ -8,6 +8,7 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import Price from "../components/Price";
 import DetailTitles from "../components/DetailTitles";
 import DetailHeader from "../components/DetailHeader";
+import PizzaInfo from "../components/PizzaInfo";
 
 export type DetailScreenProps = NativeStackScreenProps<
   RootStackParamList,
@@ -23,6 +24,7 @@ const Details = ({ navigation, route }: DetailScreenProps) => {
       <DetailHeader navigation={navigation} />
       <DetailTitles item={item} />
       <Price item={item} />
+      <PizzaInfo item={item} />
     </View>
   );
 };

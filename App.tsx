@@ -1,9 +1,15 @@
+import React from "react";
+
+/* REACT NAVIGATION */
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import React from "react";
+
+/* DATA */
 import { PopularData } from "./assets/data/popularData";
-import Details from "./screens/Details";
+
+/* SCREENS */
 import Home from "./screens/Home";
+import Details from "./screens/Details";
 
 export type RootStackParamList = {
   Home: undefined;
