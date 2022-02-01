@@ -38,8 +38,6 @@ export default function App() {
 }
 
 /**
- * TODO: Design a splash screen
- * * -> Use Hawk icon + pizza lel
  * TODO: Make Search an actual input
  * * -> Will need to search through popular data
  * TODO: Make Menu button in top right clickable
