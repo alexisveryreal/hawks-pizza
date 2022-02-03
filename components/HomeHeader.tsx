@@ -1,16 +1,23 @@
 import React from "react";
-import { Image, StyleSheet, View } from "react-native";
+import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import colors from "../assets/colors/colors";
+import { HomeScreenNavigation } from "../screens/Home";
 
-const HomeHeader = () => {
+type HomeHeaderProps = {
+  navigation: HomeScreenNavigation;
+};
+
+const HomeHeader = ({ navigation }: HomeHeaderProps) => {
   return (
     <View style={styles.headerWrapper}>
       <Image
         source={require("../assets/images/profile.png")}
         style={styles.profileImg}
       />
-      <Feather name="menu" size={24} color={colors.textDark} />
+      <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
+        <Feather name="menu" size={24} color={colors.textDark} />
+      </TouchableOpacity>
     </View>
   );
 };

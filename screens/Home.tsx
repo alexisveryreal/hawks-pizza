@@ -51,7 +51,7 @@ const Home = ({ navigation, route }: HomeScreenProps) => {
         contentInsetAdjustmentBehavior="automatic"
         showsVerticalScrollIndicator={false}
       >
-        <HomeHeader />
+        <HomeHeader navigation={navigation} />
         <HomeTitles />
         <Search originalPopular={popular} setFilteredData={setFilteredData} />
         {!hasFiltered && <Categories />}
