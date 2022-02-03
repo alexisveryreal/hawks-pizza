@@ -11,11 +11,13 @@ import { PopularData } from "./assets/data/popularData";
 import Home from "./screens/Home";
 import Details from "./screens/Details";
 import Profile from "./screens/Profile";
+import Settings from "./screens/Settings";
 
 export type RootStackParamList = {
   Home: undefined;
   Details: { item: PopularData };
   Profile: undefined;
+  Settings: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -37,6 +39,11 @@ export default function App() {
         <Stack.Screen
           name="Profile"
           component={Profile}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Settings"
+          component={Settings}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

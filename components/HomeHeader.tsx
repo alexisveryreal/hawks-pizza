@@ -11,11 +11,13 @@ type HomeHeaderProps = {
 const HomeHeader = ({ navigation }: HomeHeaderProps) => {
   return (
     <View style={styles.headerWrapper}>
-      <Image
-        source={require("../assets/images/profile.png")}
-        style={styles.profileImg}
-      />
       <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
+        <Image
+          source={require("../assets/images/profile.png")}
+          style={styles.profileImg}
+        />
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate("Settings")}>
         <Feather name="menu" size={24} color={colors.textDark} />
       </TouchableOpacity>
     </View>
