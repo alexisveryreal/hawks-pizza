@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-import popularData from "../assets/data/popularData";
+import { PopularData } from "../assets/data/popularData";
 
 import PopularCard from "./PopularCard";
 
@@ -9,15 +9,17 @@ import { HomeScreenNavigation } from "../screens/Home";
 
 type PopularProps = {
   navigation: HomeScreenNavigation;
+  popularData: PopularData[];
 };
 
-const Popular = ({ navigation }: PopularProps) => {
+const Popular = ({ navigation, popularData }: PopularProps) => {
   return (
     <View style={styles.popularWrapper}>
       <Text style={styles.popularTitle}>Popular</Text>
       {popularData.map((item) => (
         <PopularCard item={item} navigation={navigation} key={item.id} />
       ))}
+      {popularData.length === 0 && <Text>Item not found :(</Text>}
     </View>
   );
 };

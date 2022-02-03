@@ -1,5 +1,5 @@
 import { StyleSheet, View, ScrollView } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import AppLoading from "expo-app-loading";
 import colors from "../assets/colors/colors";
 import {
@@ -19,6 +19,8 @@ import Popular from "../components/Popular";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../App";
 
+import popularData from "../assets/data/popularData";
+
 export type HomeScreenProps = NativeStackScreenProps<
   RootStackParamList,
   "Home"
@@ -34,6 +36,11 @@ const Home = ({ navigation, route }: HomeScreenProps) => {
     Montserrat_700Bold,
   });
 
+  const [popular] = useState(popularData);
+  const [filteredData, setFilteredData] = useState(popularData);
+  const hasFiltered = filteredData !== popular;
+  console.log(hasFiltered);
+
   if (!fontsLoaded) {
     return <AppLoading />;
   }
@@ -46,9 +53,9 @@ const Home = ({ navigation, route }: HomeScreenProps) => {
       >
         <HomeHeader />
         <HomeTitles />
-        <Search />
-        <Categories />
-        <Popular navigation={navigation} />
+        <Search originalPopular={popular} setFilteredData={setFilteredData} />
+        {!hasFiltered && <Categories />}
+        <Popular popularData={filteredData} navigation={navigation} />
       </ScrollView>
     </View>
   );
