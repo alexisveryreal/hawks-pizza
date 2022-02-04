@@ -15,3 +15,5 @@ export { default as PlaceOrderButton } from "./Details/PlaceOrderButton";
 
 // Profile Components
 export { default as ProfileHeader } from "./Profile/ProfileHeader";
+export { default as ProfileTitles } from "./Profile/ProfileTitles";
+export { default as RewardTitles } from "./Profile/RewardTitles";

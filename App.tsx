@@ -12,11 +12,13 @@ import Home from "./screens/Home";
 import Details from "./screens/Details";
 import Profile from "./screens/Profile";
 import Settings from "./screens/Settings";
+import ProfileEdit from "./screens/ProfileEdit";
 
 export type RootStackParamList = {
   Home: undefined;
   Details: { item: PopularData };
   Profile: undefined;
+  ProfileEdit: undefined;
   Settings: undefined;
 };
 
@@ -39,6 +41,11 @@ export default function App() {
         <Stack.Screen
           name="Profile"
           component={Profile}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="ProfileEdit"
+          component={ProfileEdit}
           options={{ headerShown: false }}
         />
         <Stack.Screen
