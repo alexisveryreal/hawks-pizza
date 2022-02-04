@@ -27,10 +27,6 @@ const HomeHeader = ({ navigation }: HomeHeaderProps) => {
 export default HomeHeader;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-  },
   headerWrapper: {
     flexDirection: "row",
     justifyContent: "space-between",

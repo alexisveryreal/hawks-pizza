@@ -1,11 +1,12 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import colors from "../assets/colors/colors";
+import { ProfileHeader } from "../components";
 
 const Profile = () => {
   return (
     <View style={styles.container}>
-      <Text>Profile Page</Text>
+      <ProfileHeader />
     </View>
   );
 };

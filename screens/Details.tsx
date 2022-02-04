@@ -1,17 +1,20 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 import { RootStackParamList } from "../App";
 
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
-import Price from "../components/Details/Price";
-import DetailTitles from "../components/Details/DetailTitles";
-import DetailHeader from "../components/Details/DetailHeader";
-import PizzaInfo from "../components/Details/PizzaInfo";
-import Ingredients from "../components/Details/Ingredients";
 import colors from "../assets/colors/colors";
-import PlaceOrderButton from "../components/Details/PlaceOrderButton";
+
+import {
+  Price,
+  DetailTitles,
+  DetailHeader,
+  PizzaInfo,
+  Ingredients,
+  PlaceOrderButton,
+} from "../components";
 
 export type DetailScreenProps = NativeStackScreenProps<
   RootStackParamList,
