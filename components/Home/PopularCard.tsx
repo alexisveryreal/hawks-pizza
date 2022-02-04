@@ -1,12 +1,12 @@
 import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 
-import colors from "../assets/colors/colors";
-import { PopularData } from "../assets/data/popularData";
+import colors from "../../assets/colors/colors";
+import { PopularData } from "../../assets/data/popularData";
 
 import { MaterialCommunityIcons, Feather } from "@expo/vector-icons";
 
-import { HomeScreenNavigation } from "../screens/Home";
+import { HomeScreenNavigation } from "../../screens/Home";
 
 type PopularCardProps = {
   item: PopularData;

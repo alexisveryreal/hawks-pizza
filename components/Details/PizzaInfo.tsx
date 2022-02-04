@@ -3,7 +3,7 @@ import { Image, StyleSheet, View } from "react-native";
 
 import PizzaInfoText from "./PizzaInfoText";
 
-import { PopularData } from "../assets/data/popularData";
+import { PopularData } from "../../assets/data/popularData";
 
 type PizzaInfoProps = {
   item: PopularData;

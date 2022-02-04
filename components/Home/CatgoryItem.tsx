@@ -1,8 +1,8 @@
 import { Image, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { Feather } from "@expo/vector-icons";
-import colors from "../assets/colors/colors";
-import { CategoriesObj } from "../assets/data/categoriesData";
+import colors from "../../assets/colors/colors";
+import { CategoriesObj } from "../../assets/data/categoriesData";
 
 type CategoryItemProps = {
   item: CategoriesObj;

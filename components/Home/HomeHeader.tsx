@@ -1,8 +1,8 @@
 import React from "react";
 import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
 import { Feather } from "@expo/vector-icons";
-import colors from "../assets/colors/colors";
-import { HomeScreenNavigation } from "../screens/Home";
+import colors from "../../assets/colors/colors";
+import { HomeScreenNavigation } from "../../screens/Home";
 
 type HomeHeaderProps = {
   navigation: HomeScreenNavigation;
@@ -13,7 +13,7 @@ const HomeHeader = ({ navigation }: HomeHeaderProps) => {
     <View style={styles.headerWrapper}>
       <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
         <Image
-          source={require("../assets/images/profile.png")}
+          source={require("../../assets/images/profile.png")}
           style={styles.profileImg}
         />
       </TouchableOpacity>

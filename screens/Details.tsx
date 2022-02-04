@@ -5,13 +5,13 @@ import { RootStackParamList } from "../App";
 
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
-import Price from "../components/Price";
-import DetailTitles from "../components/DetailTitles";
-import DetailHeader from "../components/DetailHeader";
-import PizzaInfo from "../components/PizzaInfo";
-import Ingredients from "../components/Ingredients";
+import Price from "../components/Details/Price";
+import DetailTitles from "../components/Details/DetailTitles";
+import DetailHeader from "../components/Details/DetailHeader";
+import PizzaInfo from "../components/Details/PizzaInfo";
+import Ingredients from "../components/Details/Ingredients";
 import colors from "../assets/colors/colors";
-import PlaceOrderButton from "../components/PlaceOrderButton";
+import PlaceOrderButton from "../components/Details/PlaceOrderButton";
 
 export type DetailScreenProps = NativeStackScreenProps<
   RootStackParamList,

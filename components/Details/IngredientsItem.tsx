@@ -1,7 +1,7 @@
 import { Image, StyleSheet, Text, View } from "react-native";
 import React from "react";
-import { Ingredients } from "../assets/data/popularData";
-import colors from "../assets/colors/colors";
+import { Ingredients } from "../../assets/data/popularData";
+import colors from "../../assets/colors/colors";
 
 type IngredientsItemProps = {
   item: Ingredients;

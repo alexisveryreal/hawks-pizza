@@ -1,8 +1,8 @@
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import React from "react";
-import { PopularData } from "../assets/data/popularData";
+import { PopularData } from "../../assets/data/popularData";
 import IngredientsItem from "./IngredientsItem";
-import colors from "../assets/colors/colors";
+import colors from "../../assets/colors/colors";
 
 type IngredientsProps = {
   ingredients: PopularData["ingredients"];

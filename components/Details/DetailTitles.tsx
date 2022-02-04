@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import colors from "../assets/colors/colors";
-import { PopularData } from "../assets/data/popularData";
+import colors from "../../assets/colors/colors";
+import { PopularData } from "../../assets/data/popularData";
 
 type DetailTitlesProps = {
   item: PopularData;

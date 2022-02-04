@@ -7,7 +7,9 @@ import {
 } from "react-native";
 import React from "react";
 import CatgoryItem from "./CatgoryItem";
-import categoriesData, { CategoriesObj } from "../assets/data/categoriesData";
+import categoriesData, {
+  CategoriesObj,
+} from "../../assets/data/categoriesData";
 
 const Categories = () => {
   return (

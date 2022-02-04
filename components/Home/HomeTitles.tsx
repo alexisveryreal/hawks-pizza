@@ -1,5 +1,5 @@
 import React from "react";
-import colors from "../assets/colors/colors";
+import colors from "../../assets/colors/colors";
 import { StyleSheet, Text, View } from "react-native";
 
 const HomeTitles = () => {

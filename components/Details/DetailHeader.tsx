@@ -10,8 +10,8 @@ import React from "react";
 // need details navigation typed
 
 import { Feather, MaterialCommunityIcons } from "@expo/vector-icons";
-import colors from "../assets/colors/colors";
-import { DetailScreenNavigation } from "../screens/Details";
+import colors from "../../assets/colors/colors";
+import { DetailScreenNavigation } from "../../screens/Details";
 
 type DetailHeaderProps = {
   navigation: DetailScreenNavigation;

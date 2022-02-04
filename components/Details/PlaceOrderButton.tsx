@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Feather } from "@expo/vector-icons";
-import colors from "../assets/colors/colors";
+import colors from "../../assets/colors/colors";
 
 const PlaceOrderButton = () => {
   return (

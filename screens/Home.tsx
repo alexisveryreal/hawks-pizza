@@ -10,11 +10,11 @@ import {
   Montserrat_700Bold,
 } from "@expo-google-fonts/montserrat";
 
-import HomeHeader from "../components/HomeHeader";
-import HomeTitles from "../components/HomeTitles";
-import Search from "../components/Search";
-import Categories from "../components/Categories";
-import Popular from "../components/Popular";
+import HomeHeader from "../components/Home/HomeHeader";
+import HomeTitles from "../components/Home/HomeTitles";
+import Search from "../components/Home/Search";
+import Categories from "../components/Home/Categories";
+import Popular from "../components/Home/Popular";
 
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../App";
