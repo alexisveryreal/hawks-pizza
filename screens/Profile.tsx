@@ -1,7 +1,12 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import colors from "../assets/colors/colors";
-import { ProfileHeader, ProfileTitles, RewardTitles } from "../components";
+import {
+  ProfileHeader,
+  ProfileTitles,
+  Redeem,
+  RewardTitles,
+} from "../components";
 
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../App";
@@ -19,6 +24,7 @@ const Profile = ({ navigation, route }: ProfileScreenProps) => {
       <ProfileHeader navigation={navigation} />
       <ProfileTitles />
       <RewardTitles />
+      <Redeem />
     </View>
   );
 };
