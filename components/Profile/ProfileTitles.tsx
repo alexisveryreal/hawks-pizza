@@ -2,14 +2,18 @@ import { Image, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import colors from "../../assets/colors/colors";
 
+import { useRecoilValue } from "recoil";
+import { usernameState } from "../../atoms/usernameAtom";
+
 const ProfileTitles = () => {
+  const username = useRecoilValue(usernameState);
   return (
     <View style={styles.titleWrapper}>
       <Image
         source={require("../../assets/images/profile.png")}
         style={styles.profileImage}
       />
-      <Text style={styles.username}>Username</Text>
+      <Text style={styles.username}>{username ?? "None"}</Text>
       <Text style={styles.memberTime}>Member for 2 years</Text>
     </View>
   );
