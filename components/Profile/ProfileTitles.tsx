@@ -1,26 +1,22 @@
-import {
-  Image,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React, { useState } from "react";
 import colors from "../../assets/colors/colors";
 import LabeledInput from "./LabeledInput";
 
-import { useRecoilValue, useRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import { usernameState } from "../../atoms/usernameAtom";
 import { emailState } from "../../atoms/emailAtom";
 import GenderSelection from "./GenderSelection";
+import { GenderSelected, genderState } from "../../atoms/genderAtom";
 
 const ProfileTitles = () => {
   const [username, setUsername] = useRecoilState(usernameState);
   const [email, setEmail] = useRecoilState(emailState);
+  const [allGenders, setAllGenders] = useRecoilState(genderState);
 
   const [tempUser, setTempUser] = useState(username);
   const [tempEmail, setTempEmail] = useState(email);
+  const [tempGender, setTempGender] = useState(allGenders);
 
   const handleChangeUsername = (text: string) => {
     console.log(text);
@@ -32,15 +28,32 @@ const ProfileTitles = () => {
     setTempEmail(text);
   };
 
+  const handleChangeGender = (name: string) => {
+    let temp: GenderSelected[] = [];
+    tempGender.forEach((gender) => {
+      if (gender.name === name || gender.selected === true) {
+        let theGender = { ...gender };
+        theGender.selected = !theGender.selected;
+        temp.push(theGender);
+      } else {
+        temp.push(gender);
+      }
+    });
+    setTempGender(temp);
+  };
+
   const handleSubmitChanges = () => {
     // check for empty
     if (tempUser === "") {
       alert("Error: username field is empty!");
     } else if (tempEmail === "") {
       alert("Error: email field is empty!");
+    } else if (!tempGender.find((value) => value.selected === true)) {
+      alert("Error: No Gender selected!");
     } else {
       setUsername(tempUser);
       setEmail(tempEmail);
+      setAllGenders(tempGender);
       console.log("set user to: ", tempUser);
       console.log("Set email to ", tempEmail);
     }
@@ -64,7 +77,7 @@ const ProfileTitles = () => {
         placeholder={tempUser}
         onChange={handleChangeUsername}
       />
-      <GenderSelection />
+      <GenderSelection genders={tempGender} onPress={handleChangeGender} />
       <LabeledInput
         label="Email"
         placeholder={tempEmail}

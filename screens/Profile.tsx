@@ -1,12 +1,7 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import React from "react";
 import colors from "../assets/colors/colors";
-import {
-  ProfileHeader,
-  ProfileTitles,
-  Redeem,
-  RewardTitles,
-} from "../components";
+import { ProfileHeader, ProfileTitles } from "../components";
 
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../App";

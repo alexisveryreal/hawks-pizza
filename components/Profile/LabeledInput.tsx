@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
   inputWrapper: {
     paddingHorizontal: 20,
     // marginTop: 30,
-    marginVertical: 40,
+    // marginVertical: 40,
     flexDirection: "row",
     alignItems: "center",
     // borderWidth: 1,
