@@ -18,7 +18,8 @@ const LabeledInput = ({ label, placeholder, onChange }: LabeledInputProps) => {
           placeholder={placeholder}
           placeholderTextColor={colors.textDark}
           onChangeText={(text) => onChange(text)}
-          // value={}
+          value={placeholder}
+          clearTextOnFocus
         />
       </View>
     </View>
@@ -30,25 +31,29 @@ export default LabeledInput;
 const styles = StyleSheet.create({
   inputWrapper: {
     paddingHorizontal: 20,
-    marginTop: 30,
+    // marginTop: 30,
+    marginVertical: 40,
     flexDirection: "row",
     alignItems: "center",
+    // borderWidth: 1,
+    justifyContent: "space-between",
   },
   label: {
     fontSize: 14,
     fontFamily: "Montserrat_500Medium",
     color: colors.textLight,
+    // borderWidth: 1,
   },
   inputLine: {
-    flex: 1,
+    width: "66%",
     marginLeft: 10,
     borderBottomColor: colors.textLight,
     borderBottomWidth: 2,
+    // borderWidth: 1,
   },
   input: {
     fontFamily: "Montserrat_600SemiBold",
     fontSize: 14,
-    marginBottom: 5,
     color: colors.textDark,
     marginLeft: 5,
   },

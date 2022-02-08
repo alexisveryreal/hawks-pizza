@@ -1,24 +1,48 @@
-import { Image, StyleSheet, Text, TextInput, View } from "react-native";
+import {
+  Image,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import React, { useState } from "react";
 import colors from "../../assets/colors/colors";
 import LabeledInput from "./LabeledInput";
 
-import { useRecoilValue } from "recoil";
+import { useRecoilValue, useRecoilState } from "recoil";
 import { usernameState } from "../../atoms/usernameAtom";
+import { emailState } from "../../atoms/emailAtom";
+import GenderSelection from "./GenderSelection";
 
 const ProfileTitles = () => {
-  const username = useRecoilValue(usernameState);
-  const [tempUser, setTempUser] = useState("");
+  const [username, setUsername] = useRecoilState(usernameState);
+  const [email, setEmail] = useRecoilState(emailState);
+
+  const [tempUser, setTempUser] = useState(username);
+  const [tempEmail, setTempEmail] = useState(email);
 
   const handleChangeUsername = (text: string) => {
     console.log(text);
     setTempUser(text);
   };
 
+  const handleChangeEmail = (text: string) => {
+    console.log(text);
+    setTempEmail(text);
+  };
+
   const handleSubmitChanges = () => {
-    // check if temp values are different than before
-    if (tempUser !== username) {
-      // set here
+    // check for empty
+    if (tempUser === "") {
+      alert("Error: username field is empty!");
+    } else if (tempEmail === "") {
+      alert("Error: email field is empty!");
+    } else {
+      setUsername(tempUser);
+      setEmail(tempEmail);
+      console.log("set user to: ", tempUser);
+      console.log("Set email to ", tempEmail);
     }
   };
 
@@ -37,9 +61,20 @@ const ProfileTitles = () => {
       </View>
       <LabeledInput
         label="Username"
-        placeholder={username}
+        placeholder={tempUser}
         onChange={handleChangeUsername}
       />
+      <GenderSelection />
+      <LabeledInput
+        label="Email"
+        placeholder={tempEmail}
+        onChange={handleChangeEmail}
+      />
+      <TouchableOpacity onPress={() => handleSubmitChanges()}>
+        <View style={styles.saveWrapper}>
+          <Text style={styles.saveText}>Save</Text>
+        </View>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -91,10 +126,18 @@ const styles = StyleSheet.create({
     paddingTop: 25,
     color: colors.secondary,
   },
-  memberTime: {
+  saveWrapper: {
+    marginTop: 50,
+    marginHorizontal: 20,
+    backgroundColor: colors.primary,
+    borderRadius: 50,
+    paddingVertical: 25,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  saveText: {
+    fontFamily: "Montserrat_700Bold",
     fontSize: 14,
-    fontFamily: "Montserrat_500Medium",
-    color: colors.textLight,
-    paddingTop: 5,
   },
 });
