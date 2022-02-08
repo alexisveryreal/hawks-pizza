@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   genderText: {
     fontSize: 14,
     fontFamily: "Montserrat_500Medium",
-    color: colors.textLight,
+    color: colors.textDark,
   },
   genderIconWrapper: {
     borderRadius: 40,

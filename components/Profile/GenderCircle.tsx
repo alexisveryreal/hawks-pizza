@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import colors from "../../assets/colors/colors";
@@ -43,10 +43,5 @@ const styles = StyleSheet.create({
     borderColor: colors.textLight,
     borderWidth: 1,
     padding: 10,
-  },
-  gender: {
-    fontFamily: "Montserrat_400Regular",
-    color: colors.textDark,
-    fontSize: 12,
   },
 });

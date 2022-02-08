@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
   photoText: {
     fontSize: 14,
     fontFamily: "Montserrat_500Medium",
-    color: colors.textLight,
+    color: colors.textDark,
     paddingHorizontal: 20,
     // borderWidth: 1,
   },

@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 14,
     fontFamily: "Montserrat_500Medium",
-    color: colors.textLight,
+    color: colors.textDark,
     // borderWidth: 1,
   },
   inputLine: {
