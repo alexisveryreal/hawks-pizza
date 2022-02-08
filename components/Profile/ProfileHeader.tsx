@@ -17,11 +17,6 @@ const ProfileHeader = ({ navigation }: ProfileHeaderProps) => {
           <Feather name="chevron-left" size={12} color={colors.textDark} />
         </View>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate("ProfileEdit")}>
-        <View style={styles.profileHeaderRight}>
-          <Text style={styles.headerRightText}>Edit Profile</Text>
-        </View>
-      </TouchableOpacity>
     </View>
   );
 };

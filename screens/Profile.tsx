@@ -23,8 +23,6 @@ const Profile = ({ navigation, route }: ProfileScreenProps) => {
     <View style={styles.container}>
       <ProfileHeader navigation={navigation} />
       <ProfileTitles />
-      <RewardTitles />
-      <Redeem />
     </View>
   );
 };
