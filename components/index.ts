@@ -22,3 +22,6 @@ export { default as Redeem } from "./Profile/Redeem";
 // Settings Components
 export { default as SettingsTitle } from "./Settings/SettingsTitle";
 export { default as SettingProfile } from "./Settings/SettingProfile";
+export { default as SettingAppTitle } from "./Settings/SettingAppTitle";
+
+export { default as SettingRow } from "./Settings/SettingRow";

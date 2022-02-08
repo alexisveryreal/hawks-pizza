@@ -5,7 +5,12 @@ import colors from "../assets/colors/colors";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../App";
 import BackButton from "../components/BackButton";
-import { SettingsTitle, SettingProfile } from "../components";
+import {
+  SettingsTitle,
+  SettingProfile,
+  SettingAppTitle,
+  SettingRow,
+} from "../components";
 
 type SettingsScreenProps = NativeStackScreenProps<
   RootStackParamList,
@@ -20,6 +25,32 @@ const Settings = ({ navigation }: SettingsScreenProps) => {
       <BackButton navigation={navigation} />
       <SettingsTitle />
       <SettingProfile navigation={navigation} />
+      <SettingAppTitle />
+      <SettingRow
+        mainLabel="Language"
+        iconName="earth-sharp"
+        isSwitch={false}
+        subLabel="English"
+        navigation={navigation}
+      />
+      <SettingRow
+        mainLabel="Notifications"
+        iconName="notifications-sharp"
+        isSwitch={false}
+        navigation={navigation}
+      />
+      <SettingRow
+        mainLabel="Dark Mode"
+        iconName="moon-sharp"
+        isSwitch={true}
+        subLabel="Off"
+      />
+      <SettingRow
+        mainLabel="Help"
+        iconName="help-circle"
+        isSwitch={false}
+        navigation={navigation}
+      />
     </View>
   );
 };

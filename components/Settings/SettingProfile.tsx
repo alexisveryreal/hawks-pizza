@@ -4,6 +4,7 @@ import colors from "../../assets/colors/colors";
 import { Feather } from "@expo/vector-icons";
 
 import { SettingsScreenNavigation } from "../../screens/Settings";
+import ForwardButton from "./ForwardButton";
 
 type SettingsProfileProps = {
   navigation: SettingsScreenNavigation;
@@ -22,13 +23,7 @@ const SettingProfile = ({ navigation }: SettingsProfileProps) => {
           <Text style={styles.username}>Username</Text>
           <Text style={styles.personalInfo}>Personal Info</Text>
         </View>
-        <View style={styles.forwardButtonWrapper}>
-          <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
-            <View style={styles.forwardButton}>
-              <Feather name="chevron-right" size={20} color={colors.textDark} />
-            </View>
-          </TouchableOpacity>
-        </View>
+        <ForwardButton navigation={navigation} />
       </View>
     </View>
   );
@@ -68,17 +63,5 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: "Montserrat_500Medium",
     color: colors.textLight,
-  },
-  forwardButtonWrapper: {
-    alignItems: "center",
-    justifyContent: "flex-end",
-    flexDirection: "row",
-    flex: 1,
-  },
-  forwardButton: {
-    borderColor: colors.textLight,
-    borderWidth: 2,
-    padding: 12,
-    borderRadius: 10,
   },
 });
