@@ -18,3 +18,7 @@ export { default as ProfileHeader } from "./Profile/ProfileHeader";
 export { default as ProfileTitles } from "./Profile/ProfileTitles";
 export { default as RewardTitles } from "./Profile/RewardTitles";
 export { default as Redeem } from "./Profile/Redeem";
+
+// Settings Components
+export { default as SettingsTitle } from "./Settings/SettingsTitle";
+export { default as SettingProfile } from "./Settings/SettingProfile";

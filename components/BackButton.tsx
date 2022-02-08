@@ -2,10 +2,10 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { Feather } from "@expo/vector-icons";
 import colors from "../assets/colors/colors";
-import { EditScreenNavigation } from "../screens/ProfileEdit";
+import { SettingsScreenNavigation } from "../screens/Settings";
 
 type BackButtonProps = {
-  navigation: EditScreenNavigation;
+  navigation: SettingsScreenNavigation;
 };
 
 const BackButton = ({ navigation }: BackButtonProps) => {
