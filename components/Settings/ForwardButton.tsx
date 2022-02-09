@@ -6,12 +6,13 @@ import { SettingsScreenNavigation } from "../../screens/Settings";
 
 type ForwardButtonProps = {
   navigation: SettingsScreenNavigation;
+  screenName: "Language" | "Notifications" | "Profile" | "Help";
 };
 
-const ForwardButton = ({ navigation }: ForwardButtonProps) => {
+const ForwardButton = ({ navigation, screenName }: ForwardButtonProps) => {
   return (
     <View style={styles.forwardButtonWrapper}>
-      <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
+      <TouchableOpacity onPress={() => navigation.navigate(screenName)}>
         <View style={styles.forwardButton}>
           <Feather name="chevron-right" size={20} color={colors.textDark} />
         </View>

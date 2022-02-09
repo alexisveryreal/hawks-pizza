@@ -32,12 +32,14 @@ const Settings = ({ navigation }: SettingsScreenProps) => {
         isSwitch={false}
         subLabel="English"
         navigation={navigation}
+        screenName="Language"
       />
       <SettingRow
         mainLabel="Notifications"
         iconName="notifications-sharp"
         isSwitch={false}
         navigation={navigation}
+        screenName="Notifications"
       />
       <SettingRow
         mainLabel="Dark Mode"
@@ -50,6 +52,7 @@ const Settings = ({ navigation }: SettingsScreenProps) => {
         iconName="help-circle"
         isSwitch={false}
         navigation={navigation}
+        screenName="Help"
       />
     </View>
   );

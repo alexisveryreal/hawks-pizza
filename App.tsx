@@ -17,6 +17,9 @@ import Details from "./screens/Details";
 import Profile from "./screens/Profile";
 import Settings from "./screens/Settings";
 import ProfileEdit from "./screens/ProfileEdit";
+import Language from "./screens/Language";
+import Notifications from "./screens/Notifications";
+import Help from "./screens/Help";
 
 export type RootStackParamList = {
   Home: undefined;
@@ -24,6 +27,9 @@ export type RootStackParamList = {
   Profile: undefined;
   ProfileEdit: undefined;
   Settings: undefined;
+  Language: undefined;
+  Notifications: undefined;
+  Help: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -59,6 +65,21 @@ export default function App() {
           <Stack.Screen
             name="Settings"
             component={Settings}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Language"
+            component={Language}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Notifications"
+            component={Notifications}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Help"
+            component={Help}
             options={{ headerShown: false }}
           />
         </Stack.Navigator>

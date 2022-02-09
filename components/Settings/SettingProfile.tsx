@@ -23,7 +23,7 @@ const SettingProfile = ({ navigation }: SettingsProfileProps) => {
           <Text style={styles.username}>Username</Text>
           <Text style={styles.personalInfo}>Personal Info</Text>
         </View>
-        <ForwardButton navigation={navigation} />
+        <ForwardButton navigation={navigation} screenName="Profile" />
       </View>
     </View>
   );

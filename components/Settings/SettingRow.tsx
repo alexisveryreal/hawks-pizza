@@ -15,6 +15,7 @@ type SettingRowProps = {
   subLabel?: string;
   isSwitch: boolean;
   navigation?: SettingsScreenNavigation;
+  screenName?: "Language" | "Notifications" | "Profile" | "Help";
 };
 
 const SettingRow = ({
@@ -23,6 +24,7 @@ const SettingRow = ({
   subLabel,
   isSwitch,
   navigation,
+  screenName,
 }: SettingRowProps) => {
   return (
     <View style={styles.rowWrapper}>
@@ -36,8 +38,8 @@ const SettingRow = ({
       </View>
       <Text style={styles.mainLabel}>{mainLabel}</Text>
       {subLabel && <Text style={styles.subLabel}>{subLabel}</Text>}
-      {!isSwitch && navigation ? (
-        <ForwardButton navigation={navigation} />
+      {!isSwitch && navigation && screenName ? (
+        <ForwardButton navigation={navigation} screenName={screenName} />
       ) : (
         <View style={styles.switchWrapper}>
           <Switch />
