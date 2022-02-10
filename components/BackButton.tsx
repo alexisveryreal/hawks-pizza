@@ -6,12 +6,14 @@ import { SettingsScreenNavigation } from "../screens/Settings";
 import { LanguageNavigation } from "../screens/Language";
 import { EditScreenNavigation } from "../screens/ProfileEdit";
 import { NotificationNavigation } from "../screens/Notifications";
+import { HelpNavigation } from "../types/Help/HelpTypes";
 
 type BackButtonProps = {
   navigation:
     | SettingsScreenNavigation
     | LanguageNavigation
     | NotificationNavigation
+    | HelpNavigation
     | EditScreenNavigation;
 };
 
