@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 
-import { RootStackParamList } from "../App";
+import { RootStackParamList } from "../navigation/NavigationRoot";
 
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 

@@ -2,37 +2,11 @@ import React from "react";
 import { LogBox } from "react-native";
 
 /* EXTERNAL */
+import { NativeBaseProvider } from "native-base";
 import { RecoilRoot } from "recoil";
 
-/* REACT NAVIGATION */
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-
-/* DATA */
-import { PopularData } from "./assets/data/popularData";
-
-/* SCREENS */
-import Home from "./screens/Home";
-import Details from "./screens/Details";
-import Profile from "./screens/Profile";
-import Settings from "./screens/Settings";
-import ProfileEdit from "./screens/ProfileEdit";
-import Language from "./screens/Language";
-import Notifications from "./screens/Notifications";
-import Help from "./screens/Help";
-
-export type RootStackParamList = {
-  Home: undefined;
-  Details: { item: PopularData };
-  Profile: undefined;
-  ProfileEdit: undefined;
-  Settings: undefined;
-  Language: undefined;
-  Notifications: undefined;
-  Help: undefined;
-};
-
-const Stack = createNativeStackNavigator<RootStackParamList>();
+import "./translations/i18n";
+import NavigationRoot from "./navigation/NavigationRoot";
 
 // Ignore recoil timer warning
 LogBox.ignoreLogs(["timer"]);
@@ -40,59 +14,14 @@ LogBox.ignoreLogs(["timer"]);
 export default function App() {
   return (
     <RecoilRoot>
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen
-            name="Home"
-            component={Home}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="Details"
-            component={Details}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="Profile"
-            component={Profile}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="ProfileEdit"
-            component={ProfileEdit}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="Settings"
-            component={Settings}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="Language"
-            component={Language}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="Notifications"
-            component={Notifications}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="Help"
-            component={Help}
-            options={{ headerShown: false }}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
+      <NativeBaseProvider>
+        <NavigationRoot />
+      </NativeBaseProvider>
     </RecoilRoot>
   );
 }
 
 /**
- * TODO: Make Search an actual input
- * * -> Will need to search through popular data
- * TODO: Make Menu button in top right clickable
- * * -> Will be a profile page
  * TODO: Make Category Cards Clickable
  * * -> Just shows all popular data
  * * ---> Will need to create popular data for seafood and drinks

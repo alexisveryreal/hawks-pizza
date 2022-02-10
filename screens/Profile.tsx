@@ -4,7 +4,7 @@ import colors from "../assets/colors/colors";
 import { ProfileHeader, ProfileTitles } from "../components";
 
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { RootStackParamList } from "../App";
+import { RootStackParamList } from "../navigation/NavigationRoot";
 
 export type ProfileScreenProps = NativeStackScreenProps<
   RootStackParamList,

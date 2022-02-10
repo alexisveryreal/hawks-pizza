@@ -3,7 +3,7 @@ import React from "react";
 import colors from "../assets/colors/colors";
 
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { RootStackParamList } from "../App";
+import { RootStackParamList } from "../navigation/NavigationRoot";
 import BackButton from "../components/BackButton";
 import {
   SettingsTitle,

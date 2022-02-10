@@ -3,9 +3,14 @@ import React from "react";
 import { Feather } from "@expo/vector-icons";
 import colors from "../assets/colors/colors";
 import { SettingsScreenNavigation } from "../screens/Settings";
+import { LanguageNavigation } from "../screens/Language";
+import { EditScreenNavigation } from "../screens/ProfileEdit";
 
 type BackButtonProps = {
-  navigation: SettingsScreenNavigation;
+  navigation:
+    | SettingsScreenNavigation
+    | LanguageNavigation
+    | EditScreenNavigation;
 };
 
 const BackButton = ({ navigation }: BackButtonProps) => {

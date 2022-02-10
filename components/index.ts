@@ -23,5 +23,9 @@ export { default as Redeem } from "./Profile/Redeem";
 export { default as SettingsTitle } from "./Settings/SettingsTitle";
 export { default as SettingProfile } from "./Settings/SettingProfile";
 export { default as SettingAppTitle } from "./Settings/SettingAppTitle";
-
 export { default as SettingRow } from "./Settings/SettingRow";
+
+// Language Components
+export { default as LanguageTitle } from "./Language/LanguageTitle";
+export { default as LanguageSearch } from "./Language/LanguageSearch";
+export { default as LanguageSelect } from "./Language/LanguageSelect";
