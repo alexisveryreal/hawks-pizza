@@ -34,3 +34,7 @@ export { default as ShowMore } from "./Language/ShowMore";
 // Notifications Components
 export { default as NotificationTitle } from "./Notifications/NotificationTitle";
 export { default as NotificationRows } from "./Notifications/NotificationRows";
+
+// Help Components
+export { default as HelpTitle } from "./Help/HelpTitle";
+export { default as HelpRows } from "./Help/HelpRows";
