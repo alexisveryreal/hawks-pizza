@@ -30,3 +30,7 @@ export { default as LanguageTitle } from "./Language/LanguageTitle";
 export { default as LanguageSearch } from "./Language/LanguageSearch";
 export { default as LanguageSelect } from "./Language/LanguageSelect";
 export { default as ShowMore } from "./Language/ShowMore";
+
+// Notifications Components
+export { default as NotificationTitle } from "./Notifications/NotificationTitle";
+export { default as NotificationRows } from "./Notifications/NotificationRows";

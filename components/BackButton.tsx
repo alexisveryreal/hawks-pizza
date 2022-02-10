@@ -5,11 +5,13 @@ import colors from "../assets/colors/colors";
 import { SettingsScreenNavigation } from "../screens/Settings";
 import { LanguageNavigation } from "../screens/Language";
 import { EditScreenNavigation } from "../screens/ProfileEdit";
+import { NotificationNavigation } from "../screens/Notifications";
 
 type BackButtonProps = {
   navigation:
     | SettingsScreenNavigation
     | LanguageNavigation
+    | NotificationNavigation
     | EditScreenNavigation;
 };
 
