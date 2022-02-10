@@ -1,8 +1,9 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import colors from "../../assets/colors/colors";
 import { LANGUAGE_CODES } from "../../translations/i18n";
 import { useTranslation } from "react-i18next";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const LanguageSelect = () => {
   const { i18n, t } = useTranslation();
@@ -31,6 +32,21 @@ const LanguageSelect = () => {
       {LANGUAGE_CODES.map((lang) => (
         <View style={styles.languageRow} key={lang}>
           <Text style={styles.languageText}>{handleText(lang)}</Text>
+          <TouchableOpacity onPress={() => i18n.changeLanguage(lang)}>
+            {lang === i18n.language ? (
+              <MaterialCommunityIcons
+                name="radiobox-marked"
+                size={25}
+                color={colors.primary}
+              />
+            ) : (
+              <MaterialCommunityIcons
+                name="radiobox-blank"
+                size={25}
+                color={colors.black}
+              />
+            )}
+          </TouchableOpacity>
         </View>
       ))}
     </View>
@@ -48,12 +64,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    paddingVertical: 10,
   },
   languageText: {
     fontSize: 14,
     fontFamily: "Montserrat_600SemiBold",
     color: colors.textDark,
   },
-  radioWrapper: {},
-  radio: {},
 });
