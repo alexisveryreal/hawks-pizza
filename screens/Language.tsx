@@ -6,7 +6,12 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import BackButton from "../components/BackButton";
 import { RootStackParamList } from "../navigation/NavigationRoot";
 
-import { LanguageSearch, LanguageSelect, LanguageTitle } from "../components";
+import {
+  LanguageSearch,
+  LanguageSelect,
+  LanguageTitle,
+  ShowMore,
+} from "../components";
 
 type LanguageScreenProps = NativeStackScreenProps<
   RootStackParamList,
@@ -22,6 +27,7 @@ const Language = ({ navigation, route }: LanguageScreenProps) => {
       <LanguageTitle />
       <LanguageSearch />
       <LanguageSelect />
+      <ShowMore />
     </View>
   );
 };
