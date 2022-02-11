@@ -8,6 +8,7 @@ import { usernameState } from "../../atoms/usernameAtom";
 import { emailState } from "../../atoms/emailAtom";
 import GenderSelection from "./GenderSelection";
 import { GenderSelected, genderState } from "../../atoms/genderAtom";
+import { useColors } from "../../hooks/useColors";
 
 const ProfileTitles = () => {
   const [username, setUsername] = useRecoilState(usernameState);
@@ -17,6 +18,8 @@ const ProfileTitles = () => {
   const [tempUser, setTempUser] = useState(username);
   const [tempEmail, setTempEmail] = useState(email);
   const [tempGender, setTempGender] = useState(allGenders);
+
+  const { colors } = useColors();
 
   const handleChangeUsername = (text: string) => {
     console.log(text);
@@ -61,15 +64,21 @@ const ProfileTitles = () => {
 
   return (
     <View>
-      <Text style={styles.profileText}>Profile</Text>
+      <Text style={[styles.profileText, { color: colors.textDark }]}>
+        Profile
+      </Text>
       <View style={styles.photoWrapper}>
-        <Text style={styles.photoText}>Photo</Text>
+        <Text style={[styles.photoText, { color: colors.textDark }]}>
+          Photo
+        </Text>
         <View style={styles.titleWrapper}>
           <Image
             source={require("../../assets/images/profile.png")}
             style={styles.profileImage}
           />
-          <Text style={styles.uploadText}>Upload Image</Text>
+          <Text style={[styles.uploadText, { color: colors.secondary }]}>
+            Upload Image
+          </Text>
         </View>
       </View>
       <LabeledInput
@@ -84,8 +93,10 @@ const ProfileTitles = () => {
         onChange={handleChangeEmail}
       />
       <TouchableOpacity onPress={() => handleSubmitChanges()}>
-        <View style={styles.saveWrapper}>
-          <Text style={styles.saveText}>Save</Text>
+        <View style={[styles.saveWrapper, { backgroundColor: colors.primary }]}>
+          <Text style={[styles.saveText, { color: colors.textDark }]}>
+            Save
+          </Text>
         </View>
       </TouchableOpacity>
     </View>
@@ -99,7 +110,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     fontSize: 32,
     fontFamily: "Montserrat_700Bold",
-    color: colors.textDark,
     paddingTop: 30,
   },
   photoWrapper: {
@@ -111,7 +121,6 @@ const styles = StyleSheet.create({
   photoText: {
     fontSize: 14,
     fontFamily: "Montserrat_500Medium",
-    color: colors.textDark,
     paddingHorizontal: 20,
     // borderWidth: 1,
   },
@@ -137,12 +146,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontFamily: "Montserrat_600SemiBold",
     paddingTop: 25,
-    color: colors.secondary,
   },
   saveWrapper: {
     marginTop: 50,
     marginHorizontal: 20,
-    backgroundColor: colors.primary,
     borderRadius: 50,
     paddingVertical: 25,
     flexDirection: "row",

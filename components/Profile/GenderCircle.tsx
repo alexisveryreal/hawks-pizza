@@ -1,7 +1,9 @@
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import colors from "../../assets/colors/colors";
+import { useColors } from "../../hooks/useColors";
+import { useRecoilValue } from "recoil";
+import { darkModeState } from "../../atoms/darkModeAtom";
 
 type GenderCircleProps = {
   name:
@@ -14,14 +16,18 @@ type GenderCircleProps = {
 };
 
 const GenderCircle = ({ name, selected, onPress }: GenderCircleProps) => {
+  const { colors } = useColors();
+  const colorScheme = useRecoilValue(darkModeState);
+
   return (
     <TouchableOpacity onPress={() => onPress(name)}>
       <View
         style={[
           styles.circle,
           {
-            backgroundColor: selected ? colors.primary : "white",
-            borderWidth: selected ? 0 : 1,
+            borderColor: colorScheme === "light" ? colors.textLight : undefined,
+            backgroundColor: selected ? colors.primary : colors.white,
+            borderWidth: selected && colorScheme === "light" ? 0 : 1,
           },
         ]}
       >
@@ -40,8 +46,6 @@ const styles = StyleSheet.create({
   },
   circle: {
     borderRadius: 40,
-    borderColor: colors.textLight,
-    borderWidth: 1,
     padding: 10,
   },
 });

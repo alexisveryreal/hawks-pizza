@@ -7,6 +7,7 @@ import { EditScreenNavigation } from "../screens/ProfileEdit";
 import { NotificationNavigation } from "../screens/Notifications";
 import { HelpNavigation } from "../types/Help/HelpTypes";
 import { useColors } from "../hooks/useColors";
+import { ProfileScreenNavigation } from "../screens/Profile";
 
 type BackButtonProps = {
   navigation:
@@ -14,6 +15,7 @@ type BackButtonProps = {
     | LanguageNavigation
     | NotificationNavigation
     | HelpNavigation
+    | ProfileScreenNavigation
     | EditScreenNavigation;
 };
 

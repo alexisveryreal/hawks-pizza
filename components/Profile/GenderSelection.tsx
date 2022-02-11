@@ -3,6 +3,7 @@ import React from "react";
 import colors from "../../assets/colors/colors";
 import GenderCircle from "./GenderCircle";
 import { GenderSelected } from "../../atoms/genderAtom";
+import { useColors } from "../../hooks/useColors";
 
 type GenderSelectionProps = {
   genders: GenderSelected[];
@@ -10,9 +11,13 @@ type GenderSelectionProps = {
 };
 
 const GenderSelection = ({ genders, onPress }: GenderSelectionProps) => {
+  const { colors } = useColors();
+
   return (
     <View style={styles.genderWrapper}>
-      <Text style={styles.genderText}>Gender</Text>
+      <Text style={[styles.genderText, { color: colors.textDark }]}>
+        Gender
+      </Text>
       {genders.map((gender) => (
         <GenderCircle
           key={gender.id}
@@ -38,14 +43,5 @@ const styles = StyleSheet.create({
   genderText: {
     fontSize: 14,
     fontFamily: "Montserrat_500Medium",
-    color: colors.textDark,
   },
-  genderIconWrapper: {
-    borderRadius: 40,
-    borderColor: colors.textLight,
-    borderWidth: 1,
-    padding: 10,
-  },
-  genderIconCircle: {},
-  genderIcon: {},
 });

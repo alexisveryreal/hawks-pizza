@@ -1,10 +1,12 @@
 import { StyleSheet, View } from "react-native";
 import React from "react";
 import colors from "../assets/colors/colors";
-import { ProfileHeader, ProfileTitles } from "../components";
+import { ProfileTitles } from "../components";
 
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../navigation/NavigationRoot";
+import { useColors } from "../hooks/useColors";
+import BackButton from "../components/BackButton";
 
 export type ProfileScreenProps = NativeStackScreenProps<
   RootStackParamList,
@@ -14,9 +16,11 @@ export type ProfileScreenProps = NativeStackScreenProps<
 export type ProfileScreenNavigation = ProfileScreenProps["navigation"];
 
 const Profile = ({ navigation, route }: ProfileScreenProps) => {
+  const { colors } = useColors();
+
   return (
-    <View style={styles.container}>
-      <ProfileHeader navigation={navigation} />
+    <View style={[styles.container, { backgroundColor: colors.background }]}>
+      <BackButton navigation={navigation} />
       <ProfileTitles />
     </View>
   );
@@ -25,5 +29,5 @@ const Profile = ({ navigation, route }: ProfileScreenProps) => {
 export default Profile;
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.background },
+  container: { flex: 1 },
 });

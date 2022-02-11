@@ -11,7 +11,7 @@ const colors = {
   },
   dark: {
     background: "#313234",
-    textDark: "#FFF",
+    textDark: "#F9F9FB",
     primary: "#F5CA48",
     secondary: "#F26C68",
     textLight: "#CDCDCD",
