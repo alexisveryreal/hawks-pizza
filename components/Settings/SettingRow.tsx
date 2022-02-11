@@ -1,12 +1,12 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import colors from "../../assets/colors/colors";
-import { Feather, Ionicons } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
 import ForwardButton from "./ForwardButton";
 import { SettingsScreenNavigation } from "../../screens/Settings";
 import { Switch } from "native-base";
 import { useRecoilState } from "recoil";
 import { darkModeState } from "../../atoms/darkModeAtom";
+import { useColors } from "../../hooks/useColors";
 
 type SettingRowProps = {
   iconName:
@@ -30,6 +30,7 @@ const SettingRow = ({
   screenName,
 }: SettingRowProps) => {
   const [colorScheme, setColorScheme] = useRecoilState(darkModeState);
+  const { colors } = useColors();
 
   const handleToggle = () => {
     if (colorScheme === "light") {
@@ -41,16 +42,22 @@ const SettingRow = ({
 
   return (
     <View style={styles.rowWrapper}>
-      <View style={styles.iconWrapper}>
+      <View style={[styles.iconWrapper, { backgroundColor: colors.white }]}>
         <Ionicons
           name={iconName}
           size={20}
-          color={colors.black}
+          color={colors.textDark}
           style={styles.icon}
         />
       </View>
-      <Text style={styles.mainLabel}>{mainLabel}</Text>
-      {subLabel && <Text style={styles.subLabel}>{subLabel}</Text>}
+      <Text style={[styles.mainLabel, { color: colors.textDark }]}>
+        {mainLabel}
+      </Text>
+      {subLabel && (
+        <Text style={[styles.subLabel, { color: colors.textLight }]}>
+          {subLabel}
+        </Text>
+      )}
       {!isSwitch && navigation && screenName ? (
         <ForwardButton navigation={navigation} screenName={screenName} />
       ) : (
@@ -80,7 +87,6 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 26,
-    backgroundColor: colors.primary,
     alignItems: "center",
     justifyContent: "center",
     marginRight: 30,
@@ -91,12 +97,10 @@ const styles = StyleSheet.create({
   mainLabel: {
     fontSize: 16,
     fontFamily: "Montserrat_600SemiBold",
-    color: colors.textDark,
   },
   subLabel: {
     fontSize: 14,
     fontFamily: "Montserrat_500Medium",
-    color: colors.textLight,
     paddingLeft: 30,
   },
   switchWrapper: {

@@ -1,27 +1,34 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 import React from "react";
-import colors from "../../assets/colors/colors";
-import { Feather } from "@expo/vector-icons";
 
 import { SettingsScreenNavigation } from "../../screens/Settings";
 import ForwardButton from "./ForwardButton";
+import { useColors } from "../../hooks/useColors";
 
 type SettingsProfileProps = {
   navigation: SettingsScreenNavigation;
 };
 
 const SettingProfile = ({ navigation }: SettingsProfileProps) => {
+  const { colors } = useColors();
+
   return (
     <View style={styles.profileSectionWrapper}>
-      <Text style={styles.profileText}>Profile</Text>
+      <Text style={[styles.profileText, { color: colors.textDark }]}>
+        Profile
+      </Text>
       <View style={styles.profileInfoWrapper}>
         <Image
           source={require("../../assets/images/profile.png")}
           style={styles.profileImage}
         />
         <View style={styles.profileUserWrapper}>
-          <Text style={styles.username}>Username</Text>
-          <Text style={styles.personalInfo}>Personal Info</Text>
+          <Text style={[styles.username, { color: colors.textDark }]}>
+            Username
+          </Text>
+          <Text style={[styles.personalInfo, { color: colors.textLight }]}>
+            Personal Info
+          </Text>
         </View>
         <ForwardButton navigation={navigation} screenName="Profile" />
       </View>
@@ -38,7 +45,6 @@ const styles = StyleSheet.create({
   profileText: {
     fontSize: 16,
     fontFamily: "Montserrat_700Bold",
-    color: colors.textDark,
   },
   profileInfoWrapper: {
     flexDirection: "row",
@@ -57,11 +63,9 @@ const styles = StyleSheet.create({
   username: {
     fontSize: 16,
     fontFamily: "Montserrat_600SemiBold",
-    color: colors.textDark,
   },
   personalInfo: {
     fontSize: 14,
     fontFamily: "Montserrat_500Medium",
-    color: colors.textLight,
   },
 });

@@ -1,8 +1,8 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import React from "react";
-import colors from "../../assets/colors/colors";
 import { Feather } from "@expo/vector-icons";
 import { SettingsScreenNavigation } from "../../screens/Settings";
+import { useColors } from "../../hooks/useColors";
 
 type ForwardButtonProps = {
   navigation: SettingsScreenNavigation;
@@ -10,10 +10,12 @@ type ForwardButtonProps = {
 };
 
 const ForwardButton = ({ navigation, screenName }: ForwardButtonProps) => {
+  const { colors } = useColors();
+
   return (
     <View style={styles.forwardButtonWrapper}>
       <TouchableOpacity onPress={() => navigation.navigate(screenName)}>
-        <View style={styles.forwardButton}>
+        <View style={[styles.forwardButton, { borderColor: colors.textLight }]}>
           <Feather name="chevron-right" size={20} color={colors.textDark} />
         </View>
       </TouchableOpacity>
@@ -31,7 +33,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   forwardButton: {
-    borderColor: colors.textLight,
     borderWidth: 2,
     padding: 12,
     borderRadius: 10,

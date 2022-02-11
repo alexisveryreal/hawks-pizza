@@ -1,6 +1,5 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import React from "react";
-import colors from "../assets/colors/colors";
 
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../navigation/NavigationRoot";
@@ -11,6 +10,9 @@ import {
   SettingAppTitle,
   SettingRow,
 } from "../components";
+import { useRecoilValue } from "recoil";
+import { darkModeState } from "../atoms/darkModeAtom";
+import { useColors } from "../hooks/useColors";
 
 type SettingsScreenProps = NativeStackScreenProps<
   RootStackParamList,
@@ -20,8 +22,12 @@ type SettingsScreenProps = NativeStackScreenProps<
 export type SettingsScreenNavigation = SettingsScreenProps["navigation"];
 
 const Settings = ({ navigation }: SettingsScreenProps) => {
+  const colorScheme = useRecoilValue(darkModeState);
+  const isDarkModeOn = colorScheme === "dark" ? "On" : "Off";
+  const { colors } = useColors();
+
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: colors.background }]}>
       <BackButton navigation={navigation} />
       <SettingsTitle />
       <SettingProfile navigation={navigation} />
@@ -45,7 +51,7 @@ const Settings = ({ navigation }: SettingsScreenProps) => {
         mainLabel="Dark Mode"
         iconName="moon-sharp"
         isSwitch={true}
-        subLabel="Off"
+        subLabel={isDarkModeOn}
       />
       <SettingRow
         mainLabel="Help"
@@ -61,5 +67,5 @@ const Settings = ({ navigation }: SettingsScreenProps) => {
 export default Settings;
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.background },
+  container: { flex: 1 },
 });

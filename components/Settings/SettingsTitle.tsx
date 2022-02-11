@@ -1,11 +1,15 @@
-import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import colors from "../../assets/colors/colors";
+import { StyleSheet, Text, View } from "react-native";
+import { useColors } from "../../hooks/useColors";
 
 const SettingsTitle = () => {
+  const { colors } = useColors();
+
   return (
     <View style={styles.titleWrapper}>
-      <Text style={styles.tileText}>Settings</Text>
+      <Text style={[styles.tileText, { color: colors.textDark }]}>
+        Settings
+      </Text>
     </View>
   );
 };
@@ -21,6 +25,5 @@ const styles = StyleSheet.create({
   tileText: {
     fontSize: 32,
     fontFamily: "Montserrat_700Bold",
-    color: colors.textDark,
   },
 });
