@@ -1,13 +1,15 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import colors from "../assets/colors/colors";
 import { HelpScreenProps } from "../types/Help/HelpTypes";
 import BackButton from "../components/BackButton";
 import { HelpRows, HelpTitle } from "../components";
+import { useColors } from "../hooks/useColors";
 
 const Help = ({ navigation, route }: HelpScreenProps) => {
+  const { colors } = useColors();
+
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: colors.background }]}>
       <BackButton navigation={navigation} />
       <HelpTitle />
       <HelpRows />
@@ -18,5 +20,5 @@ const Help = ({ navigation, route }: HelpScreenProps) => {
 export default Help;
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.background },
+  container: { flex: 1 },
 });

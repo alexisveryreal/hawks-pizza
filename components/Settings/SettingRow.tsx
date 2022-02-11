@@ -1,9 +1,12 @@
-import { StyleSheet, Switch, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import colors from "../../assets/colors/colors";
 import { Feather, Ionicons } from "@expo/vector-icons";
 import ForwardButton from "./ForwardButton";
 import { SettingsScreenNavigation } from "../../screens/Settings";
+import { Switch } from "native-base";
+import { useRecoilState } from "recoil";
+import { darkModeState } from "../../atoms/darkModeAtom";
 
 type SettingRowProps = {
   iconName:
@@ -26,6 +29,16 @@ const SettingRow = ({
   navigation,
   screenName,
 }: SettingRowProps) => {
+  const [colorScheme, setColorScheme] = useRecoilState(darkModeState);
+
+  const handleToggle = () => {
+    if (colorScheme === "light") {
+      setColorScheme("dark");
+    } else {
+      setColorScheme("light");
+    }
+  };
+
   return (
     <View style={styles.rowWrapper}>
       <View style={styles.iconWrapper}>
@@ -42,7 +55,11 @@ const SettingRow = ({
         <ForwardButton navigation={navigation} screenName={screenName} />
       ) : (
         <View style={styles.switchWrapper}>
-          <Switch />
+          <Switch
+            colorScheme="yellow"
+            onToggle={() => handleToggle()}
+            isChecked={colorScheme === "dark"}
+          />
         </View>
       )}
     </View>
