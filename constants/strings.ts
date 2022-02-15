@@ -10,3 +10,5 @@ export const REGULAR = "Montserrat_400Regular";
 export const MEDIUM = "Montserrat_500Medium";
 export const SEMI = "Montserrat_600SemiBold";
 export const BOLD = "Montserrat_700Bold";
+
+export const BASE_URL = "http://192.168.0.18:9000";

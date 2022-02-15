@@ -12,7 +12,16 @@ import NavigationRoot from "./navigation/NavigationRoot";
 // Ignore recoil timer warning
 LogBox.ignoreLogs(["timer"]);
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      refetchOnReconnect: false,
+      retry: false,
+      staleTime: 5 * 60 * 1000,
+    },
+  },
+});
 
 export default function App() {
   return (

@@ -1,14 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import colors from "../../assets/colors/colors";
 import { HomeScreenNavigation } from "../../screens/Home";
+import useProfile from "../../hooks/useProfile";
 
 type HomeHeaderProps = {
   navigation: HomeScreenNavigation;
 };
 
 const HomeHeader = ({ navigation }: HomeHeaderProps) => {
+  const { allProfiles, getAllProfiles, isLoading } = useProfile();
+
+  useEffect(() => {
+    getAllProfiles();
+  }, []);
+
+  if (isLoading) {
+    console.log("Loading...");
+  }
+
+  console.log("AllProfiles: ", allProfiles);
+
   return (
     <View style={styles.headerWrapper}>
       <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
