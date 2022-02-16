@@ -10,7 +10,6 @@ import {
   Home,
   Details,
   Profile,
-  ProfileEdit,
   Settings,
   Help,
   Language,
@@ -21,7 +20,6 @@ export type RootStackParamList = {
   Home: undefined;
   Details: { item: PopularData };
   Profile: undefined;
-  ProfileEdit: undefined;
   Settings: undefined;
   Language: undefined;
   Notifications: undefined;
@@ -47,11 +45,6 @@ const NavigationRoot = () => {
         <Stack.Screen
           name="Profile"
           component={Profile}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="ProfileEdit"
-          component={ProfileEdit}
           options={{ headerShown: false }}
         />
         <Stack.Screen

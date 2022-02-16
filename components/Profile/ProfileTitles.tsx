@@ -15,40 +15,27 @@ const ProfileTitles = () => {
   const profile = useRecoilValue(profileState);
   const [tempProfile, setTempProfile] = useState(profile);
 
-  const index = 0;
-  const currentProfile = tempProfile[index];
+  // console.log("Current profile: ", tempProfile);
 
   const { colors } = useColors();
 
   const { isLoading, updateProfile } = useUpdateProfile();
 
   const handleChangeUsername = (text: string) => {
-    const temp = arrayUtils.replaceItemAtIndex<Profile>(tempProfile, index, {
-      ...currentProfile,
-      username: text,
-    });
-    setTempProfile(temp);
+    setTempProfile({ ...tempProfile, username: text });
   };
 
   const handleChangeEmail = (text: string) => {
-    const temp = arrayUtils.replaceItemAtIndex<Profile>(tempProfile, index, {
-      ...currentProfile,
-      email: text,
-    });
-    setTempProfile(temp);
+    setTempProfile({ ...tempProfile, email: text });
   };
 
   const handleToggleGender = (name: Genders) => {
-    const temp = arrayUtils.replaceItemAtIndex<Profile>(tempProfile, index, {
-      ...currentProfile,
-      gender: name,
-    });
-    setTempProfile(temp);
+    setTempProfile({ ...tempProfile, gender: name });
   };
 
   const handleSubmitChanges = () => {
-    console.log("Updating current profile changes: ", currentProfile);
-    updateProfile({ ...currentProfile });
+    console.log("Updating current profile changes: ", tempProfile);
+    updateProfile({ ...tempProfile });
   };
 
   return (
@@ -72,16 +59,16 @@ const ProfileTitles = () => {
       </View>
       <LabeledInput
         label="Username"
-        placeholder={currentProfile.username}
+        placeholder={tempProfile.username}
         onChange={handleChangeUsername}
       />
       <GenderSelection
-        gender={currentProfile.gender}
+        gender={tempProfile.gender}
         onPress={handleToggleGender}
       />
       <LabeledInput
         label="Email"
-        placeholder={currentProfile.email}
+        placeholder={tempProfile.email}
         onChange={handleChangeEmail}
       />
       <TouchableOpacity onPress={() => handleSubmitChanges()}>

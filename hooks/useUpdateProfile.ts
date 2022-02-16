@@ -12,18 +12,7 @@ const useUpdateProfile = () => {
     profileService.updateProfile,
     {
       onSuccess: (res) => {
-        const index = profile.findIndex((value) => value._id === res.data._id);
-        const newProfile = arrayUtils.replaceItemAtIndex<Profile>(
-          profile,
-          index,
-          {
-            ...profile[index],
-            email: res.data.email,
-            gender: res.data.gender,
-            username: res.data.username,
-          }
-        );
-        setProfile(newProfile);
+        setProfile({ ...res.data });
       },
       onError: (err) => {
         if (err instanceof Error) {

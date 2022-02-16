@@ -12,7 +12,7 @@ type GenderSelectionProps = {
 const GenderSelection = ({ onPress, gender }: GenderSelectionProps) => {
   const { colors } = useColors();
 
-  console.log("CURRENT GENDER!", gender);
+  // console.log("CURRENT GENDER!", gender);
 
   const AllGenders: Genders[] = [
     "gender-female",

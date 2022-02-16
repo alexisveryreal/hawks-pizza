@@ -10,17 +10,15 @@ type HomeHeaderProps = {
 };
 
 const HomeHeader = ({ navigation }: HomeHeaderProps) => {
-  const { allProfiles, getAllProfiles, isLoading } = useProfile();
+  const { getProfile, isLoading } = useProfile("620c7ed6abdcc54ef6d2f01f");
 
   useEffect(() => {
-    getAllProfiles();
+    getProfile();
   }, []);
 
   if (isLoading) {
     console.log("Loading...");
   }
-
-  console.log("AllProfiles: ", allProfiles);
 
   return (
     <View style={styles.headerWrapper}>

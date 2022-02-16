@@ -3,7 +3,12 @@ import { Profile } from "../types/profileTypes";
 import { APIReturn } from "../types/apiTypes";
 
 const getAllProfiles = async () => {
-  const { data } = await httpCommon.get<APIReturn<Profile>>("/profiles");
+  const { data } = await httpCommon.get<APIReturn<Profile[]>>("/profiles");
+  return data;
+};
+
+const getProfile = async (_id: string) => {
+  const { data } = await httpCommon.get<APIReturn<Profile>>(`/profiles/${_id}`);
   return data;
 };
 
@@ -21,6 +26,7 @@ const updateProfile = async ({ _id, email, gender, username }: Profile) => {
 
 const profileService = {
   getAllProfiles,
+  getProfile,
   updateProfile,
 };
 
