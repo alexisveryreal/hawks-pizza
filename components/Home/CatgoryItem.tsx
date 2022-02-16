@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { Feather } from "@expo/vector-icons";
 import colors from "../../assets/colors/colors";
@@ -6,37 +6,40 @@ import { CategoriesObj } from "../../assets/data/categoriesData";
 
 type CategoryItemProps = {
   item: CategoriesObj;
+  onPress: (id: string) => void;
 };
 
-const CatgoryItem = ({ item }: CategoryItemProps) => {
+const CatgoryItem = ({ item, onPress }: CategoryItemProps) => {
   return (
-    <View
-      style={[
-        styles.categoryItemWrapper,
-        {
-          backgroundColor: item.selected ? colors.primary : colors.white,
-          marginLeft: item.id === "1" ? 20 : 0,
-        },
-      ]}
-    >
-      <Image source={item.image} style={styles.categoryItemImage} />
-      <Text style={styles.categoryItemTitle}>{item.title}</Text>
+    <TouchableOpacity disabled={item.selected} onPress={() => onPress(item.id)}>
       <View
         style={[
-          styles.categorySelectWrapper,
+          styles.categoryItemWrapper,
           {
-            backgroundColor: item.selected ? colors.white : colors.secondary,
+            backgroundColor: item.selected ? colors.primary : colors.white,
+            marginLeft: item.id === "1" ? 20 : 0,
           },
         ]}
       >
-        <Feather
-          name="chevron-right"
-          size={12}
-          color={item.selected ? colors.black : colors.white}
-          style={styles.categorySelectIcon}
-        />
+        <Image source={item.image} style={styles.categoryItemImage} />
+        <Text style={styles.categoryItemTitle}>{item.title}</Text>
+        <View
+          style={[
+            styles.categorySelectWrapper,
+            {
+              backgroundColor: item.selected ? colors.white : colors.secondary,
+            },
+          ]}
+        >
+          <Feather
+            name="chevron-right"
+            size={12}
+            color={item.selected ? colors.black : colors.white}
+            style={styles.categorySelectIcon}
+          />
+        </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

@@ -1,6 +1,5 @@
 import { StyleSheet, View } from "react-native";
 import React from "react";
-import colors from "../assets/colors/colors";
 import { ProfileTitles } from "../components";
 
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
