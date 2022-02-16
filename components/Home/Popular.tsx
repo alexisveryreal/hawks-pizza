@@ -6,20 +6,34 @@ import { PopularData } from "../../assets/data/popularData";
 import PopularCard from "./PopularCard";
 
 import { HomeScreenNavigation } from "../../screens/Home";
+import { PopularSodaData } from "../../assets/data/popularSodaData";
+import { PopularTypes } from "../../atoms/popularAtom";
+import PopularSodaCard from "./PopularSodaCard";
 
 type PopularProps = {
   navigation: HomeScreenNavigation;
-  popularData: PopularData[];
+  popularData: PopularTypes;
 };
 
 const Popular = ({ navigation, popularData }: PopularProps) => {
+  console.log(popularData.data[1].title);
   return (
     <View style={styles.popularWrapper}>
       <Text style={styles.popularTitle}>Popular</Text>
-      {popularData.map((item) => (
-        <PopularCard item={item} navigation={navigation} key={item.id} />
-      ))}
-      {popularData.length === 0 && <Text>Item not found :(</Text>}
+
+      {popularData.kind === "Pizza"
+        ? popularData.data.map((item) => (
+            <PopularCard item={item} navigation={navigation} key={item.id} />
+          ))
+        : popularData.data.map((item) => (
+            <PopularSodaCard
+              item={item}
+              navigation={navigation}
+              key={item.id}
+            />
+          ))}
+
+      {popularData.data.length === 0 && <Text>Item not found :(</Text>}
     </View>
   );
 };

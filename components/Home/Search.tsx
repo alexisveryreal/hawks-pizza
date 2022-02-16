@@ -5,10 +5,11 @@ import { Feather } from "@expo/vector-icons";
 import colors from "../../assets/colors/colors";
 
 import { PopularData } from "../../assets/data/popularData";
+import { PopularTypes } from "../../atoms/popularAtom";
 
 type SearchProps = {
-  originalPopular: PopularData[];
-  setFilteredData: React.Dispatch<React.SetStateAction<PopularData[]>>;
+  originalPopular: PopularTypes;
+  setFilteredData: React.Dispatch<React.SetStateAction<PopularTypes>>;
 };
 
 const Search = ({ originalPopular, setFilteredData }: SearchProps) => {
@@ -20,11 +21,22 @@ const Search = ({ originalPopular, setFilteredData }: SearchProps) => {
       setFilteredData(originalPopular);
       setFilter("");
     } else {
-      const tempFilter = originalPopular.filter((value) =>
-        value.title.includes(text)
-      );
-      setFilteredData(tempFilter);
-      setFilter(text);
+      switch (originalPopular.kind) {
+        case "Pizza":
+          const tempFilter = originalPopular.data.filter((value) =>
+            value.title.includes(text)
+          );
+          setFilteredData({ kind: "Pizza", data: tempFilter });
+          setFilter(text);
+          break;
+        case "Soda":
+          const tempSodaFilter = originalPopular.data.filter((value) =>
+            value.title.includes(text)
+          );
+          setFilteredData({ kind: "Soda", data: tempSodaFilter });
+          setFilter(text);
+          break;
+      }
     }
   };
 

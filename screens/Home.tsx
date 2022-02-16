@@ -2,6 +2,8 @@ import { StyleSheet, View, ScrollView } from "react-native";
 import React, { useState } from "react";
 import AppLoading from "expo-app-loading";
 import colors from "../assets/colors/colors";
+import { useRecoilValue } from "recoil";
+import popularState, { PopularTypes } from "../atoms/popularAtom";
 import {
   useFonts,
   Montserrat_400Regular,
@@ -39,8 +41,13 @@ const Home = ({ navigation, route }: HomeScreenProps) => {
     Montserrat_700Bold,
   });
 
-  const [popular] = useState(popularData);
-  const [filteredData, setFilteredData] = useState(popularData);
+  const popularDataState = useRecoilValue(popularState);
+
+  console.log(popularDataState);
+
+  const [popular] = useState<PopularTypes>(popularDataState);
+  const [filteredData, setFilteredData] =
+    useState<PopularTypes>(popularDataState);
   const hasFiltered = filteredData !== popular;
   console.log(hasFiltered);
 

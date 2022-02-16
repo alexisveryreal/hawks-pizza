@@ -15,10 +15,11 @@ import {
   Language,
   Notifications,
 } from "../screens";
+import { PopularSodaData } from "../assets/data/popularSodaData";
 
 export type RootStackParamList = {
   Home: undefined;
-  Details: { item: PopularData };
+  Details: { item: PopularData | PopularSodaData };
   Profile: undefined;
   Settings: undefined;
   Language: undefined;

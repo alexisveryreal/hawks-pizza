@@ -11,9 +11,26 @@ import categoriesData, {
   CategoriesObj,
 } from "../../assets/data/categoriesData";
 import arrayUtils from "../../utils/arrayUtils";
+import { useSetRecoilState } from "recoil";
+import popularState from "../../atoms/popularAtom";
+import popularSodaData from "../../assets/data/popularSodaData";
+import popularData from "../../assets/data/popularData";
 
 const Categories = () => {
   const [tempData, setTempData] = useState(categoriesData);
+  const setPopularState = useSetRecoilState(popularState);
+
+  const handlePopularState = (name: string) => {
+    switch (name) {
+      case "Pizza":
+      case "Seafood":
+        setPopularState({ kind: "Pizza", data: popularData });
+        break;
+      case "Soft Drinks":
+        setPopularState({ kind: "Soda", data: popularSodaData });
+        break;
+    }
+  };
 
   // Sets the currently selected false
   // sets the passed in id, as selected = true
@@ -32,6 +49,7 @@ const Categories = () => {
       selected: true,
     });
 
+    handlePopularState(temp[newIndex].title);
     setTempData(temp);
   };
   return (
