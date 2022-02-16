@@ -11,23 +11,28 @@ import categoriesData, {
   CategoriesObj,
 } from "../../assets/data/categoriesData";
 import arrayUtils from "../../utils/arrayUtils";
-import { useSetRecoilState } from "recoil";
-import popularState from "../../atoms/popularAtom";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import popularState, { PopularTypes } from "../../atoms/popularAtom";
 import popularSodaData from "../../assets/data/popularSodaData";
 import popularData from "../../assets/data/popularData";
 
 const Categories = () => {
   const [tempData, setTempData] = useState(categoriesData);
-  const setPopularState = useSetRecoilState(popularState);
+  const [popularStateData, setPopularStateData] = useRecoilState(popularState);
+
+  console.log("Popular state Data: ", popularStateData);
 
   const handlePopularState = (name: string) => {
     switch (name) {
       case "Pizza":
       case "Seafood":
-        setPopularState({ kind: "Pizza", data: popularData });
+        setPopularStateData({ kind: "Pizza", data: popularData });
         break;
       case "Soft Drinks":
-        setPopularState({ kind: "Soda", data: popularSodaData });
+        console.log("Setting popular state to sodaData");
+        const temp: PopularTypes = { kind: "Soda", data: popularSodaData };
+        console.log("TEMP: ", temp);
+        setPopularStateData(temp);
         break;
     }
   };

@@ -16,7 +16,6 @@ type PopularProps = {
 };
 
 const Popular = ({ navigation, popularData }: PopularProps) => {
-  console.log(popularData.data[1].title);
   return (
     <View style={styles.popularWrapper}>
       <Text style={styles.popularTitle}>Popular</Text>

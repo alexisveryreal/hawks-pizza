@@ -2,7 +2,7 @@ import { StyleSheet, View, ScrollView } from "react-native";
 import React, { useState } from "react";
 import AppLoading from "expo-app-loading";
 import colors from "../assets/colors/colors";
-import { useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 import popularState, { PopularTypes } from "../atoms/popularAtom";
 import {
   useFonts,
@@ -25,6 +25,7 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../navigation/NavigationRoot";
 
 import popularData from "../assets/data/popularData";
+import popularSodaData from "../assets/data/popularSodaData";
 
 export type HomeScreenProps = NativeStackScreenProps<
   RootStackParamList,
@@ -41,15 +42,21 @@ const Home = ({ navigation, route }: HomeScreenProps) => {
     Montserrat_700Bold,
   });
 
-  const popularDataState = useRecoilValue(popularState);
+  const [popularDataState, setPopularDataState] = useRecoilState(popularState);
 
-  console.log(popularDataState);
+  console.log("HOme PopuldateDataState: ", popularDataState);
 
-  const [popular] = useState<PopularTypes>(popularDataState);
-  const [filteredData, setFilteredData] =
-    useState<PopularTypes>(popularDataState);
-  const hasFiltered = filteredData !== popular;
-  console.log(hasFiltered);
+  // const [popular] = useState<PopularTypes>(popularState);
+  // const [filteredData, setFilteredData] =
+  //   useState<PopularTypes>(popularDataState);
+  // console.log("POPULAR: ", popular);
+  // console.log("FILTERED: ", filteredData);
+  // const hasFiltered = filteredData !== popular;
+  // console.log(hasFiltered);
+
+  const hasFiltered =
+    popularDataState.data !== popularData &&
+    popularDataState.data !== popularSodaData;
 
   if (!fontsLoaded) {
     return <AppLoading />;
@@ -63,9 +70,12 @@ const Home = ({ navigation, route }: HomeScreenProps) => {
       >
         <HomeHeader navigation={navigation} />
         <HomeTitles />
-        <Search originalPopular={popular} setFilteredData={setFilteredData} />
+        <Search
+          originalPopular={popularDataState}
+          setFilteredData={setPopularDataState}
+        />
         {!hasFiltered && <Categories />}
-        <Popular popularData={filteredData} navigation={navigation} />
+        <Popular popularData={popularDataState} navigation={navigation} />
       </ScrollView>
     </View>
   );
