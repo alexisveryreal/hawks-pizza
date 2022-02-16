@@ -1,28 +1,40 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import colors from "../../assets/colors/colors";
 import GenderCircle from "./GenderCircle";
-import { GenderSelected } from "../../atoms/genderAtom";
 import { useColors } from "../../hooks/useColors";
+import { Genders } from "../../types/profileTypes";
 
 type GenderSelectionProps = {
-  genders: GenderSelected[];
-  onPress: (name: string) => void;
+  gender: Genders;
+  onPress: (name: Genders) => void;
 };
 
-const GenderSelection = ({ genders, onPress }: GenderSelectionProps) => {
+const GenderSelection = ({ onPress, gender }: GenderSelectionProps) => {
   const { colors } = useColors();
+
+  console.log("CURRENT GENDER!", gender);
+
+  const AllGenders: Genders[] = [
+    "gender-female",
+    "gender-male",
+    "gender-non-binary",
+    "gender-transgender",
+  ];
+
+  const handleSelected = (name: Genders) => {
+    return name === gender;
+  };
 
   return (
     <View style={styles.genderWrapper}>
       <Text style={[styles.genderText, { color: colors.textDark }]}>
         Gender
       </Text>
-      {genders.map((gender) => (
+      {AllGenders.map((gender, index) => (
         <GenderCircle
-          key={gender.id}
-          name={gender.name}
-          selected={gender.selected}
+          key={gender + index}
+          name={gender}
+          selected={handleSelected(gender)}
           onPress={onPress}
         />
       ))}

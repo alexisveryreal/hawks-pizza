@@ -7,8 +7,21 @@ const getAllProfiles = async () => {
   return data;
 };
 
+const updateProfile = async ({ _id, email, gender, username }: Profile) => {
+  const { data } = await httpCommon.put<APIReturn<Profile>>(
+    `/profiles/${_id}`,
+    {
+      gender,
+      email,
+      username,
+    }
+  );
+  return data;
+};
+
 const profileService = {
   getAllProfiles,
+  updateProfile,
 };
 
 export default profileService;

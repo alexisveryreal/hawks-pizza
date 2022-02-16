@@ -4,15 +4,12 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useColors } from "../../hooks/useColors";
 import { useRecoilValue } from "recoil";
 import { darkModeState } from "../../atoms/darkModeAtom";
+import { Genders } from "../../types/profileTypes";
 
 type GenderCircleProps = {
-  name:
-    | "gender-female"
-    | "gender-male"
-    | "gender-non-binary"
-    | "gender-transgender";
+  name: Genders;
   selected: boolean;
-  onPress: (name: string) => void;
+  onPress: (name: Genders) => void;
 };
 
 const GenderCircle = ({ name, selected, onPress }: GenderCircleProps) => {

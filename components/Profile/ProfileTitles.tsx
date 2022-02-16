@@ -1,65 +1,54 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React, { useState } from "react";
-import colors from "../../assets/colors/colors";
 import LabeledInput from "./LabeledInput";
 
-import { useRecoilState } from "recoil";
-import { usernameState } from "../../atoms/usernameAtom";
-import { emailState } from "../../atoms/emailAtom";
+import { useRecoilState, useRecoilValue } from "recoil";
 import GenderSelection from "./GenderSelection";
-import { GenderSelected, genderState } from "../../atoms/genderAtom";
 import { useColors } from "../../hooks/useColors";
+import profileState from "../../atoms/profileAtom";
+
+import arrayUtils from "../../utils/arrayUtils";
+import { Genders, Profile } from "../../types/profileTypes";
+import useUpdateProfile from "../../hooks/useUpdateProfile";
 
 const ProfileTitles = () => {
-  const [username, setUsername] = useRecoilState(usernameState);
-  const [email, setEmail] = useRecoilState(emailState);
-  const [allGenders, setAllGenders] = useRecoilState(genderState);
+  const profile = useRecoilValue(profileState);
+  const [tempProfile, setTempProfile] = useState(profile);
 
-  const [tempUser, setTempUser] = useState(username);
-  const [tempEmail, setTempEmail] = useState(email);
-  const [tempGender, setTempGender] = useState(allGenders);
+  const index = 0;
+  const currentProfile = tempProfile[index];
 
   const { colors } = useColors();
 
+  const { isLoading, updateProfile } = useUpdateProfile();
+
   const handleChangeUsername = (text: string) => {
-    console.log(text);
-    setTempUser(text);
+    const temp = arrayUtils.replaceItemAtIndex<Profile>(tempProfile, index, {
+      ...currentProfile,
+      username: text,
+    });
+    setTempProfile(temp);
   };
 
   const handleChangeEmail = (text: string) => {
-    console.log(text);
-    setTempEmail(text);
+    const temp = arrayUtils.replaceItemAtIndex<Profile>(tempProfile, index, {
+      ...currentProfile,
+      email: text,
+    });
+    setTempProfile(temp);
   };
 
-  const handleChangeGender = (name: string) => {
-    let temp: GenderSelected[] = [];
-    tempGender.forEach((gender) => {
-      if (gender.name === name || gender.selected === true) {
-        let theGender = { ...gender };
-        theGender.selected = !theGender.selected;
-        temp.push(theGender);
-      } else {
-        temp.push(gender);
-      }
+  const handleToggleGender = (name: Genders) => {
+    const temp = arrayUtils.replaceItemAtIndex<Profile>(tempProfile, index, {
+      ...currentProfile,
+      gender: name,
     });
-    setTempGender(temp);
+    setTempProfile(temp);
   };
 
   const handleSubmitChanges = () => {
-    // check for empty
-    if (tempUser === "") {
-      alert("Error: username field is empty!");
-    } else if (tempEmail === "") {
-      alert("Error: email field is empty!");
-    } else if (!tempGender.find((value) => value.selected === true)) {
-      alert("Error: No Gender selected!");
-    } else {
-      setUsername(tempUser);
-      setEmail(tempEmail);
-      setAllGenders(tempGender);
-      console.log("set user to: ", tempUser);
-      console.log("Set email to ", tempEmail);
-    }
+    console.log("Updating current profile changes: ", currentProfile);
+    updateProfile({ ...currentProfile });
   };
 
   return (
@@ -83,13 +72,16 @@ const ProfileTitles = () => {
       </View>
       <LabeledInput
         label="Username"
-        placeholder={tempUser}
+        placeholder={currentProfile.username}
         onChange={handleChangeUsername}
       />
-      <GenderSelection genders={tempGender} onPress={handleChangeGender} />
+      <GenderSelection
+        gender={currentProfile.gender}
+        onPress={handleToggleGender}
+      />
       <LabeledInput
         label="Email"
-        placeholder={tempEmail}
+        placeholder={currentProfile.email}
         onChange={handleChangeEmail}
       />
       <TouchableOpacity onPress={() => handleSubmitChanges()}>

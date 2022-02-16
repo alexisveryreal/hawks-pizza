@@ -1,4 +1,4 @@
 export interface APIReturn<T> {
-  data: T[];
+  data: T;
   message: string;
 }
