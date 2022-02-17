@@ -4,8 +4,9 @@ import { StyleSheet, Text, View, TextInput } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import colors from "../../assets/colors/colors";
 
-import { PopularData } from "../../assets/data/popularData";
+import popularData, { PopularData } from "../../assets/data/popularData";
 import { PopularTypes } from "../../atoms/popularAtom";
+import popularSodaData from "../../assets/data/popularSodaData";
 
 type SearchProps = {
   originalPopular: PopularTypes;
@@ -18,7 +19,11 @@ const Search = ({ originalPopular, setFilteredData }: SearchProps) => {
   const filterChangeHandler = (text: string) => {
     if (text === "") {
       console.log("Setting original data");
-      setFilteredData(originalPopular);
+      if (originalPopular.kind === "Pizza") {
+        setFilteredData({ kind: "Pizza", data: popularData });
+      } else {
+        setFilteredData({ kind: "Soda", data: popularSodaData });
+      }
       setFilter("");
     } else {
       switch (originalPopular.kind) {

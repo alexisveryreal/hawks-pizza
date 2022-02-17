@@ -74,6 +74,7 @@ const Home = ({ navigation, route }: HomeScreenProps) => {
           originalPopular={popularDataState}
           setFilteredData={setPopularDataState}
         />
+
         {!hasFiltered && <Categories />}
         <Popular popularData={popularDataState} navigation={navigation} />
       </ScrollView>
