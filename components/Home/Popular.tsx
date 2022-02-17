@@ -42,6 +42,7 @@ export default Popular;
 const styles = StyleSheet.create({
   popularWrapper: {
     paddingHorizontal: 20,
+    paddingBottom: 10,
   },
   popularTitle: {
     fontFamily: "Montserrat_700Bold",

@@ -5,19 +5,20 @@ import {
   StyleSheet,
   ListRenderItemInfo,
 } from "react-native";
-import React, { useState } from "react";
+import React from "react";
 import CatgoryItem from "./CatgoryItem";
-import categoriesData, {
-  CategoriesObj,
-} from "../../assets/data/categoriesData";
+import { CategoriesObj } from "../../assets/data/categoriesData";
 import arrayUtils from "../../utils/arrayUtils";
-import { useRecoilState, useSetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import popularState, { PopularTypes } from "../../atoms/popularAtom";
 import popularSodaData from "../../assets/data/popularSodaData";
 import popularData from "../../assets/data/popularData";
 
+import categoryState from "../../atoms/categoriesAtom";
+
 const Categories = () => {
-  const [tempData, setTempData] = useState(categoriesData);
+  const [categoryStateData, setCategoryStateData] =
+    useRecoilState(categoryState);
   const [popularStateData, setPopularStateData] = useRecoilState(popularState);
 
   console.log("Popular state Data: ", popularStateData);
@@ -40,13 +41,13 @@ const Categories = () => {
   // Sets the currently selected false
   // sets the passed in id, as selected = true
   const handleChangeData = (id: string) => {
-    const oldSelectedIndex = tempData.findIndex(
+    const oldSelectedIndex = categoryStateData.findIndex(
       (value) => value.selected === true
     );
     const unSelectTemp = arrayUtils.replaceItemAtIndex<CategoriesObj>(
-      tempData,
+      categoryStateData,
       oldSelectedIndex,
-      { ...tempData[oldSelectedIndex], selected: false }
+      { ...categoryStateData[oldSelectedIndex], selected: false }
     );
     const newIndex = Number(id) - 1;
     const temp = arrayUtils.replaceItemAtIndex(unSelectTemp, newIndex, {
@@ -55,14 +56,14 @@ const Categories = () => {
     });
 
     handlePopularState(temp[newIndex].title);
-    setTempData(temp);
+    setCategoryStateData(temp);
   };
   return (
     <View style={styles.categoriesWrapper}>
       <Text style={styles.categoriesTitle}>Categories</Text>
       <View style={styles.categoriesListWrapper}>
         <FlatList
-          data={tempData}
+          data={categoryStateData}
           renderItem={({ item }: ListRenderItemInfo<CategoriesObj>) => (
             <CatgoryItem item={item} onPress={handleChangeData} />
           )}
