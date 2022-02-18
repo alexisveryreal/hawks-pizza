@@ -1,13 +1,14 @@
-import { atom } from "recoil";
-import { Profile } from "../types/profileTypes";
+import { atom } from 'recoil';
+
+import { Profile } from '../types/profileTypes';
 
 const profileState = atom<Profile>({
-  key: "profileState",
+  key: 'profileState',
   default: {
-    _id: "",
-    email: "someone@gmail.com",
-    username: "Username",
-    gender: "gender-female",
+    _id: '',
+    email: 'someone@gmail.com',
+    username: 'Username',
+    gender: 'gender-female',
   },
 });
 

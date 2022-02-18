@@ -1,9 +1,9 @@
-import { Image, StyleSheet, Text, View } from "react-native";
-import React from "react";
+import React from 'react';
+import { Image, StyleSheet, Text, View } from 'react-native';
 
-import { SettingsScreenNavigation } from "../../screens/Settings";
-import ForwardButton from "./ForwardButton";
-import { useColors } from "../../hooks/useColors";
+import { useColors } from '../../hooks/useColors';
+import { SettingsScreenNavigation } from '../../screens/Settings';
+import ForwardButton from './ForwardButton';
 
 type SettingsProfileProps = {
   navigation: SettingsScreenNavigation;
@@ -19,7 +19,7 @@ const SettingProfile = ({ navigation }: SettingsProfileProps) => {
       </Text>
       <View style={styles.profileInfoWrapper}>
         <Image
-          source={require("../../assets/images/profile.png")}
+          source={require('../../assets/images/profile.png')}
           style={styles.profileImage}
         />
         <View style={styles.profileUserWrapper}>
@@ -44,13 +44,13 @@ const styles = StyleSheet.create({
   },
   profileText: {
     fontSize: 16,
-    fontFamily: "Montserrat_700Bold",
+    fontFamily: 'Montserrat_700Bold',
   },
   profileInfoWrapper: {
-    flexDirection: "row",
+    flexDirection: 'row',
     // borderWidth: 1,
     paddingTop: 15,
-    alignItems: "center",
+    alignItems: 'center',
   },
   profileImage: {
     width: 80,
@@ -62,10 +62,10 @@ const styles = StyleSheet.create({
   },
   username: {
     fontSize: 16,
-    fontFamily: "Montserrat_600SemiBold",
+    fontFamily: 'Montserrat_600SemiBold',
   },
   personalInfo: {
     fontSize: 14,
-    fontFamily: "Montserrat_500Medium",
+    fontFamily: 'Montserrat_500Medium',
   },
 });

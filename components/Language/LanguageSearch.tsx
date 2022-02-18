@@ -1,9 +1,8 @@
-import { StyleSheet, TextInput, View } from "react-native";
-import React from "react";
-import colors from "../../assets/colors/colors";
-import { Feather } from "@expo/vector-icons";
+import { Feather } from '@expo/vector-icons';
+import React from 'react';
+import { StyleSheet, TextInput, View } from 'react-native';
 
-type LanguageSearchProps = {};
+import colors from '../../assets/colors/colors';
 
 const LanguageSearch = () => {
   return (
@@ -29,8 +28,8 @@ const styles = StyleSheet.create({
   searchWrapper: {
     paddingHorizontal: 20,
     marginTop: 30,
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   search: {
     flex: 1,
@@ -39,7 +38,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
   },
   searchText: {
-    fontFamily: "Montserrat_600SemiBold",
+    fontFamily: 'Montserrat_600SemiBold',
     fontSize: 14,
     marginBottom: 5,
     color: colors.textLight,

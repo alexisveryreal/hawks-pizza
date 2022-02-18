@@ -1,11 +1,12 @@
-import { FlatList, StyleSheet, Text, View } from "react-native";
-import React from "react";
-import { PopularData } from "../../assets/data/popularData";
-import IngredientsItem from "./IngredientsItem";
-import colors from "../../assets/colors/colors";
+import React from 'react';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
+
+import colors from '../../assets/colors/colors';
+import { PopularData } from '../../assets/data/popularData';
+import IngredientsItem from './IngredientsItem';
 
 type IngredientsProps = {
-  ingredients: PopularData["ingredients"];
+  ingredients: PopularData['ingredients'];
 };
 
 const Ingredients = ({ ingredients }: IngredientsProps) => {
@@ -17,7 +18,7 @@ const Ingredients = ({ ingredients }: IngredientsProps) => {
           data={ingredients}
           renderItem={({ item }) => <IngredientsItem item={item} />}
           keyExtractor={(item) => item.id}
-          horizontal={true}
+          horizontal
           showsHorizontalScrollIndicator={false}
         />
       </View>
@@ -33,7 +34,7 @@ const styles = StyleSheet.create({
   },
   ingredientsTitle: {
     paddingHorizontal: 20,
-    fontFamily: "Montserrat_700Bold",
+    fontFamily: 'Montserrat_700Bold',
     fontSize: 16,
     color: colors.textDark,
   },

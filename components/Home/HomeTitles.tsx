@@ -1,6 +1,7 @@
-import React from "react";
-import colors from "../../assets/colors/colors";
-import { StyleSheet, Text, View } from "react-native";
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+
+import colors from '../../assets/colors/colors';
 
 const HomeTitles = () => {
   return (
@@ -19,12 +20,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   subTitle: {
-    fontFamily: "Montserrat_400Regular",
+    fontFamily: 'Montserrat_400Regular',
     fontSize: 16,
     color: colors.textDark,
   },
   mainTitle: {
-    fontFamily: "Montserrat_700Bold",
+    fontFamily: 'Montserrat_700Bold',
     fontSize: 32,
     color: colors.textDark,
   },

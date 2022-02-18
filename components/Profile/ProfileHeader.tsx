@@ -1,9 +1,9 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import React from "react";
-import colors from "../../assets/colors/colors";
-import { Feather } from "@expo/vector-icons";
+import { Feather } from '@expo/vector-icons';
+import React from 'react';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
 
-import { ProfileScreenNavigation } from "../../screens/Profile";
+import colors from '../../assets/colors/colors';
+import { ProfileScreenNavigation } from '../../screens/Profile';
 
 type ProfileHeaderProps = {
   navigation: ProfileScreenNavigation;
@@ -25,9 +25,9 @@ export default ProfileHeader;
 
 const styles = StyleSheet.create({
   profileHeaderWrapper: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     paddingHorizontal: 20,
     paddingTop: 20,
   },
@@ -42,11 +42,11 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     padding: 12,
     borderRadius: 10,
-    alignItems: "center",
+    alignItems: 'center',
   },
   headerRightText: {
     fontSize: 14,
-    fontFamily: "Montserrat_500Medium",
+    fontFamily: 'Montserrat_500Medium',
     color: colors.textDark,
   },
 });

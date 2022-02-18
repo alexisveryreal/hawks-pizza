@@ -1,14 +1,10 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 
-import { PopularData } from "../../assets/data/popularData";
-
-import PopularCard from "./PopularCard";
-
-import { HomeScreenNavigation } from "../../screens/Home";
-import { PopularSodaData } from "../../assets/data/popularSodaData";
-import { PopularTypes } from "../../atoms/popularAtom";
-import PopularSodaCard from "./PopularSodaCard";
+import { PopularTypes } from '../../atoms/popularAtom';
+import { HomeScreenNavigation } from '../../screens/Home';
+import PopularCard from './PopularCard';
+import PopularSodaCard from './PopularSodaCard';
 
 type PopularProps = {
   navigation: HomeScreenNavigation;
@@ -20,7 +16,7 @@ const Popular = ({ navigation, popularData }: PopularProps) => {
     <View style={styles.popularWrapper}>
       <Text style={styles.popularTitle}>Popular</Text>
 
-      {popularData.kind === "Pizza"
+      {popularData.kind === 'Pizza'
         ? popularData.data.map((item) => (
             <PopularCard item={item} navigation={navigation} key={item.id} />
           ))
@@ -45,7 +41,7 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
   },
   popularTitle: {
-    fontFamily: "Montserrat_700Bold",
+    fontFamily: 'Montserrat_700Bold',
     fontSize: 16,
   },
 });

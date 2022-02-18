@@ -1,21 +1,21 @@
-import { atom } from "recoil";
-import { PopularData } from "../assets/data/popularData";
-import { PopularSodaData } from "../assets/data/popularSodaData";
-import popularData from "../assets/data/popularData";
+import { atom } from 'recoil';
+
+import popularData, { PopularData } from '../assets/data/popularData';
+import { PopularSodaData } from '../assets/data/popularSodaData';
 
 export type PopularTypes =
   | {
-      kind: "Pizza";
+      kind: 'Pizza';
       data: PopularData[];
     }
   | {
-      kind: "Soda";
+      kind: 'Soda';
       data: PopularSodaData[];
     };
 
 const popularState = atom<PopularTypes>({
-  key: "popularState",
-  default: { kind: "Pizza", data: popularData },
+  key: 'popularState',
+  default: { kind: 'Pizza', data: popularData },
 });
 
 export default popularState;

@@ -1,9 +1,9 @@
-import { atom } from "recoil";
+import { atom } from 'recoil';
 
-import categoriesData, { CategoriesObj } from "../assets/data/categoriesData";
+import categoriesData, { CategoriesObj } from '../assets/data/categoriesData';
 
 const categoryState = atom<CategoriesObj[]>({
-  key: "categoryState",
+  key: 'categoryState',
   default: categoriesData,
 });
 

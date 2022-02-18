@@ -1,8 +1,9 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
-import GenderCircle from "./GenderCircle";
-import { useColors } from "../../hooks/useColors";
-import { Genders } from "../../types/profileTypes";
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+
+import { useColors } from '../../hooks/useColors';
+import { Genders } from '../../types/profileTypes';
+import GenderCircle from './GenderCircle';
 
 type GenderSelectionProps = {
   gender: Genders;
@@ -15,10 +16,10 @@ const GenderSelection = ({ onPress, gender }: GenderSelectionProps) => {
   // console.log("CURRENT GENDER!", gender);
 
   const AllGenders: Genders[] = [
-    "gender-female",
-    "gender-male",
-    "gender-non-binary",
-    "gender-transgender",
+    'gender-female',
+    'gender-male',
+    'gender-non-binary',
+    'gender-transgender',
   ];
 
   const handleSelected = (name: Genders) => {
@@ -48,12 +49,12 @@ const styles = StyleSheet.create({
   genderWrapper: {
     paddingHorizontal: 20,
     marginVertical: 40,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
   genderText: {
     fontSize: 14,
-    fontFamily: "Montserrat_500Medium",
+    fontFamily: 'Montserrat_500Medium',
   },
 });

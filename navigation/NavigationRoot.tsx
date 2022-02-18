@@ -1,11 +1,12 @@
-import React from "react";
-
 /* REACT NAVIGATION */
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { PopularData } from "../assets/data/popularData";
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import React from 'react';
+
+import { PopularData } from '../assets/data/popularData';
 
 /* Screens */
+import { PopularSodaData } from '../assets/data/popularSodaData';
 import {
   Home,
   Details,
@@ -14,8 +15,7 @@ import {
   Help,
   Language,
   Notifications,
-} from "../screens";
-import { PopularSodaData } from "../assets/data/popularSodaData";
+} from '../screens';
 
 export type RootStackParamList = {
   Home: undefined;

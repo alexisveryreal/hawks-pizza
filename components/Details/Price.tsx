@@ -1,7 +1,8 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import colors from "../../assets/colors/colors";
-import { PopularData } from "../../assets/data/popularData";
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+
+import colors from '../../assets/colors/colors';
+import { PopularData } from '../../assets/data/popularData';
 
 type PriceProps = {
   item: PopularData;
@@ -24,7 +25,7 @@ const styles = StyleSheet.create({
   },
   priceText: {
     color: colors.price,
-    fontFamily: "Montserrat_700Bold",
+    fontFamily: 'Montserrat_700Bold',
     fontSize: 32,
   },
 });

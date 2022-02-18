@@ -1,29 +1,29 @@
-import { StyleSheet, View } from "react-native";
-import React from "react";
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+import { useRecoilValue } from 'recoil';
 
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { RootStackParamList } from "../navigation/NavigationRoot";
-import BackButton from "../components/BackButton";
+import { darkModeState } from '../atoms/darkModeAtom';
 import {
   SettingsTitle,
   SettingProfile,
   SettingAppTitle,
   SettingRow,
-} from "../components";
-import { useRecoilValue } from "recoil";
-import { darkModeState } from "../atoms/darkModeAtom";
-import { useColors } from "../hooks/useColors";
+} from '../components';
+import BackButton from '../components/BackButton';
+import { useColors } from '../hooks/useColors';
+import { RootStackParamList } from '../navigation/NavigationRoot';
 
 type SettingsScreenProps = NativeStackScreenProps<
   RootStackParamList,
-  "Settings"
+  'Settings'
 >;
 
-export type SettingsScreenNavigation = SettingsScreenProps["navigation"];
+export type SettingsScreenNavigation = SettingsScreenProps['navigation'];
 
 const Settings = ({ navigation }: SettingsScreenProps) => {
   const colorScheme = useRecoilValue(darkModeState);
-  const isDarkModeOn = colorScheme === "dark" ? "On" : "Off";
+  const isDarkModeOn = colorScheme === 'dark' ? 'On' : 'Off';
   const { colors } = useColors();
 
   return (
@@ -50,7 +50,7 @@ const Settings = ({ navigation }: SettingsScreenProps) => {
       <SettingRow
         mainLabel="Dark Mode"
         iconName="moon-sharp"
-        isSwitch={true}
+        isSwitch
         subLabel={isDarkModeOn}
       />
       <SettingRow

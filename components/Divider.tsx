@@ -1,6 +1,7 @@
-import { StyleSheet, View } from "react-native";
-import React from "react";
-import colors from "../assets/colors/colors";
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+
+import colors from '../assets/colors/colors';
 
 type DividerProps = {
   space?: number;
@@ -19,9 +20,9 @@ export default Divider;
 
 const styles = StyleSheet.create({
   dividerWrapper: {
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
     // borderWidth: 1,
   },
   divider: {

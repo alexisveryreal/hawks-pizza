@@ -1,9 +1,9 @@
-import i18n from "i18next";
-import { initReactI18next } from "react-i18next";
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
 
-import en from "./en";
-import es from "./es";
-import fr from "./fr";
+import en from './en';
+import es from './es';
+import fr from './fr';
 
 export const LANGUAGES = {
   en,
@@ -21,7 +21,7 @@ i18n.use(initReactI18next).init({
   interpolation: {
     escapeValue: false,
   },
-  compatibilityJSON: "v3",
-  lng: "en",
-  fallbackLng: "en",
+  compatibilityJSON: 'v3',
+  lng: 'en',
+  fallbackLng: 'en',
 });

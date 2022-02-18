@@ -1,12 +1,10 @@
-import React from "react";
-import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
+import { MaterialCommunityIcons, Feather } from '@expo/vector-icons';
+import React from 'react';
+import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 
-import colors from "../../assets/colors/colors";
-import { PopularData } from "../../assets/data/popularData";
-
-import { MaterialCommunityIcons, Feather } from "@expo/vector-icons";
-
-import { HomeScreenNavigation } from "../../screens/Home";
+import colors from '../../assets/colors/colors';
+import { PopularData } from '../../assets/data/popularData';
+import { HomeScreenNavigation } from '../../screens/Home';
 
 type PopularCardProps = {
   item: PopularData;
@@ -18,8 +16,8 @@ const PopularCard = ({ item, navigation }: PopularCardProps) => {
     <TouchableOpacity
       key={item.id}
       onPress={() =>
-        navigation.navigate("Details", {
-          item: item,
+        navigation.navigate('Details', {
+          item,
         })
       }
     >
@@ -27,7 +25,7 @@ const PopularCard = ({ item, navigation }: PopularCardProps) => {
         style={[
           styles.popularCardWrapper,
           {
-            marginTop: item.id === "1" ? 10 : 20,
+            marginTop: item.id === '1' ? 10 : 20,
           },
         ]}
       >
@@ -78,8 +76,8 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     paddingTop: 20,
     paddingLeft: 20,
-    flexDirection: "row",
-    overflow: "hidden",
+    flexDirection: 'row',
+    overflow: 'hidden',
     shadowColor: colors.black,
     shadowOffset: {
       width: 0,
@@ -90,31 +88,31 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   popularTopWrapper: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   popularTopText: {
     marginLeft: 10,
-    fontFamily: "Montserrat_600SemiBold",
+    fontFamily: 'Montserrat_600SemiBold',
     fontSize: 14,
   },
   popularTitlesWrapper: {
     marginTop: 20,
   },
   popularTitlesTitle: {
-    fontFamily: "Montserrat_600SemiBold",
+    fontFamily: 'Montserrat_600SemiBold',
     fontSize: 14,
     color: colors.textDark,
   },
   popularTitlesWeight: {
-    fontFamily: "Montserrat_500Medium",
+    fontFamily: 'Montserrat_500Medium',
     fontSize: 12,
     color: colors.textLight,
     marginTop: 5,
   },
   popularCardBottom: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     marginTop: 10,
     marginLeft: -20,
   },
@@ -126,12 +124,12 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 25,
   },
   ratingWrapper: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     marginLeft: 20,
   },
   rating: {
-    fontFamily: "Montserrat_600SemiBold",
+    fontFamily: 'Montserrat_600SemiBold',
     fontSize: 12,
     color: colors.textDark,
     marginLeft: 5,
@@ -142,6 +140,6 @@ const styles = StyleSheet.create({
   popularCardImage: {
     width: 210,
     height: 125,
-    resizeMode: "contain",
+    resizeMode: 'contain',
   },
 });

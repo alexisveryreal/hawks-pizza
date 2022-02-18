@@ -1,39 +1,37 @@
+import React from 'react';
 import {
   Text,
   View,
   FlatList,
   StyleSheet,
   ListRenderItemInfo,
-} from "react-native";
-import React from "react";
-import CatgoryItem from "./CatgoryItem";
-import { CategoriesObj } from "../../assets/data/categoriesData";
-import arrayUtils from "../../utils/arrayUtils";
-import { useRecoilState } from "recoil";
-import popularState, { PopularTypes } from "../../atoms/popularAtom";
-import popularSodaData from "../../assets/data/popularSodaData";
-import popularData from "../../assets/data/popularData";
+} from 'react-native';
+import { useRecoilState } from 'recoil';
 
-import categoryState from "../../atoms/categoriesAtom";
+import { CategoriesObj } from '../../assets/data/categoriesData';
+import popularData from '../../assets/data/popularData';
+import popularSodaData from '../../assets/data/popularSodaData';
+import categoryState from '../../atoms/categoriesAtom';
+import popularState from '../../atoms/popularAtom';
+import arrayUtils from '../../utils/arrayUtils';
+import CatgoryItem from './CatgoryItem';
 
 const Categories = () => {
   const [categoryStateData, setCategoryStateData] =
     useRecoilState(categoryState);
   const [popularStateData, setPopularStateData] = useRecoilState(popularState);
 
-  console.log("Popular state Data: ", popularStateData);
+  console.log('Popular state Data: ', popularStateData);
 
   const handlePopularState = (name: string) => {
     switch (name) {
-      case "Pizza":
-      case "Seafood":
-        setPopularStateData({ kind: "Pizza", data: popularData });
+      case 'Pizza':
+      case 'Seafood':
+        setPopularStateData({ kind: 'Pizza', data: popularData });
         break;
-      case "Soft Drinks":
-        console.log("Setting popular state to sodaData");
-        const temp: PopularTypes = { kind: "Soda", data: popularSodaData };
-        console.log("TEMP: ", temp);
-        setPopularStateData(temp);
+      case 'Soft Drinks':
+        console.log('Setting popular state to sodaData');
+        setPopularStateData({ kind: 'Soda', data: popularSodaData });
         break;
     }
   };
@@ -42,12 +40,12 @@ const Categories = () => {
   // sets the passed in id, as selected = true
   const handleChangeData = (id: string) => {
     const oldSelectedIndex = categoryStateData.findIndex(
-      (value) => value.selected === true
+      (value) => value.selected === true,
     );
     const unSelectTemp = arrayUtils.replaceItemAtIndex<CategoriesObj>(
       categoryStateData,
       oldSelectedIndex,
-      { ...categoryStateData[oldSelectedIndex], selected: false }
+      { ...categoryStateData[oldSelectedIndex], selected: false },
     );
     const newIndex = Number(id) - 1;
     const temp = arrayUtils.replaceItemAtIndex(unSelectTemp, newIndex, {
@@ -68,7 +66,7 @@ const Categories = () => {
             <CatgoryItem item={item} onPress={handleChangeData} />
           )}
           keyExtractor={(item) => item.id}
-          horizontal={true}
+          horizontal
         />
       </View>
     </View>
@@ -82,7 +80,7 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
   categoriesTitle: {
-    fontFamily: "Montserrat_700Bold",
+    fontFamily: 'Montserrat_700Bold',
     fontSize: 16,
     paddingHorizontal: 20,
   },

@@ -1,6 +1,7 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
-import colors from "../../assets/colors/colors";
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+
+import colors from '../../assets/colors/colors';
 
 type PizzaInfoTextProps = {
   title: string;
@@ -23,12 +24,12 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   infoItemTitle: {
-    fontFamily: "Montserrat_500Medium",
+    fontFamily: 'Montserrat_500Medium',
     fontSize: 14,
     color: colors.textLight,
   },
   infoItemText: {
-    fontFamily: "Montserrat_600SemiBold",
+    fontFamily: 'Montserrat_600SemiBold',
     fontSize: 18,
     color: colors.textDark,
   },

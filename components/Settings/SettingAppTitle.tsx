@@ -1,6 +1,7 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
-import { useColors } from "../../hooks/useColors";
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+
+import { useColors } from '../../hooks/useColors';
 
 const SettingAppTitle = () => {
   const { colors } = useColors();
@@ -23,6 +24,6 @@ const styles = StyleSheet.create({
   },
   appText: {
     fontSize: 16,
-    fontFamily: "Montserrat_700Bold",
+    fontFamily: 'Montserrat_700Bold',
   },
 });

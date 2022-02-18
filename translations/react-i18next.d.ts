@@ -1,7 +1,7 @@
-import { LANGUAGES } from "./i18n";
+import { LANGUAGES } from './i18n';
 
-declare module "react-i18next" {
+declare module 'react-i18next' {
   interface CustomTypeOptions {
-    resources: typeof LANGUAGES["en"];
+    resources: typeof LANGUAGES['en'];
   }
 }

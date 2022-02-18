@@ -1,9 +1,8 @@
-import React from "react";
-import { Image, StyleSheet, View } from "react-native";
+import React from 'react';
+import { Image, StyleSheet, View } from 'react-native';
 
-import PizzaInfoText from "./PizzaInfoText";
-
-import { PopularData } from "../../assets/data/popularData";
+import { PopularData } from '../../assets/data/popularData';
+import PizzaInfoText from './PizzaInfoText';
 
 type PizzaInfoProps = {
   item: PopularData;
@@ -32,15 +31,15 @@ export default PizzaInfo;
 const styles = StyleSheet.create({
   infoWrapper: {
     marginTop: 60,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   infoLeftWrapper: {
     paddingLeft: 20,
   },
   itemImage: {
-    resizeMode: "contain",
+    resizeMode: 'contain',
     marginLeft: 50,
   },
 });

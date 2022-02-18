@@ -1,7 +1,8 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
-import { BOLD } from "../../constants/strings";
-import colors from "../../assets/colors/colors";
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+
+import colors from '../../assets/colors/colors';
+import { BOLD } from '../../constants/strings';
 
 const HelpTitle = () => {
   return (

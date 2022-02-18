@@ -1,17 +1,11 @@
-import {
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
-import React from "react";
+import { Feather, MaterialCommunityIcons } from '@expo/vector-icons';
+import React from 'react';
+import { SafeAreaView, StyleSheet, TouchableOpacity, View } from 'react-native';
 
 // need details navigation typed
 
-import { Feather, MaterialCommunityIcons } from "@expo/vector-icons";
-import colors from "../../assets/colors/colors";
-import { DetailScreenNavigation } from "../../screens/Details";
+import colors from '../../assets/colors/colors';
+import { DetailScreenNavigation } from '../../screens/Details';
 
 type DetailHeaderProps = {
   navigation: DetailScreenNavigation;
@@ -38,9 +32,9 @@ export default DetailHeader;
 
 const styles = StyleSheet.create({
   headerWrapper: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     paddingHorizontal: 20,
     paddingTop: 20,
   },

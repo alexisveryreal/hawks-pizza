@@ -1,8 +1,8 @@
-import { atom } from "recoil";
+import { atom } from 'recoil';
 
-export type ColorScheme = "light" | "dark";
+export type ColorScheme = 'light' | 'dark';
 
 export const darkModeState = atom<ColorScheme>({
-  key: "darkModeState",
-  default: "light",
+  key: 'darkModeState',
+  default: 'light',
 });

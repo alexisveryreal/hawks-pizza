@@ -1,10 +1,11 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import React from "react";
-import { HomeScreenNavigation } from "../../screens/Home";
-import { PopularSodaData } from "../../assets/data/popularSodaData";
-import { useColors } from "../../hooks/useColors";
-import { MaterialCommunityIcons, Feather } from "@expo/vector-icons";
-import { SEMI } from "../../constants/strings";
+import { MaterialCommunityIcons, Feather } from '@expo/vector-icons';
+import React from 'react';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+
+import { PopularSodaData } from '../../assets/data/popularSodaData';
+import { SEMI } from '../../constants/strings';
+import { useColors } from '../../hooks/useColors';
+import { HomeScreenNavigation } from '../../screens/Home';
 
 type PopularSodaCardProps = {
   navigation: HomeScreenNavigation;
@@ -17,12 +18,12 @@ type PopularSodaCardProps = {
 const PopularSodaCard = ({ navigation, item }: PopularSodaCardProps) => {
   const { colors } = useColors();
   return (
-    <TouchableOpacity onPress={() => console.log("Pressed on: ", item.title)}>
+    <TouchableOpacity onPress={() => console.log('Pressed on: ', item.title)}>
       <View
         style={[
           styles.cardWrapper,
           {
-            marginTop: item.id === "1" ? 10 : 20,
+            marginTop: item.id === '1' ? 10 : 20,
             backgroundColor: colors.white,
             shadowColor: colors.black,
           },
@@ -76,8 +77,8 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     paddingTop: 25,
     paddingLeft: 20,
-    flexDirection: "row",
-    overflow: "hidden",
+    flexDirection: 'row',
+    overflow: 'hidden',
     // shadowColor
     shadowOffset: {
       width: 0,
@@ -89,8 +90,8 @@ const styles = StyleSheet.create({
     // marginBottom: 2,
   },
   topWrapper: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   topText: {
     marginLeft: 10,
@@ -105,8 +106,8 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   cardBottom: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     marginTop: 10,
     marginLeft: -20,
   },
@@ -117,8 +118,8 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 25,
   },
   ratingWrapper: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     marginLeft: 20,
   },
   rating: {
@@ -132,6 +133,6 @@ const styles = StyleSheet.create({
   cardImage: {
     width: 210,
     height: 100,
-    resizeMode: "contain",
+    resizeMode: 'contain',
   },
 });

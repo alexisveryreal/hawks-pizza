@@ -1,23 +1,24 @@
-import { useQuery } from "react-query";
-import profileService from "../api/profile";
-import { useRecoilState } from "recoil";
-import profileState from "../atoms/profileAtom";
+import { useQuery } from 'react-query';
+import { useSetRecoilState } from 'recoil';
+
+import profileService from '../api/profile';
+import profileState from '../atoms/profileAtom';
 
 const useProfile = (_id: string) => {
-  const [profile, setProfile] = useRecoilState(profileState);
+  const setProfile = useSetRecoilState(profileState);
 
   const {
     data: profileSingle,
     refetch: getProfile,
     isLoading,
   } = useQuery(
-    ["getProfile"],
+    ['getProfile'],
     async () => {
       return await profileService.getProfile(_id);
     },
     {
       onSuccess: (res) => {
-        console.log("profile! ", res.data);
+        console.log('profile! ', res.data);
         setProfile({ ...res.data });
       },
       onError: (err) => {
@@ -28,7 +29,7 @@ const useProfile = (_id: string) => {
         }
       },
       enabled: false,
-    }
+    },
   );
   return { profileSingle, getProfile, isLoading };
 };

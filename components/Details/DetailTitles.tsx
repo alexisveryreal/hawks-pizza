@@ -1,7 +1,8 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import colors from "../../assets/colors/colors";
-import { PopularData } from "../../assets/data/popularData";
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+
+import colors from '../../assets/colors/colors';
+import { PopularData } from '../../assets/data/popularData';
 
 type DetailTitlesProps = {
   item: PopularData;
@@ -23,9 +24,9 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
   title: {
-    fontFamily: "Montserrat_700Bold",
+    fontFamily: 'Montserrat_700Bold',
     fontSize: 32,
     color: colors.textDark,
-    width: "55%",
+    width: '55%',
   },
 });

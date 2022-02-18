@@ -1,27 +1,28 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import React from "react";
-import colors from "../../assets/colors/colors";
-import { LANGUAGE_CODES } from "../../translations/i18n";
-import { useTranslation } from "react-i18next";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+
+import colors from '../../assets/colors/colors';
+import { LANGUAGE_CODES } from '../../translations/i18n';
 
 const LanguageSelect = () => {
   const { i18n, t } = useTranslation();
 
   const handleText = (language: string) => {
-    let text = "";
+    let text = '';
     switch (language) {
-      case "en":
-        text = `${t("common:english")} - English`;
+      case 'en':
+        text = `${t('common:english')} - English`;
         break;
-      case "es":
-        text = `${t("common:spanish")} - español`;
+      case 'es':
+        text = `${t('common:spanish')} - español`;
         break;
-      case "fr":
-        text = `${t("common:french")} - français`;
+      case 'fr':
+        text = `${t('common:french')} - français`;
         break;
       default:
-        text = `${t("common:english")} - English`;
+        text = `${t('common:english')} - English`;
         break;
     }
     return text;
@@ -61,14 +62,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   languageRow: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     paddingVertical: 10,
   },
   languageText: {
     fontSize: 14,
-    fontFamily: "Montserrat_600SemiBold",
+    fontFamily: 'Montserrat_600SemiBold',
     color: colors.textDark,
   },
 });

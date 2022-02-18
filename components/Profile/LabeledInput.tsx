@@ -1,6 +1,7 @@
-import { StyleSheet, Text, TextInput, View } from "react-native";
-import React from "react";
-import { useColors } from "../../hooks/useColors";
+import React from 'react';
+import { StyleSheet, Text, TextInput, View } from 'react-native';
+
+import { useColors } from '../../hooks/useColors';
 
 type LabeledInputProps = {
   label: string;
@@ -32,21 +33,21 @@ export default LabeledInput;
 const styles = StyleSheet.create({
   inputWrapper: {
     paddingHorizontal: 20,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
   label: {
     fontSize: 14,
-    fontFamily: "Montserrat_500Medium",
+    fontFamily: 'Montserrat_500Medium',
   },
   inputLine: {
-    width: "66%",
+    width: '66%',
     marginLeft: 10,
     borderBottomWidth: 2,
   },
   input: {
-    fontFamily: "Montserrat_600SemiBold",
+    fontFamily: 'Montserrat_600SemiBold',
     fontSize: 14,
     marginLeft: 5,
   },

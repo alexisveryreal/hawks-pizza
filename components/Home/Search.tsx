@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { StyleSheet, Text, View, TextInput } from "react-native";
+/* eslint-disable no-case-declarations */
+import { Feather } from '@expo/vector-icons';
+import React, { useState } from 'react';
+import { StyleSheet, View, TextInput } from 'react-native';
 
-import { Feather } from "@expo/vector-icons";
-import colors from "../../assets/colors/colors";
-
-import popularData, { PopularData } from "../../assets/data/popularData";
-import { PopularTypes } from "../../atoms/popularAtom";
-import popularSodaData from "../../assets/data/popularSodaData";
+import colors from '../../assets/colors/colors';
+import popularData from '../../assets/data/popularData';
+import popularSodaData from '../../assets/data/popularSodaData';
+import { PopularTypes } from '../../atoms/popularAtom';
 
 type SearchProps = {
   originalPopular: PopularTypes;
@@ -14,31 +14,31 @@ type SearchProps = {
 };
 
 const Search = ({ originalPopular, setFilteredData }: SearchProps) => {
-  const [filter, setFilter] = useState("");
+  const [filter, setFilter] = useState('');
 
   const filterChangeHandler = (text: string) => {
-    if (text === "") {
-      console.log("Setting original data");
-      if (originalPopular.kind === "Pizza") {
-        setFilteredData({ kind: "Pizza", data: popularData });
+    if (text === '') {
+      console.log('Setting original data');
+      if (originalPopular.kind === 'Pizza') {
+        setFilteredData({ kind: 'Pizza', data: popularData });
       } else {
-        setFilteredData({ kind: "Soda", data: popularSodaData });
+        setFilteredData({ kind: 'Soda', data: popularSodaData });
       }
-      setFilter("");
+      setFilter('');
     } else {
       switch (originalPopular.kind) {
-        case "Pizza":
+        case 'Pizza':
           const tempFilter = originalPopular.data.filter((value) =>
-            value.title.includes(text)
+            value.title.includes(text),
           );
-          setFilteredData({ kind: "Pizza", data: tempFilter });
+          setFilteredData({ kind: 'Pizza', data: tempFilter });
           setFilter(text);
           break;
-        case "Soda":
+        case 'Soda':
           const tempSodaFilter = originalPopular.data.filter((value) =>
-            value.title.includes(text)
+            value.title.includes(text),
           );
-          setFilteredData({ kind: "Soda", data: tempSodaFilter });
+          setFilteredData({ kind: 'Soda', data: tempSodaFilter });
           setFilter(text);
           break;
       }
@@ -69,8 +69,8 @@ const styles = StyleSheet.create({
   searchWrapper: {
     paddingHorizontal: 20,
     marginTop: 30,
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   search: {
     flex: 1,
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
   },
   searchText: {
-    fontFamily: "Montserrat_600SemiBold",
+    fontFamily: 'Montserrat_600SemiBold',
     fontSize: 14,
     marginBottom: 5,
     color: colors.textLight,

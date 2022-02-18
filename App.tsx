@@ -1,16 +1,14 @@
-import React from "react";
-import { LogBox } from "react-native";
+import { NativeBaseProvider } from 'native-base';
+import React from 'react';
+import { LogBox } from 'react-native';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { RecoilRoot } from 'recoil';
 
-/* EXTERNAL */
-import { NativeBaseProvider } from "native-base";
-import { RecoilRoot } from "recoil";
-import { QueryClient, QueryClientProvider } from "react-query";
-
-import "./translations/i18n";
-import NavigationRoot from "./navigation/NavigationRoot";
+import './translations/i18n';
+import NavigationRoot from './navigation/NavigationRoot';
 
 // Ignore recoil timer warning
-LogBox.ignoreLogs(["timer"]);
+LogBox.ignoreLogs(['timer']);
 
 const queryClient = new QueryClient({
   defaultOptions: {

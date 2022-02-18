@@ -1,7 +1,8 @@
-import { Image, StyleSheet, Text, View } from "react-native";
-import React from "react";
-import { Ingredients } from "../../assets/data/popularData";
-import colors from "../../assets/colors/colors";
+import React from 'react';
+import { Image, StyleSheet, View } from 'react-native';
+
+import colors from '../../assets/colors/colors';
+import { Ingredients } from '../../assets/data/popularData';
 
 type IngredientsItemProps = {
   item: Ingredients;
@@ -13,7 +14,7 @@ const IngredientsItem = ({ item }: IngredientsItemProps) => {
       style={[
         styles.ingredientsItemWrapper,
         {
-          marginLeft: item.id === "1" ? 20 : 0,
+          marginLeft: item.id === '1' ? 20 : 0,
         },
       ]}
     >
@@ -27,8 +28,8 @@ export default IngredientsItem;
 const styles = StyleSheet.create({
   ingredientsItemWrapper: {
     backgroundColor: colors.white,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
     paddingHorizontal: 10,
     marginRight: 15,
     borderRadius: 15,
@@ -43,6 +44,6 @@ const styles = StyleSheet.create({
     marginBottom: 2,
   },
   ingredientImage: {
-    resizeMode: "contain",
+    resizeMode: 'contain',
   },
 });

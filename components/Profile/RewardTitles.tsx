@@ -1,6 +1,7 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
-import colors from "../../assets/colors/colors";
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+
+import colors from '../../assets/colors/colors';
 
 const RewardTitles = () => {
   return (
@@ -24,51 +25,51 @@ export default RewardTitles;
 
 const styles = StyleSheet.create({
   titleWrapper: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     paddingHorizontal: 20,
   },
   rewardsWrapper: {
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   hawks: {
-    fontFamily: "Montserrat_600SemiBold",
+    fontFamily: 'Montserrat_600SemiBold',
     fontSize: 16,
     paddingRight: 6,
     color: colors.textDark,
   },
   rewards: {
-    fontFamily: "Montserrat_400Regular",
+    fontFamily: 'Montserrat_400Regular',
     fontSize: 16,
     color: colors.textDark,
   },
   pointsWrapper: {
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   points: {
     fontSize: 18,
-    fontFamily: "Montserrat_600SemiBold",
+    fontFamily: 'Montserrat_600SemiBold',
     paddingRight: 6,
     color: colors.textDark,
   },
   pointsTextWrapper: {
-    flexDirection: "column",
-    justifyContent: "flex-start",
-    alignItems: "flex-start",
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
   },
   pointsText: {
     fontSize: 12,
-    fontFamily: "Montserrat_600SemiBold",
+    fontFamily: 'Montserrat_600SemiBold',
     color: colors.textDark,
   },
   expText: {
     fontSize: 12,
-    fontFamily: "Montserrat_400Regular",
+    fontFamily: 'Montserrat_400Regular',
     color: colors.textDark,
   },
 });

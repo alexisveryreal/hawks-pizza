@@ -1,9 +1,9 @@
-import httpCommon from "./http-common";
-import { Profile } from "../types/profileTypes";
-import { APIReturn } from "../types/apiTypes";
+import { APIReturn } from '../types/apiTypes';
+import { Profile } from '../types/profileTypes';
+import httpCommon from './http-common';
 
 const getAllProfiles = async () => {
-  const { data } = await httpCommon.get<APIReturn<Profile[]>>("/profiles");
+  const { data } = await httpCommon.get<APIReturn<Profile[]>>('/profiles');
   return data;
 };
 
@@ -19,7 +19,7 @@ const updateProfile = async ({ _id, email, gender, username }: Profile) => {
       gender,
       email,
       username,
-    }
+    },
   );
   return data;
 };

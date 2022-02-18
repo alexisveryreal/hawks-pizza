@@ -1,18 +1,18 @@
-import { StyleSheet, View } from "react-native";
-import React from "react";
-import { ProfileTitles } from "../components";
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
 
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { RootStackParamList } from "../navigation/NavigationRoot";
-import { useColors } from "../hooks/useColors";
-import BackButton from "../components/BackButton";
+import { ProfileTitles } from '../components';
+import BackButton from '../components/BackButton';
+import { useColors } from '../hooks/useColors';
+import { RootStackParamList } from '../navigation/NavigationRoot';
 
 export type ProfileScreenProps = NativeStackScreenProps<
   RootStackParamList,
-  "Profile"
+  'Profile'
 >;
 
-export type ProfileScreenNavigation = ProfileScreenProps["navigation"];
+export type ProfileScreenNavigation = ProfileScreenProps['navigation'];
 
 const Profile = ({ navigation, route }: ProfileScreenProps) => {
   const { colors } = useColors();

@@ -1,24 +1,23 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
-import colors from "../assets/colors/colors";
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
 
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import BackButton from "../components/BackButton";
-import { RootStackParamList } from "../navigation/NavigationRoot";
-
+import colors from '../assets/colors/colors';
 import {
   LanguageSearch,
   LanguageSelect,
   LanguageTitle,
   ShowMore,
-} from "../components";
+} from '../components';
+import BackButton from '../components/BackButton';
+import { RootStackParamList } from '../navigation/NavigationRoot';
 
 type LanguageScreenProps = NativeStackScreenProps<
   RootStackParamList,
-  "Language"
+  'Language'
 >;
 
-export type LanguageNavigation = LanguageScreenProps["navigation"];
+export type LanguageNavigation = LanguageScreenProps['navigation'];
 
 const Language = ({ navigation, route }: LanguageScreenProps) => {
   return (

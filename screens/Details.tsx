@@ -1,12 +1,8 @@
-import React from "react";
-import { StyleSheet, View } from "react-native";
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
 
-import { RootStackParamList } from "../navigation/NavigationRoot";
-
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
-
-import colors from "../assets/colors/colors";
-
+import colors from '../assets/colors/colors';
 import {
   Price,
   DetailTitles,
@@ -14,14 +10,15 @@ import {
   PizzaInfo,
   Ingredients,
   PlaceOrderButton,
-} from "../components";
+} from '../components';
+import { RootStackParamList } from '../navigation/NavigationRoot';
 
 export type DetailScreenProps = NativeStackScreenProps<
   RootStackParamList,
-  "Details"
+  'Details'
 >;
 
-export type DetailScreenNavigation = DetailScreenProps["navigation"];
+export type DetailScreenNavigation = DetailScreenProps['navigation'];
 
 const Details = ({ navigation, route }: DetailScreenProps) => {
   const { item } = route.params;

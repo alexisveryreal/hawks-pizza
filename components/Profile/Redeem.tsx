@@ -1,7 +1,8 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
-import popularData from "../../assets/data/popularData";
-import RedeemCard from "./RedeemCard";
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+
+import popularData from '../../assets/data/popularData';
+import RedeemCard from './RedeemCard';
 
 const Redeem = () => {
   return (

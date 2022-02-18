@@ -1,13 +1,13 @@
-import { StyleSheet, TouchableOpacity, View } from "react-native";
-import React from "react";
-import { Feather } from "@expo/vector-icons";
-import { SettingsScreenNavigation } from "../screens/Settings";
-import { LanguageNavigation } from "../screens/Language";
-import { EditScreenNavigation } from "../screens/ProfileEdit";
-import { NotificationNavigation } from "../screens/Notifications";
-import { HelpNavigation } from "../types/Help/HelpTypes";
-import { useColors } from "../hooks/useColors";
-import { ProfileScreenNavigation } from "../screens/Profile";
+import { Feather } from '@expo/vector-icons';
+import React from 'react';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
+
+import { useColors } from '../hooks/useColors';
+import { LanguageNavigation } from '../screens/Language';
+import { NotificationNavigation } from '../screens/Notifications';
+import { ProfileScreenNavigation } from '../screens/Profile';
+import { SettingsScreenNavigation } from '../screens/Settings';
+import { HelpNavigation } from '../types/Help/HelpTypes';
 
 type BackButtonProps = {
   navigation:
@@ -15,8 +15,7 @@ type BackButtonProps = {
     | LanguageNavigation
     | NotificationNavigation
     | HelpNavigation
-    | ProfileScreenNavigation
-    | EditScreenNavigation;
+    | ProfileScreenNavigation;
 };
 
 const BackButton = ({ navigation }: BackButtonProps) => {
@@ -38,9 +37,9 @@ const styles = StyleSheet.create({
   backButtonWrapper: {
     paddingHorizontal: 20,
     paddingTop: 20,
-    alignItems: "center",
-    justifyContent: "flex-start",
-    flexDirection: "row",
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    flexDirection: 'row',
   },
   backButton: {
     borderWidth: 2,

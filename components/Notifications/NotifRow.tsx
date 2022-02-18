@@ -1,7 +1,8 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import React, { useState } from "react";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import colors from "../../assets/colors/colors";
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import React, { useState } from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+
+import colors from '../../assets/colors/colors';
 
 type NotifRowProps = {
   label: string;
@@ -43,24 +44,24 @@ export default NotifRow;
 
 const styles = StyleSheet.create({
   rowWrapper: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     paddingVertical: 10,
   },
   textWrapper: {
-    flexDirection: "column",
-    justifyContent: "flex-start",
-    alignItems: "flex-start",
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
   },
   rowLabel: {
     fontSize: 14,
-    fontFamily: "Montserrat_600SemiBold",
+    fontFamily: 'Montserrat_600SemiBold',
     color: colors.textDark,
   },
   rowDesc: {
     fontSize: 12,
-    fontFamily: "Montserrat_400Regular",
+    fontFamily: 'Montserrat_400Regular',
     color: colors.textDark,
   },
 });

@@ -1,6 +1,7 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { useColors } from "../../hooks/useColors";
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+
+import { useColors } from '../../hooks/useColors';
 
 const SettingsTitle = () => {
   const { colors } = useColors();
@@ -24,6 +25,6 @@ const styles = StyleSheet.create({
   },
   tileText: {
     fontSize: 32,
-    fontFamily: "Montserrat_700Bold",
+    fontFamily: 'Montserrat_700Bold',
   },
 });

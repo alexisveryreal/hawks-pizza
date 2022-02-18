@@ -1,9 +1,10 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
-import { HelpScreenProps } from "../types/Help/HelpTypes";
-import BackButton from "../components/BackButton";
-import { HelpRows, HelpTitle } from "../components";
-import { useColors } from "../hooks/useColors";
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+
+import { HelpRows, HelpTitle } from '../components';
+import BackButton from '../components/BackButton';
+import { useColors } from '../hooks/useColors';
+import { HelpScreenProps } from '../types/Help/HelpTypes';
 
 const Help = ({ navigation, route }: HelpScreenProps) => {
   const { colors } = useColors();

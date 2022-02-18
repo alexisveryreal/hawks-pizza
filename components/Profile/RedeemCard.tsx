@@ -1,8 +1,9 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import React from "react";
-import colors from "../../assets/colors/colors";
-import { PopularData } from "../../assets/data/popularData";
-import { Feather } from "@expo/vector-icons";
+import { Feather } from '@expo/vector-icons';
+import React from 'react';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+
+import colors from '../../assets/colors/colors';
+import { PopularData } from '../../assets/data/popularData';
 
 type RedeemCardProps = {
   item: PopularData;
@@ -17,7 +18,7 @@ const RedeemCard = ({ item }: RedeemCardProps) => {
         style={[
           styles.redeemCardWrapper,
           {
-            marginTop: item.id === "1" ? 10 : 20,
+            marginTop: item.id === '1' ? 10 : 20,
           },
         ]}
       >
@@ -46,8 +47,8 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     borderRadius: 25,
     paddingTop: 20,
-    flexDirection: "row",
-    overflow: "hidden",
+    flexDirection: 'row',
+    overflow: 'hidden',
     shadowColor: colors.black,
     shadowOffset: {
       width: 0,
@@ -66,38 +67,38 @@ const styles = StyleSheet.create({
   redeemImage: {
     width: 210,
     height: 125,
-    resizeMode: "contain",
+    resizeMode: 'contain',
   },
   redeemItemTitleWrapper: {
-    flexDirection: "column",
-    justifyContent: "flex-start",
-    alignItems: "flex-start",
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
     // borderWidth: 1,
   },
   redeemItemTitle: {
     fontSize: 14,
-    fontFamily: "Montserrat_600SemiBold",
+    fontFamily: 'Montserrat_600SemiBold',
     color: colors.textDark,
   },
   redeemItemTitlePoints: {
     fontSize: 12,
-    fontFamily: "Montserrat_500Medium",
+    fontFamily: 'Montserrat_500Medium',
     color: colors.textLight,
   },
   redeemTextWrapper: {
-    flexDirection: "column",
-    justifyContent: "flex-end",
-    alignItems: "center",
+    flexDirection: 'column',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
   },
   redeemTextFormat: {
-    flexDirection: "row",
-    justifyContent: "flex-end",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
     paddingVertical: 10,
   },
   redeemText: {
     fontSize: 14,
-    fontFamily: "Montserrat_600SemiBold",
+    fontFamily: 'Montserrat_600SemiBold',
     color: colors.price,
   },
 });

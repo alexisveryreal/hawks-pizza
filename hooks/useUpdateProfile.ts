@@ -1,12 +1,11 @@
-import { useMutation } from "react-query";
-import profileService from "../api/profile";
-import { useRecoilState } from "recoil";
-import profileState from "../atoms/profileAtom";
-import arrayUtils from "../utils/arrayUtils";
-import { Profile } from "../types/profileTypes";
+import { useMutation } from 'react-query';
+import { useSetRecoilState } from 'recoil';
+
+import profileService from '../api/profile';
+import profileState from '../atoms/profileAtom';
 
 const useUpdateProfile = () => {
-  const [profile, setProfile] = useRecoilState(profileState);
+  const setProfile = useSetRecoilState(profileState);
 
   const { mutate: updateProfile, isLoading } = useMutation(
     profileService.updateProfile,
@@ -21,7 +20,7 @@ const useUpdateProfile = () => {
           console.error(err);
         }
       },
-    }
+    },
   );
   return { updateProfile, isLoading };
 };

@@ -1,6 +1,7 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import React, { useState } from "react";
-import colors from "../../assets/colors/colors";
+import React, { useState } from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+
+import colors from '../../assets/colors/colors';
 
 const ShowMore = () => {
   const [showMore, setShowMore] = useState(false);
@@ -9,7 +10,7 @@ const ShowMore = () => {
     <View style={styles.showWrapper}>
       <TouchableOpacity onPress={() => setShowMore((prev) => !prev)}>
         <Text style={styles.showText}>
-          {showMore ? "Show Less" : "Show More"}
+          {showMore ? 'Show Less' : 'Show More'}
         </Text>
       </TouchableOpacity>
       {showMore && (
@@ -28,13 +29,13 @@ const styles = StyleSheet.create({
   },
   showText: {
     fontSize: 14,
-    fontFamily: "Montserrat_600SemiBold",
-    textDecorationLine: "underline",
+    fontFamily: 'Montserrat_600SemiBold',
+    textDecorationLine: 'underline',
     color: colors.textLight,
   },
   moreLang: {
     fontSize: 14,
-    fontFamily: "Montserrat_400Regular",
+    fontFamily: 'Montserrat_400Regular',
     color: colors.textDark,
     paddingTop: 10,
   },

@@ -1,8 +1,9 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import React from "react";
-import { Feather } from "@expo/vector-icons";
-import colors from "../../assets/colors/colors";
-import { CategoriesObj } from "../../assets/data/categoriesData";
+import { Feather } from '@expo/vector-icons';
+import React from 'react';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+
+import colors from '../../assets/colors/colors';
+import { CategoriesObj } from '../../assets/data/categoriesData';
 
 type CategoryItemProps = {
   item: CategoriesObj;
@@ -17,7 +18,7 @@ const CatgoryItem = ({ item, onPress }: CategoryItemProps) => {
           styles.categoryItemWrapper,
           {
             backgroundColor: item.selected ? colors.primary : colors.white,
-            marginLeft: item.id === "1" ? 20 : 0,
+            marginLeft: item.id === '1' ? 20 : 0,
           },
         ]}
       >
@@ -47,7 +48,7 @@ export default CatgoryItem;
 
 const styles = StyleSheet.create({
   categoryItemWrapper: {
-    backgroundColor: "#F5CA48",
+    backgroundColor: '#F5CA48',
     borderRadius: 20,
     marginRight: 20,
     shadowColor: colors.black,
@@ -64,18 +65,18 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     marginTop: 25,
-    alignSelf: "center",
+    alignSelf: 'center',
     marginHorizontal: 20,
   },
   categoryItemTitle: {
-    textAlign: "center",
-    fontFamily: "Montserrat_600SemiBold",
+    textAlign: 'center',
+    fontFamily: 'Montserrat_600SemiBold',
     fontSize: 14,
     marginTop: 10,
   },
   categorySelectWrapper: {
-    alignSelf: "center",
-    justifyContent: "center",
+    alignSelf: 'center',
+    justifyContent: 'center',
     marginTop: 20,
     width: 26,
     height: 26,
@@ -83,6 +84,6 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   categorySelectIcon: {
-    alignSelf: "center",
+    alignSelf: 'center',
   },
 });

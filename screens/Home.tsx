@@ -1,41 +1,38 @@
-import { StyleSheet, View, ScrollView } from "react-native";
-import React, { useState } from "react";
-import AppLoading from "expo-app-loading";
-import colors from "../assets/colors/colors";
-import { useRecoilState } from "recoil";
-import popularState, { PopularTypes } from "../atoms/popularAtom";
 import {
   useFonts,
   Montserrat_400Regular,
   Montserrat_500Medium,
   Montserrat_600SemiBold,
   Montserrat_700Bold,
-} from "@expo-google-fonts/montserrat";
+} from '@expo-google-fonts/montserrat';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import AppLoading from 'expo-app-loading';
+import React from 'react';
+import { StyleSheet, View, ScrollView } from 'react-native';
+import { useRecoilState } from 'recoil';
 
+import colors from '../assets/colors/colors';
+import popularData from '../assets/data/popularData';
+import popularSodaData from '../assets/data/popularSodaData';
+import popularState from '../atoms/popularAtom';
 import {
   HomeHeader,
   HomeTitles,
   Search,
   Categories,
   Popular,
-} from "../components";
-
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
-
-import { RootStackParamList } from "../navigation/NavigationRoot";
-
-import popularData from "../assets/data/popularData";
-import popularSodaData from "../assets/data/popularSodaData";
+} from '../components';
+import { RootStackParamList } from '../navigation/NavigationRoot';
 
 export type HomeScreenProps = NativeStackScreenProps<
   RootStackParamList,
-  "Home"
+  'Home'
 >;
 
-export type HomeScreenNavigation = HomeScreenProps["navigation"];
+export type HomeScreenNavigation = HomeScreenProps['navigation'];
 
 const Home = ({ navigation, route }: HomeScreenProps) => {
-  let [fontsLoaded] = useFonts({
+  const [fontsLoaded] = useFonts({
     Montserrat_400Regular,
     Montserrat_500Medium,
     Montserrat_600SemiBold,
@@ -44,7 +41,7 @@ const Home = ({ navigation, route }: HomeScreenProps) => {
 
   const [popularDataState, setPopularDataState] = useRecoilState(popularState);
 
-  console.log("HOme PopuldateDataState: ", popularDataState);
+  console.log('HOme PopuldateDataState: ', popularDataState);
 
   // const [popular] = useState<PopularTypes>(popularState);
   // const [filteredData, setFilteredData] =

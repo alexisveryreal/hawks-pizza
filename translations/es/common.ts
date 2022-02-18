@@ -1,6 +1,6 @@
 export default {
-  hello: "hola",
-  english: "inglés",
-  spanish: "español",
-  french: "francés",
+  hello: 'hola',
+  english: 'inglés',
+  spanish: 'español',
+  french: 'francés',
 };

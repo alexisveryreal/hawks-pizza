@@ -1,10 +1,11 @@
-import { StyleSheet, TouchableOpacity, View } from "react-native";
-import React from "react";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { useColors } from "../../hooks/useColors";
-import { useRecoilValue } from "recoil";
-import { darkModeState } from "../../atoms/darkModeAtom";
-import { Genders } from "../../types/profileTypes";
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import React from 'react';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { useRecoilValue } from 'recoil';
+
+import { darkModeState } from '../../atoms/darkModeAtom';
+import { useColors } from '../../hooks/useColors';
+import { Genders } from '../../types/profileTypes';
 
 type GenderCircleProps = {
   name: Genders;
@@ -22,9 +23,9 @@ const GenderCircle = ({ name, selected, onPress }: GenderCircleProps) => {
         style={[
           styles.circle,
           {
-            borderColor: colorScheme === "light" ? colors.textLight : undefined,
+            borderColor: colorScheme === 'light' ? colors.textLight : undefined,
             backgroundColor: selected ? colors.primary : colors.white,
-            borderWidth: selected && colorScheme === "light" ? 0 : 1,
+            borderWidth: selected && colorScheme === 'light' ? 0 : 1,
           },
         ]}
       >
@@ -38,8 +39,8 @@ export default GenderCircle;
 
 const styles = StyleSheet.create({
   wrapper: {
-    flexDirection: "column",
-    alignItems: "center",
+    flexDirection: 'column',
+    alignItems: 'center',
   },
   circle: {
     borderRadius: 40,

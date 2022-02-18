@@ -1,6 +1,5 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
-import NotifRow from "./NotifRow";
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
 
 import {
   EMAIL_DESC,
@@ -9,7 +8,8 @@ import {
   SMS_LABEL,
   UNREAD_DESC,
   UNREAD_LABEL,
-} from "../../constants/strings";
+} from '../../constants/strings';
+import NotifRow from './NotifRow';
 
 // TODO: Make a custom hook to return the translated labels
 // * need all the translated labels/descriptions first

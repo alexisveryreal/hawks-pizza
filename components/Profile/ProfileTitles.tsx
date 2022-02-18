@@ -1,15 +1,13 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import React, { useState } from "react";
-import LabeledInput from "./LabeledInput";
+import React, { useState } from 'react';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { useRecoilValue } from 'recoil';
 
-import { useRecoilState, useRecoilValue } from "recoil";
-import GenderSelection from "./GenderSelection";
-import { useColors } from "../../hooks/useColors";
-import profileState from "../../atoms/profileAtom";
-
-import arrayUtils from "../../utils/arrayUtils";
-import { Genders, Profile } from "../../types/profileTypes";
-import useUpdateProfile from "../../hooks/useUpdateProfile";
+import profileState from '../../atoms/profileAtom';
+import { useColors } from '../../hooks/useColors';
+import useUpdateProfile from '../../hooks/useUpdateProfile';
+import { Genders } from '../../types/profileTypes';
+import GenderSelection from './GenderSelection';
+import LabeledInput from './LabeledInput';
 
 const ProfileTitles = () => {
   const profile = useRecoilValue(profileState);
@@ -19,7 +17,7 @@ const ProfileTitles = () => {
 
   const { colors } = useColors();
 
-  const { isLoading, updateProfile } = useUpdateProfile();
+  const { updateProfile } = useUpdateProfile();
 
   const handleChangeUsername = (text: string) => {
     setTempProfile({ ...tempProfile, username: text });
@@ -34,7 +32,7 @@ const ProfileTitles = () => {
   };
 
   const handleSubmitChanges = () => {
-    console.log("Updating current profile changes: ", tempProfile);
+    console.log('Updating current profile changes: ', tempProfile);
     updateProfile({ ...tempProfile });
   };
 
@@ -49,7 +47,7 @@ const ProfileTitles = () => {
         </Text>
         <View style={styles.titleWrapper}>
           <Image
-            source={require("../../assets/images/profile.png")}
+            source={require('../../assets/images/profile.png')}
             style={styles.profileImage}
           />
           <Text style={[styles.uploadText, { color: colors.secondary }]}>
@@ -88,30 +86,30 @@ const styles = StyleSheet.create({
   profileText: {
     paddingHorizontal: 20,
     fontSize: 32,
-    fontFamily: "Montserrat_700Bold",
+    fontFamily: 'Montserrat_700Bold',
     paddingTop: 30,
   },
   photoWrapper: {
-    flexDirection: "row",
-    justifyContent: "flex-start",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
     // borderWidth: 1,
   },
   photoText: {
     fontSize: 14,
-    fontFamily: "Montserrat_500Medium",
+    fontFamily: 'Montserrat_500Medium',
     paddingHorizontal: 20,
     // borderWidth: 1,
   },
   titleFormat: {
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   titleWrapper: {
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
     paddingVertical: 30,
     // borderWidth: 1,
     flex: 1,
@@ -123,7 +121,7 @@ const styles = StyleSheet.create({
   },
   uploadText: {
     fontSize: 16,
-    fontFamily: "Montserrat_600SemiBold",
+    fontFamily: 'Montserrat_600SemiBold',
     paddingTop: 25,
   },
   saveWrapper: {
@@ -131,12 +129,12 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     borderRadius: 50,
     paddingVertical: 25,
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   saveText: {
-    fontFamily: "Montserrat_700Bold",
+    fontFamily: 'Montserrat_700Bold',
     fontSize: 14,
   },
 });

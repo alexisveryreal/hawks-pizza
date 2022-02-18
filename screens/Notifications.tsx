@@ -1,17 +1,17 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
-import colors from "../assets/colors/colors";
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
 
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { RootStackParamList } from "../navigation/NavigationRoot";
-import BackButton from "../components/BackButton";
-import { NotificationRows, NotificationTitle } from "../components";
+import colors from '../assets/colors/colors';
+import { NotificationRows, NotificationTitle } from '../components';
+import BackButton from '../components/BackButton';
+import { RootStackParamList } from '../navigation/NavigationRoot';
 
 type NotificationsScreenProps = NativeStackScreenProps<
   RootStackParamList,
-  "Notifications"
+  'Notifications'
 >;
-export type NotificationNavigation = NotificationsScreenProps["navigation"];
+export type NotificationNavigation = NotificationsScreenProps['navigation'];
 
 const Notifications = ({ navigation, route }: NotificationsScreenProps) => {
   return (
