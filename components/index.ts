@@ -35,3 +35,8 @@ export { default as NotificationRows } from './Notifications/NotificationRows';
 // Help Components
 export { default as HelpTitle } from './Help/HelpTitle';
 export { default as HelpRows } from './Help/HelpRows';
+
+// DetailSoda Components
+export { default as DSHeader } from './DetailSoda/DetailSodaHeader';
+export { default as DSTitle } from './DetailSoda/DetailSodaTitle';
+export { default as SodaInfo } from './DetailSoda/SodaInfo';

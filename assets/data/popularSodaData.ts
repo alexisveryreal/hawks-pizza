@@ -35,7 +35,7 @@ const popularSodaData: PopularSodaData[] = [
     image: require('../images/squirt.png'),
     title: 'Squirt',
     rating: '5.0',
-    price: 1.0,
+    price: 1.23,
     sizeName: 'Medium',
     sizeNumber: '32oz',
     deliveryTime: 30,
