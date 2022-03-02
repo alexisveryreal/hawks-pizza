@@ -3,7 +3,7 @@ import React from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import { PopularSodaData } from '../../assets/data/popularSodaData';
-import { SEMI } from '../../constants/strings';
+import { MEDIUM, SEMI } from '../../constants/strings';
 import { useColors } from '../../hooks/useColors';
 import { HomeScreenNavigation } from '../../screens/Home';
 
@@ -18,7 +18,9 @@ type PopularSodaCardProps = {
 const PopularSodaCard = ({ navigation, item }: PopularSodaCardProps) => {
   const { colors } = useColors();
   return (
-    <TouchableOpacity onPress={() => console.log('Pressed on: ', item.title)}>
+    <TouchableOpacity
+      onPress={() => navigation.navigate('DetailSoda', { item })}
+    >
       <View
         style={[
           styles.cardWrapper,
@@ -42,6 +44,9 @@ const PopularSodaCard = ({ navigation, item }: PopularSodaCardProps) => {
             <View style={styles.titlesWrapper}>
               <Text style={[styles.titlesText, { color: colors.textDark }]}>
                 {item.title}
+              </Text>
+              <Text style={[styles.titleSize, { color: colors.textLight }]}>
+                {item.sizeNumber}
               </Text>
             </View>
           </View>
@@ -104,6 +109,11 @@ const styles = StyleSheet.create({
   titlesText: {
     fontFamily: SEMI,
     fontSize: 14,
+  },
+  titleSize: {
+    fontFamily: MEDIUM,
+    fontSize: 12,
+    marginTop: 5,
   },
   cardBottom: {
     flexDirection: 'row',

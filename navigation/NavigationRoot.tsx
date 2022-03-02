@@ -4,9 +4,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 
 import { PopularData } from '../assets/data/popularData';
-
-/* Screens */
 import { PopularSodaData } from '../assets/data/popularSodaData';
+/* Screens */
 import {
   Home,
   Details,
@@ -15,16 +14,18 @@ import {
   Help,
   Language,
   Notifications,
+  DetailSoda,
 } from '../screens';
 
 export type RootStackParamList = {
   Home: undefined;
-  Details: { item: PopularData | PopularSodaData };
+  Details: { item: PopularData };
   Profile: undefined;
   Settings: undefined;
   Language: undefined;
   Notifications: undefined;
   Help: undefined;
+  DetailSoda: { item: PopularSodaData };
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -66,6 +67,11 @@ const NavigationRoot = () => {
         <Stack.Screen
           name="Help"
           component={Help}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="DetailSoda"
+          component={DetailSoda}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

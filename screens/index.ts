@@ -5,3 +5,4 @@ export { default as Settings } from './Settings';
 export { default as Language } from './Language';
 export { default as Notifications } from './Notifications';
 export { default as Help } from './Help';
+export { default as DetailSoda } from './DetailSoda';
