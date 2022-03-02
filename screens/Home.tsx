@@ -11,7 +11,6 @@ import React from 'react';
 import { StyleSheet, View, ScrollView } from 'react-native';
 import { useRecoilState } from 'recoil';
 
-import colors from '../assets/colors/colors';
 import popularData from '../assets/data/popularData';
 import popularSodaData from '../assets/data/popularSodaData';
 import popularState from '../atoms/popularAtom';
@@ -22,6 +21,7 @@ import {
   Categories,
   Popular,
 } from '../components';
+import { useColors } from '../hooks/useColors';
 import { RootStackParamList } from '../navigation/NavigationRoot';
 
 export type HomeScreenProps = NativeStackScreenProps<
@@ -55,12 +55,14 @@ const Home = ({ navigation, route }: HomeScreenProps) => {
     popularDataState.data !== popularData &&
     popularDataState.data !== popularSodaData;
 
+  const { colors } = useColors();
+
   if (!fontsLoaded) {
     return <AppLoading />;
   }
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: colors.background }]}>
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         showsVerticalScrollIndicator={false}
@@ -84,6 +86,5 @@ export default Home;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.background,
   },
 });

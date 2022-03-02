@@ -13,6 +13,7 @@ import popularData from '../../assets/data/popularData';
 import popularSodaData from '../../assets/data/popularSodaData';
 import categoryState from '../../atoms/categoriesAtom';
 import popularState from '../../atoms/popularAtom';
+import { useColors } from '../../hooks/useColors';
 import arrayUtils from '../../utils/arrayUtils';
 import CatgoryItem from './CatgoryItem';
 
@@ -20,6 +21,8 @@ const Categories = () => {
   const [categoryStateData, setCategoryStateData] =
     useRecoilState(categoryState);
   const [popularStateData, setPopularStateData] = useRecoilState(popularState);
+
+  const { colors } = useColors();
 
   console.log('Popular state Data: ', popularStateData);
 
@@ -58,7 +61,9 @@ const Categories = () => {
   };
   return (
     <View style={styles.categoriesWrapper}>
-      <Text style={styles.categoriesTitle}>Categories</Text>
+      <Text style={[styles.categoriesTitle, { color: colors.textDark }]}>
+        Categories
+      </Text>
       <View style={styles.categoriesListWrapper}>
         <FlatList
           data={categoryStateData}

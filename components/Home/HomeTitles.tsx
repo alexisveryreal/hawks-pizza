@@ -1,13 +1,16 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-import colors from '../../assets/colors/colors';
+import { useColors } from '../../hooks/useColors';
 
 const HomeTitles = () => {
+  const { colors } = useColors();
   return (
     <View style={styles.titleWrapper}>
-      <Text style={styles.subTitle}>Food</Text>
-      <Text style={styles.mainTitle}>Delivery</Text>
+      <Text style={[styles.subTitle, { color: colors.textDark }]}>Food</Text>
+      <Text style={[styles.mainTitle, { color: colors.textDark }]}>
+        Delivery
+      </Text>
     </View>
   );
 };
@@ -22,11 +25,9 @@ const styles = StyleSheet.create({
   subTitle: {
     fontFamily: 'Montserrat_400Regular',
     fontSize: 16,
-    color: colors.textDark,
   },
   mainTitle: {
     fontFamily: 'Montserrat_700Bold',
     fontSize: 32,
-    color: colors.textDark,
   },
 });

@@ -3,10 +3,10 @@ import { Feather } from '@expo/vector-icons';
 import React, { useState } from 'react';
 import { StyleSheet, View, TextInput } from 'react-native';
 
-import colors from '../../assets/colors/colors';
 import popularData from '../../assets/data/popularData';
 import popularSodaData from '../../assets/data/popularSodaData';
 import { PopularTypes } from '../../atoms/popularAtom';
+import { useColors } from '../../hooks/useColors';
 
 type SearchProps = {
   originalPopular: PopularTypes;
@@ -15,6 +15,7 @@ type SearchProps = {
 
 const Search = ({ originalPopular, setFilteredData }: SearchProps) => {
   const [filter, setFilter] = useState('');
+  const { colors } = useColors();
 
   const filterChangeHandler = (text: string) => {
     if (text === '') {
@@ -48,9 +49,9 @@ const Search = ({ originalPopular, setFilteredData }: SearchProps) => {
   return (
     <View style={styles.searchWrapper}>
       <Feather name="search" size={16} color={colors.textDark} />
-      <View style={styles.search}>
+      <View style={[styles.search, { borderBottomColor: colors.textLight }]}>
         <TextInput
-          style={styles.searchText}
+          style={[styles.searchText, { color: colors.textLight }]}
           placeholder="Search"
           placeholderTextColor={colors.textLight}
           value={filter}
@@ -75,13 +76,11 @@ const styles = StyleSheet.create({
   search: {
     flex: 1,
     marginLeft: 10,
-    borderBottomColor: colors.textLight,
     borderBottomWidth: 2,
   },
   searchText: {
     fontFamily: 'Montserrat_600SemiBold',
     fontSize: 14,
     marginBottom: 5,
-    color: colors.textLight,
   },
 });

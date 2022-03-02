@@ -2,8 +2,9 @@ import { MaterialCommunityIcons, Feather } from '@expo/vector-icons';
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 
-import colors from '../../assets/colors/colors';
+// import colors from '../../assets/colors/colors';
 import { PopularData } from '../../assets/data/popularData';
+import { useColors } from '../../hooks/useColors';
 import { HomeScreenNavigation } from '../../screens/Home';
 
 type PopularCardProps = {
@@ -12,6 +13,8 @@ type PopularCardProps = {
 };
 
 const PopularCard = ({ item, navigation }: PopularCardProps) => {
+  const { colors } = useColors();
+
   return (
     <TouchableOpacity
       key={item.id}
@@ -26,6 +29,8 @@ const PopularCard = ({ item, navigation }: PopularCardProps) => {
           styles.popularCardWrapper,
           {
             marginTop: item.id === '1' ? 10 : 20,
+            backgroundColor: colors.white,
+            shadowColor: colors.black,
           },
         ]}
       >
@@ -40,14 +45,28 @@ const PopularCard = ({ item, navigation }: PopularCardProps) => {
               <Text style={styles.popularTopText}>top of the week</Text>
             </View>
             <View style={styles.popularTitlesWrapper}>
-              <Text style={styles.popularTitlesTitle}>{item.title}</Text>
-              <Text style={styles.popularTitlesWeight}>
+              <Text
+                style={[styles.popularTitlesTitle, { color: colors.textDark }]}
+              >
+                {item.title}
+              </Text>
+              <Text
+                style={[
+                  styles.popularTitlesWeight,
+                  { color: colors.textLight },
+                ]}
+              >
                 Weight {item.weight}
               </Text>
             </View>
           </View>
           <View style={styles.popularCardBottom}>
-            <View style={styles.addPizzaButton}>
+            <View
+              style={[
+                styles.addPizzaButton,
+                { backgroundColor: colors.primary },
+              ]}
+            >
               <Feather name="plus" size={10} color={colors.textDark} />
             </View>
             <View style={styles.ratingWrapper}>
@@ -56,7 +75,9 @@ const PopularCard = ({ item, navigation }: PopularCardProps) => {
                 size={10}
                 color={colors.textDark}
               />
-              <Text style={styles.rating}>{item.rating}</Text>
+              <Text style={[styles.rating, { color: colors.textDark }]}>
+                {item.rating}
+              </Text>
             </View>
           </View>
         </View>
@@ -72,13 +93,11 @@ export default PopularCard;
 
 const styles = StyleSheet.create({
   popularCardWrapper: {
-    backgroundColor: colors.white,
     borderRadius: 25,
     paddingTop: 20,
     paddingLeft: 20,
     flexDirection: 'row',
     overflow: 'hidden',
-    shadowColor: colors.black,
     shadowOffset: {
       width: 0,
       height: 2,
@@ -102,12 +121,10 @@ const styles = StyleSheet.create({
   popularTitlesTitle: {
     fontFamily: 'Montserrat_600SemiBold',
     fontSize: 14,
-    color: colors.textDark,
   },
   popularTitlesWeight: {
     fontFamily: 'Montserrat_500Medium',
     fontSize: 12,
-    color: colors.textLight,
     marginTop: 5,
   },
   popularCardBottom: {
@@ -117,7 +134,6 @@ const styles = StyleSheet.create({
     marginLeft: -20,
   },
   addPizzaButton: {
-    backgroundColor: colors.primary,
     paddingHorizontal: 40,
     paddingVertical: 20,
     borderTopRightRadius: 25,
@@ -131,7 +147,6 @@ const styles = StyleSheet.create({
   rating: {
     fontFamily: 'Montserrat_600SemiBold',
     fontSize: 12,
-    color: colors.textDark,
     marginLeft: 5,
   },
   popularCardRight: {

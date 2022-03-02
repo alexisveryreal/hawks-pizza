@@ -2,8 +2,8 @@ import { Feather } from '@expo/vector-icons';
 import React from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-import colors from '../../assets/colors/colors';
 import { CategoriesObj } from '../../assets/data/categoriesData';
+import { useColors } from '../../hooks/useColors';
 
 type CategoryItemProps = {
   item: CategoriesObj;
@@ -11,6 +11,7 @@ type CategoryItemProps = {
 };
 
 const CatgoryItem = ({ item, onPress }: CategoryItemProps) => {
+  const { colors } = useColors();
   return (
     <TouchableOpacity disabled={item.selected} onPress={() => onPress(item.id)}>
       <View
@@ -19,11 +20,14 @@ const CatgoryItem = ({ item, onPress }: CategoryItemProps) => {
           {
             backgroundColor: item.selected ? colors.primary : colors.white,
             marginLeft: item.id === '1' ? 20 : 0,
+            shadowColor: colors.black,
           },
         ]}
       >
         <Image source={item.image} style={styles.categoryItemImage} />
-        <Text style={styles.categoryItemTitle}>{item.title}</Text>
+        <Text style={[styles.categoryItemTitle, { color: colors.textDark }]}>
+          {item.title}
+        </Text>
         <View
           style={[
             styles.categorySelectWrapper,
@@ -51,7 +55,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5CA48',
     borderRadius: 20,
     marginRight: 20,
-    shadowColor: colors.black,
     shadowOffset: {
       width: 0,
       height: 2,

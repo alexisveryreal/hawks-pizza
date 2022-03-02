@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 import { PopularTypes } from '../../atoms/popularAtom';
+import { useColors } from '../../hooks/useColors';
 import { HomeScreenNavigation } from '../../screens/Home';
 import PopularCard from './PopularCard';
 import PopularSodaCard from './PopularSodaCard';
@@ -12,9 +13,12 @@ type PopularProps = {
 };
 
 const Popular = ({ navigation, popularData }: PopularProps) => {
+  const { colors } = useColors();
   return (
     <View style={styles.popularWrapper}>
-      <Text style={styles.popularTitle}>Popular</Text>
+      <Text style={[styles.popularTitle, { color: colors.textDark }]}>
+        Popular
+      </Text>
 
       {popularData.kind === 'Pizza'
         ? popularData.data.map((item) => (
