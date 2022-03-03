@@ -24,7 +24,7 @@ const Categories = () => {
 
   const { colors } = useColors();
 
-  console.log('Popular state Data: ', popularStateData);
+  // console.log('Popular state Data: ', popularStateData);
 
   const handlePopularState = (name: string) => {
     switch (name) {

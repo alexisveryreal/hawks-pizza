@@ -41,15 +41,7 @@ const Home = ({ navigation, route }: HomeScreenProps) => {
 
   const [popularDataState, setPopularDataState] = useRecoilState(popularState);
 
-  console.log('HOme PopuldateDataState: ', popularDataState);
-
-  // const [popular] = useState<PopularTypes>(popularState);
-  // const [filteredData, setFilteredData] =
-  //   useState<PopularTypes>(popularDataState);
-  // console.log("POPULAR: ", popular);
-  // console.log("FILTERED: ", filteredData);
-  // const hasFiltered = filteredData !== popular;
-  // console.log(hasFiltered);
+  // console.log('HOme PopuldateDataState: ', popularDataState);
 
   const hasFiltered =
     popularDataState.data !== popularData &&
