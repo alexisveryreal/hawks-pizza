@@ -11,4 +11,4 @@ export const MEDIUM = 'Montserrat_500Medium';
 export const SEMI = 'Montserrat_600SemiBold';
 export const BOLD = 'Montserrat_700Bold';
 
-export const BASE_URL = 'http://192.168.0.18:3000';
+export const BASE_URL = 'https://hawks-api.alexisveryreal.com';

@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 
 import { useColors } from '../../hooks/useColors';
-
 // import colors from '../../assets/colors/colors';
 import useProfile from '../../hooks/useProfile';
 import { HomeScreenNavigation } from '../../screens/Home';
@@ -13,7 +12,7 @@ type HomeHeaderProps = {
 };
 
 const HomeHeader = ({ navigation }: HomeHeaderProps) => {
-  const { getProfile, isLoading } = useProfile('620c7ed6abdcc54ef6d2f01f');
+  const { getProfile, isLoading } = useProfile('62365f07c831eed8ddb17c52');
   const { colors } = useColors();
 
   useEffect(() => {
