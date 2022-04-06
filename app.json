@@ -4,7 +4,7 @@
     "slug": "hawks-pizza",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/images/logo.png",
     "splash": {
       "image": "./assets/images/Splash.png",
       "resizeMode": "contain",
@@ -23,10 +23,13 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.regretfulmelody.hawkspizza"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "React Native Food App Design Concept",
+    "githubUrl": "https://github.com/alexisveryreal/hawks-pizza"
   }
 }
