@@ -6,6 +6,14 @@
   </a>
 </p>
 
+<br>
+<p align="center">
+  <a href="https://github.com/alexisveryreal">
+    <img width="500" src="./assets/images/logo.png" alt="Hawks Pizza Logo">
+  </a>
+</p>
+<br>
+
 > Expo React Native Food Delivery App
 
 ## Install
