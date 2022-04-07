@@ -28,6 +28,8 @@ yarn install
 yarn run start
 ```
 
+* If you have the [Expo](https://expo.dev/expo-go) app you can try the app [here](https://expo.dev/@regretfulmelody/hawks-pizza)
+
 ## Author
 
 👤 **Alexis Villarreal**
