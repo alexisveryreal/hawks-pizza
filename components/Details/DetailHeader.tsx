@@ -17,7 +17,7 @@ const DetailHeader = ({ navigation }: DetailHeaderProps) => {
       <View style={styles.headerWrapper}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <View style={styles.headerLeft}>
-            <Feather name="chevron-left" size={12} color={colors.textDark} />
+            <Feather name="chevron-left" size={15} color={colors.textDark} />
           </View>
         </TouchableOpacity>
         <View style={styles.headerRight}>

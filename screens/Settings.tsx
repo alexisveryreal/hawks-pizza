@@ -1,6 +1,7 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRecoilValue } from 'recoil';
 
 import { darkModeState } from '../atoms/darkModeAtom';
@@ -27,40 +28,47 @@ const Settings = ({ navigation }: SettingsScreenProps) => {
   const { colors } = useColors();
 
   return (
-    <View style={[styles.container, { backgroundColor: colors.background }]}>
-      <BackButton navigation={navigation} />
-      <SettingsTitle />
-      <SettingProfile navigation={navigation} />
-      <SettingAppTitle />
-      <SettingRow
-        mainLabel="Language"
-        iconName="earth-sharp"
-        isSwitch={false}
-        subLabel="English"
-        navigation={navigation}
-        screenName="Language"
-      />
-      <SettingRow
-        mainLabel="Notifications"
-        iconName="notifications-sharp"
-        isSwitch={false}
-        navigation={navigation}
-        screenName="Notifications"
-      />
-      <SettingRow
-        mainLabel="Dark Mode"
-        iconName="moon-sharp"
-        isSwitch
-        subLabel={isDarkModeOn}
-      />
-      <SettingRow
-        mainLabel="Help"
-        iconName="help-circle"
-        isSwitch={false}
-        navigation={navigation}
-        screenName="Help"
-      />
-    </View>
+    <SafeAreaView
+      style={[styles.container, { backgroundColor: colors.background }]}
+    >
+      <ScrollView
+        contentInsetAdjustmentBehavior="automatic"
+        showsVerticalScrollIndicator={false}
+      >
+        <BackButton navigation={navigation} />
+        <SettingsTitle />
+        <SettingProfile navigation={navigation} />
+        <SettingAppTitle />
+        <SettingRow
+          mainLabel="Language"
+          iconName="earth-sharp"
+          isSwitch={false}
+          subLabel="English"
+          navigation={navigation}
+          screenName="Language"
+        />
+        <SettingRow
+          mainLabel="Notifications"
+          iconName="notifications-sharp"
+          isSwitch={false}
+          navigation={navigation}
+          screenName="Notifications"
+        />
+        <SettingRow
+          mainLabel="Dark Mode"
+          iconName="moon-sharp"
+          isSwitch
+          subLabel={isDarkModeOn}
+        />
+        <SettingRow
+          mainLabel="Help"
+          iconName="help-circle"
+          isSwitch={false}
+          navigation={navigation}
+          screenName="Help"
+        />
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 

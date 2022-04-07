@@ -8,7 +8,8 @@ import {
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import AppLoading from 'expo-app-loading';
 import React from 'react';
-import { StyleSheet, View, ScrollView } from 'react-native';
+import { StyleSheet, ScrollView } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRecoilState } from 'recoil';
 
 import popularData from '../assets/data/popularData';
@@ -54,7 +55,9 @@ const Home = ({ navigation, route }: HomeScreenProps) => {
   }
 
   return (
-    <View style={[styles.container, { backgroundColor: colors.background }]}>
+    <SafeAreaView
+      style={[styles.container, { backgroundColor: colors.background }]}
+    >
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         showsVerticalScrollIndicator={false}
@@ -69,7 +72,7 @@ const Home = ({ navigation, route }: HomeScreenProps) => {
         {!hasFiltered && <Categories />}
         <Popular popularData={popularDataState} navigation={navigation} />
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 };
 

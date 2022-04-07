@@ -19,7 +19,8 @@ export default PlaceOrderButton;
 
 const styles = StyleSheet.create({
   orderWrapper: {
-    marginTop: 60,
+    marginTop: 30,
+    marginBottom: 30,
     marginHorizontal: 20,
     backgroundColor: colors.primary,
     borderRadius: 50,

@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { HelpRows, HelpTitle } from '../components';
 import BackButton from '../components/BackButton';
@@ -10,11 +11,13 @@ const Help = ({ navigation, route }: HelpScreenProps) => {
   const { colors } = useColors();
 
   return (
-    <View style={[styles.container, { backgroundColor: colors.background }]}>
+    <SafeAreaView
+      style={[styles.container, { backgroundColor: colors.background }]}
+    >
       <BackButton navigation={navigation} />
       <HelpTitle />
       <HelpRows />
-    </View>
+    </SafeAreaView>
   );
 };
 

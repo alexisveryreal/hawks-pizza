@@ -1,6 +1,6 @@
 import { Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
 
 import { useColors } from '../../hooks/useColors';
 import { DetailSodaScreenNav } from '../../screens/DetailSoda';
@@ -15,7 +15,7 @@ const DetailSodaHeader = ({ navigation }: DetailSodaHeaderProps) => {
     <View style={styles.headerWrapper}>
       <TouchableOpacity onPress={() => navigation.goBack()}>
         <View style={[styles.headerLeft, { borderColor: colors.textLight }]}>
-          <Feather name="chevron-left" size={12} color={colors.textDark} />
+          <Feather name="chevron-left" size={15} color={colors.textDark} />
         </View>
       </TouchableOpacity>
       <View

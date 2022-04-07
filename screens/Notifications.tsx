@@ -1,6 +1,7 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 import colors from '../assets/colors/colors';
 import { NotificationRows, NotificationTitle } from '../components';
@@ -15,11 +16,11 @@ export type NotificationNavigation = NotificationsScreenProps['navigation'];
 
 const Notifications = ({ navigation, route }: NotificationsScreenProps) => {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <BackButton navigation={navigation} />
       <NotificationTitle />
       <NotificationRows />
-    </View>
+    </SafeAreaView>
   );
 };
 

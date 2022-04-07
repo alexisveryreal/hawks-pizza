@@ -1,6 +1,7 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { DSHeader, DSTitle, PlaceOrderButton, SodaInfo } from '../components';
 import { useColors } from '../hooks/useColors';
@@ -17,12 +18,14 @@ const DetailSoda = ({ navigation, route }: DetailSodaScreenProps) => {
   const { colors } = useColors();
   const { item } = route.params;
   return (
-    <View style={[styles.container, { backgroundColor: colors.background }]}>
+    <SafeAreaView
+      style={[styles.container, { backgroundColor: colors.background }]}
+    >
       <DSHeader navigation={navigation} />
       <DSTitle item={item} />
       <SodaInfo item={item} />
       <PlaceOrderButton />
-    </View>
+    </SafeAreaView>
   );
 };
 

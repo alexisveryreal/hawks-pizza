@@ -24,7 +24,7 @@ const BackButton = ({ navigation }: BackButtonProps) => {
     <View style={styles.backButtonWrapper}>
       <TouchableOpacity onPress={() => navigation.goBack()}>
         <View style={[styles.backButton, { borderColor: colors.textLight }]}>
-          <Feather name="chevron-left" size={12} color={colors.textDark} />
+          <Feather name="chevron-left" size={15} color={colors.textDark} />
         </View>
       </TouchableOpacity>
     </View>
