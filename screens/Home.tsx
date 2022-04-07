@@ -7,7 +7,7 @@ import {
 } from '@expo-google-fonts/montserrat';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import AppLoading from 'expo-app-loading';
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRecoilState } from 'recoil';
@@ -41,12 +41,14 @@ const Home = ({ navigation, route }: HomeScreenProps) => {
   });
 
   const [popularDataState, setPopularDataState] = useRecoilState(popularState);
+  const [notFound, setNotFound] = useState(false);
 
   // console.log('HOme PopuldateDataState: ', popularDataState);
 
   const hasFiltered =
-    popularDataState.data !== popularData &&
-    popularDataState.data !== popularSodaData;
+    (popularDataState.data !== popularData &&
+      popularDataState.data !== popularSodaData) ||
+    notFound;
 
   const { colors } = useColors();
 
@@ -67,10 +69,15 @@ const Home = ({ navigation, route }: HomeScreenProps) => {
         <Search
           originalPopular={popularDataState}
           setFilteredData={setPopularDataState}
+          setNotFound={setNotFound}
         />
 
         {!hasFiltered && <Categories />}
-        <Popular popularData={popularDataState} navigation={navigation} />
+        <Popular
+          popularData={popularDataState}
+          navigation={navigation}
+          notFound={notFound}
+        />
       </ScrollView>
     </SafeAreaView>
   );

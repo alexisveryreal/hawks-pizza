@@ -1,6 +1,6 @@
 /* eslint-disable no-case-declarations */
 import { Feather } from '@expo/vector-icons';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { StyleSheet, View, TextInput } from 'react-native';
 
 import popularData from '../../assets/data/popularData';
@@ -11,13 +11,20 @@ import { useColors } from '../../hooks/useColors';
 type SearchProps = {
   originalPopular: PopularTypes;
   setFilteredData: React.Dispatch<React.SetStateAction<PopularTypes>>;
+  setNotFound: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const Search = ({ originalPopular, setFilteredData }: SearchProps) => {
+const Search = ({
+  originalPopular,
+  setFilteredData,
+  setNotFound,
+}: SearchProps) => {
   const [filter, setFilter] = useState('');
   const { colors } = useColors();
+  const searchLength = useRef(0);
 
   const filterChangeHandler = (text: string) => {
+    console.log(text);
     if (text === '') {
       console.log('Setting original data');
       if (originalPopular.kind === 'Pizza') {
@@ -25,22 +32,53 @@ const Search = ({ originalPopular, setFilteredData }: SearchProps) => {
       } else {
         setFilteredData({ kind: 'Soda', data: popularSodaData });
       }
+      setNotFound(false);
       setFilter('');
+      searchLength.current = 0;
     } else {
       switch (originalPopular.kind) {
         case 'Pizza':
-          const tempFilter = originalPopular.data.filter((value) =>
-            value.title.includes(text),
-          );
-          setFilteredData({ kind: 'Pizza', data: tempFilter });
+          if (text.length <= searchLength.current) {
+            const temp = popularData.filter((value) =>
+              value.title.includes(text),
+            );
+            setFilteredData({ kind: 'Pizza', data: temp });
+            setNotFound(false);
+          } else {
+            const tempFilter = originalPopular.data.filter((value) =>
+              value.title.includes(text),
+            );
+            if (tempFilter.length !== 0) {
+              setFilteredData({ kind: 'Pizza', data: tempFilter });
+              setNotFound(false);
+            } else {
+              setNotFound(true);
+            }
+          }
           setFilter(text);
+          searchLength.current = text.length;
           break;
         case 'Soda':
-          const tempSodaFilter = originalPopular.data.filter((value) =>
-            value.title.includes(text),
-          );
-          setFilteredData({ kind: 'Soda', data: tempSodaFilter });
+          if (text.length <= searchLength.current) {
+            const temp = popularSodaData.filter((value) =>
+              value.title.includes(text),
+            );
+            setFilteredData({ kind: 'Soda', data: temp });
+            setNotFound(false);
+          } else {
+            const tempSodaFilter = originalPopular.data.filter((value) =>
+              value.title.includes(text),
+            );
+            if (tempSodaFilter.length !== 0) {
+              setFilteredData({ kind: 'Soda', data: tempSodaFilter });
+              setNotFound(false);
+            } else {
+              setNotFound(true);
+            }
+          }
+
           setFilter(text);
+          searchLength.current = text.length;
           break;
       }
     }
@@ -58,7 +96,6 @@ const Search = ({ originalPopular, setFilteredData }: SearchProps) => {
           onChangeText={(text) => filterChangeHandler(text)}
           autoCapitalize="words"
         />
-        {/* <Text style={styles.searchText}>Search</Text> */}
       </View>
     </View>
   );

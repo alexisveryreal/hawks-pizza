@@ -10,29 +10,30 @@ import PopularSodaCard from './PopularSodaCard';
 type PopularProps = {
   navigation: HomeScreenNavigation;
   popularData: PopularTypes;
+  notFound: boolean;
 };
 
-const Popular = ({ navigation, popularData }: PopularProps) => {
+const Popular = ({ navigation, popularData, notFound }: PopularProps) => {
   const { colors } = useColors();
   return (
     <View style={styles.popularWrapper}>
       <Text style={[styles.popularTitle, { color: colors.textDark }]}>
         Popular
       </Text>
+      {!notFound &&
+        (popularData.kind === 'Pizza'
+          ? popularData.data.map((item) => (
+              <PopularCard item={item} navigation={navigation} key={item.id} />
+            ))
+          : popularData.data.map((item) => (
+              <PopularSodaCard
+                item={item}
+                navigation={navigation}
+                key={item.id}
+              />
+            )))}
 
-      {popularData.kind === 'Pizza'
-        ? popularData.data.map((item) => (
-            <PopularCard item={item} navigation={navigation} key={item.id} />
-          ))
-        : popularData.data.map((item) => (
-            <PopularSodaCard
-              item={item}
-              navigation={navigation}
-              key={item.id}
-            />
-          ))}
-
-      {popularData.data.length === 0 && <Text>Item not found :(</Text>}
+      {notFound && <Text>Item not found :(</Text>}
     </View>
   );
 };
