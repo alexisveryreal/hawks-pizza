@@ -40,13 +40,13 @@ const Search = ({
         case 'Pizza':
           if (text.length <= searchLength.current) {
             const temp = popularData.filter((value) =>
-              value.title.includes(text),
+              value.title.toLowerCase().includes(text.toLocaleLowerCase()),
             );
             setFilteredData({ kind: 'Pizza', data: temp });
             setNotFound(false);
           } else {
             const tempFilter = originalPopular.data.filter((value) =>
-              value.title.includes(text),
+              value.title.toLowerCase().includes(text.toLowerCase()),
             );
             if (tempFilter.length !== 0) {
               setFilteredData({ kind: 'Pizza', data: tempFilter });
@@ -61,13 +61,13 @@ const Search = ({
         case 'Soda':
           if (text.length <= searchLength.current) {
             const temp = popularSodaData.filter((value) =>
-              value.title.includes(text),
+              value.title.toLowerCase().includes(text.toLowerCase()),
             );
             setFilteredData({ kind: 'Soda', data: temp });
             setNotFound(false);
           } else {
             const tempSodaFilter = originalPopular.data.filter((value) =>
-              value.title.includes(text),
+              value.title.toLowerCase().includes(text.toLowerCase()),
             );
             if (tempSodaFilter.length !== 0) {
               setFilteredData({ kind: 'Soda', data: tempSodaFilter });
