@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 import colors from '../../assets/colors/colors';
+import { useColors } from '../../hooks/useColors';
 
 type PizzaInfoTextProps = {
   title: string;
@@ -9,10 +10,15 @@ type PizzaInfoTextProps = {
 };
 
 const PizzaInfoText = ({ title, text }: PizzaInfoTextProps) => {
+  const { colors } = useColors();
   return (
     <View style={styles.infoItemWrapper}>
-      <Text style={styles.infoItemTitle}>{title}</Text>
-      <Text style={styles.infoItemText}>{text}</Text>
+      <Text style={[styles.infoItemTitle, { color: colors.textLight }]}>
+        {title}
+      </Text>
+      <Text style={[styles.infoItemText, { color: colors.textDark }]}>
+        {text}
+      </Text>
     </View>
   );
 };

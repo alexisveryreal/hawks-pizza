@@ -3,11 +3,12 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-import colors from '../../assets/colors/colors';
+import { useColors } from '../../hooks/useColors';
 import { LANGUAGE_CODES } from '../../translations/i18n';
 
 const LanguageSelect = () => {
   const { i18n, t } = useTranslation();
+  const { colors } = useColors();
 
   const handleText = (language: string) => {
     let text = '';
@@ -32,7 +33,9 @@ const LanguageSelect = () => {
     <View style={styles.selectWrapper}>
       {LANGUAGE_CODES.map((lang) => (
         <View style={styles.languageRow} key={lang}>
-          <Text style={styles.languageText}>{handleText(lang)}</Text>
+          <Text style={[styles.languageText, { color: colors.textDark }]}>
+            {handleText(lang)}
+          </Text>
           <TouchableOpacity onPress={() => i18n.changeLanguage(lang)}>
             {lang === i18n.language ? (
               <MaterialCommunityIcons
@@ -70,6 +73,5 @@ const styles = StyleSheet.create({
   languageText: {
     fontSize: 14,
     fontFamily: 'Montserrat_600SemiBold',
-    color: colors.textDark,
   },
 });

@@ -6,6 +6,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import colors from '../assets/colors/colors';
 import { NotificationRows, NotificationTitle } from '../components';
 import BackButton from '../components/BackButton';
+import { useColors } from '../hooks/useColors';
 import { RootStackParamList } from '../navigation/NavigationRoot';
 
 type NotificationsScreenProps = NativeStackScreenProps<
@@ -15,8 +16,11 @@ type NotificationsScreenProps = NativeStackScreenProps<
 export type NotificationNavigation = NotificationsScreenProps['navigation'];
 
 const Notifications = ({ navigation, route }: NotificationsScreenProps) => {
+  const { colors } = useColors();
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView
+      style={[styles.container, { backgroundColor: colors.background }]}
+    >
       <BackButton navigation={navigation} />
       <NotificationTitle />
       <NotificationRows />
@@ -27,5 +31,5 @@ const Notifications = ({ navigation, route }: NotificationsScreenProps) => {
 export default Notifications;
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.background },
+  container: { flex: 1 },
 });

@@ -11,6 +11,7 @@ import {
   ShowMore,
 } from '../components';
 import BackButton from '../components/BackButton';
+import { useColors } from '../hooks/useColors';
 import { RootStackParamList } from '../navigation/NavigationRoot';
 
 type LanguageScreenProps = NativeStackScreenProps<
@@ -21,8 +22,12 @@ type LanguageScreenProps = NativeStackScreenProps<
 export type LanguageNavigation = LanguageScreenProps['navigation'];
 
 const Language = ({ navigation, route }: LanguageScreenProps) => {
+  const { colors } = useColors();
+
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView
+      style={[styles.container, { backgroundColor: colors.background }]}
+    >
       <BackButton navigation={navigation} />
       <LanguageTitle />
       <LanguageSearch />
@@ -35,5 +40,5 @@ const Language = ({ navigation, route }: LanguageScreenProps) => {
 export default Language;
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.background },
+  container: { flex: 1 },
 });

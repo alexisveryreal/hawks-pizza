@@ -39,7 +39,9 @@ const PopularSodaCard = ({ navigation, item }: PopularSodaCardProps) => {
                 size={12}
                 color={colors.primary}
               />
-              <Text style={styles.topText}>top of the week</Text>
+              <Text style={[styles.topText, { color: colors.textDark }]}>
+                top of the week
+              </Text>
             </View>
             <View style={styles.titlesWrapper}>
               <Text style={[styles.titlesText, { color: colors.textDark }]}>
@@ -62,7 +64,9 @@ const PopularSodaCard = ({ navigation, item }: PopularSodaCardProps) => {
                 size={10}
                 color={colors.textDark}
               />
-              <Text style={styles.rating}>{item.rating}</Text>
+              <Text style={[styles.rating, { color: colors.textDark }]}>
+                {item.rating}
+              </Text>
             </View>
           </View>
         </View>

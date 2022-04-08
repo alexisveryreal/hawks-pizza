@@ -1,20 +1,23 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-import colors from '../../assets/colors/colors';
+import { useColors } from '../../hooks/useColors';
 
 const ShowMore = () => {
   const [showMore, setShowMore] = useState(false);
+  const { colors } = useColors();
 
   return (
     <View style={styles.showWrapper}>
       <TouchableOpacity onPress={() => setShowMore((prev) => !prev)}>
-        <Text style={styles.showText}>
+        <Text style={[styles.showText, { color: colors.textLight }]}>
           {showMore ? 'Show Less' : 'Show More'}
         </Text>
       </TouchableOpacity>
       {showMore && (
-        <Text style={styles.moreLang}>More Languages coming soon!</Text>
+        <Text style={[styles.moreLang, { color: colors.textDark }]}>
+          More Languages coming soon!
+        </Text>
       )}
     </View>
   );
@@ -31,12 +34,10 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: 'Montserrat_600SemiBold',
     textDecorationLine: 'underline',
-    color: colors.textLight,
   },
   moreLang: {
     fontSize: 14,
     fontFamily: 'Montserrat_400Regular',
-    color: colors.textDark,
     paddingTop: 10,
   },
 });

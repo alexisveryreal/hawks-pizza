@@ -1,12 +1,15 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-import colors from '../../assets/colors/colors';
+import { useColors } from '../../hooks/useColors';
 
 const NotificationTitle = () => {
+  const { colors } = useColors();
   return (
     <View style={styles.titleWrapper}>
-      <Text style={styles.title}>Notifications</Text>
+      <Text style={[styles.title, { color: colors.textDark }]}>
+        Notifications
+      </Text>
     </View>
   );
 };
@@ -18,6 +21,5 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 32,
     fontFamily: 'Montserrat_700Bold',
-    color: colors.textDark,
   },
 });

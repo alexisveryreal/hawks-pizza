@@ -3,15 +3,19 @@ import { StyleSheet, Text, View } from 'react-native';
 
 import colors from '../../assets/colors/colors';
 import { PopularData } from '../../assets/data/popularData';
+import { useColors } from '../../hooks/useColors';
 
 type PriceProps = {
   item: PopularData;
 };
 
 const Price = ({ item }: PriceProps) => {
+  const { colors } = useColors();
   return (
     <View style={styles.priceWrapper}>
-      <Text style={styles.priceText}>{item.price}</Text>
+      <Text style={[styles.priceText, { color: colors.price }]}>
+        {item.price}
+      </Text>
     </View>
   );
 };
@@ -24,7 +28,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   priceText: {
-    color: colors.price,
     fontFamily: 'Montserrat_700Bold',
     fontSize: 32,
   },

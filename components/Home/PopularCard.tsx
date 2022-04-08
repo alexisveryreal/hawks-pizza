@@ -42,7 +42,9 @@ const PopularCard = ({ item, navigation }: PopularCardProps) => {
                 size={12}
                 color={colors.primary}
               />
-              <Text style={styles.popularTopText}>top of the week</Text>
+              <Text style={[styles.popularTopText, { color: colors.textDark }]}>
+                top of the week
+              </Text>
             </View>
             <View style={styles.popularTitlesWrapper}>
               <Text

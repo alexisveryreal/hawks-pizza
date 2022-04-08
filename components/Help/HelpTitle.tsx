@@ -1,14 +1,17 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-import colors from '../../assets/colors/colors';
 import { BOLD } from '../../constants/strings';
+import { useColors } from '../../hooks/useColors';
 
 const HelpTitle = () => {
+  const { colors } = useColors();
   return (
     <View style={styles.titleWrapper}>
-      <Text style={styles.title}>Help</Text>
-      <Text>Let's pretend these buttons do something</Text>
+      <Text style={[styles.title, { color: colors.textDark }]}>Help</Text>
+      <Text style={[{ color: colors.textDark }]}>
+        Let's pretend these buttons do something
+      </Text>
     </View>
   );
 };
@@ -24,6 +27,5 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 32,
     fontFamily: BOLD,
-    color: colors.textDark,
   },
 });

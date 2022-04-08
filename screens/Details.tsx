@@ -12,6 +12,7 @@ import {
   Ingredients,
   PlaceOrderButton,
 } from '../components';
+import { useColors } from '../hooks/useColors';
 import { RootStackParamList } from '../navigation/NavigationRoot';
 
 export type DetailScreenProps = NativeStackScreenProps<
@@ -23,8 +24,11 @@ export type DetailScreenNavigation = DetailScreenProps['navigation'];
 
 const Details = ({ navigation, route }: DetailScreenProps) => {
   const { item } = route.params;
+  const { colors } = useColors();
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView
+      style={[styles.container, { backgroundColor: colors.background }]}
+    >
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         showsVerticalScrollIndicator={false}
@@ -45,6 +49,5 @@ export default Details;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.background,
   },
 });

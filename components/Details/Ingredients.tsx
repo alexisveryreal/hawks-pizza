@@ -3,6 +3,7 @@ import { FlatList, StyleSheet, Text, View } from 'react-native';
 
 import colors from '../../assets/colors/colors';
 import { PopularData } from '../../assets/data/popularData';
+import { useColors } from '../../hooks/useColors';
 import IngredientsItem from './IngredientsItem';
 
 type IngredientsProps = {
@@ -10,9 +11,13 @@ type IngredientsProps = {
 };
 
 const Ingredients = ({ ingredients }: IngredientsProps) => {
+  const { colors } = useColors();
+
   return (
     <View style={styles.ingredientsWrapper}>
-      <Text style={styles.ingredientsTitle}>Ingredients</Text>
+      <Text style={[styles.ingredientsTitle, { color: colors.textDark }]}>
+        Ingredients
+      </Text>
       <View style={styles.ingredientsListWrapper}>
         <FlatList
           data={ingredients}
@@ -36,7 +41,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     fontFamily: 'Montserrat_700Bold',
     fontSize: 16,
-    color: colors.textDark,
   },
   ingredientsListWrapper: {
     paddingVertical: 20,

@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import colors from '../../assets/colors/colors';
+import { useColors } from '../../hooks/useColors';
 
 type NotifRowProps = {
   label: string;
@@ -14,12 +15,19 @@ type NotifRowProps = {
 
 const NotifRow = ({ label, description }: NotifRowProps) => {
   const [checked, setChecked] = useState(true);
+  const { colors } = useColors();
 
   return (
     <View style={styles.rowWrapper}>
       <View style={styles.textWrapper}>
-        <Text style={styles.rowLabel}>{label}</Text>
-        {description && <Text style={styles.rowDesc}>{description}</Text>}
+        <Text style={[styles.rowLabel, { color: colors.textDark }]}>
+          {label}
+        </Text>
+        {description && (
+          <Text style={[styles.rowDesc, { color: colors.textDark }]}>
+            {description}
+          </Text>
+        )}
       </View>
       <TouchableOpacity onPress={() => setChecked((prev) => !prev)}>
         {checked ? (
@@ -57,11 +65,9 @@ const styles = StyleSheet.create({
   rowLabel: {
     fontSize: 14,
     fontFamily: 'Montserrat_600SemiBold',
-    color: colors.textDark,
   },
   rowDesc: {
     fontSize: 12,
     fontFamily: 'Montserrat_400Regular',
-    color: colors.textDark,
   },
 });

@@ -4,7 +4,7 @@ import { SafeAreaView, StyleSheet, TouchableOpacity, View } from 'react-native';
 
 // need details navigation typed
 
-import colors from '../../assets/colors/colors';
+import { useColors } from '../../hooks/useColors';
 import { DetailScreenNavigation } from '../../screens/Details';
 
 type DetailHeaderProps = {
@@ -12,15 +12,21 @@ type DetailHeaderProps = {
 };
 
 const DetailHeader = ({ navigation }: DetailHeaderProps) => {
+  const { colors } = useColors();
   return (
     <SafeAreaView>
       <View style={styles.headerWrapper}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <View style={styles.headerLeft}>
+          <View style={[styles.headerLeft, { borderColor: colors.textLight }]}>
             <Feather name="chevron-left" size={15} color={colors.textDark} />
           </View>
         </TouchableOpacity>
-        <View style={styles.headerRight}>
+        <View
+          style={[
+            styles.headerRight,
+            { backgroundColor: colors.primary, borderColor: colors.primary },
+          ]}
+        >
           <MaterialCommunityIcons name="star" size={12} color={colors.white} />
         </View>
       </View>
@@ -39,16 +45,13 @@ const styles = StyleSheet.create({
     paddingTop: 20,
   },
   headerLeft: {
-    borderColor: colors.textLight,
     borderWidth: 2,
     padding: 12,
     borderRadius: 10,
   },
   headerRight: {
-    backgroundColor: colors.primary,
     padding: 12,
     borderRadius: 10,
-    borderColor: colors.primary,
     borderWidth: 2,
   },
 });

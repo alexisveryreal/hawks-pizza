@@ -1,12 +1,15 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-import colors from '../../assets/colors/colors';
+import { useColors } from '../../hooks/useColors';
 
 const LanguageTitle = () => {
+  const { colors } = useColors();
   return (
     <View style={styles.titleWrapper}>
-      <Text style={styles.languageTitle}>Language</Text>
+      <Text style={[styles.languageTitle, { color: colors.textDark }]}>
+        Language
+      </Text>
     </View>
   );
 };
@@ -22,6 +25,5 @@ const styles = StyleSheet.create({
   languageTitle: {
     fontSize: 32,
     fontFamily: 'Montserrat_700Bold',
-    color: colors.textDark,
   },
 });
