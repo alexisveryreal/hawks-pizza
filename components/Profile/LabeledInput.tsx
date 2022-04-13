@@ -1,28 +1,44 @@
+import { FormControl, Input, WarningOutlineIcon } from 'native-base';
 import React from 'react';
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
+import { MEDIUM } from '../../constants/strings';
 import { useColors } from '../../hooks/useColors';
 
 type LabeledInputProps = {
   label: string;
   placeholder: string;
   onChange: (text: string) => void;
+  isInvalid: boolean;
 };
 
-const LabeledInput = ({ label, placeholder, onChange }: LabeledInputProps) => {
+const LabeledInput = ({
+  label,
+  placeholder,
+  onChange,
+  isInvalid,
+}: LabeledInputProps) => {
   const { colors } = useColors();
   return (
     <View style={styles.inputWrapper}>
       <Text style={[styles.label, { color: colors.textDark }]}>{label}</Text>
-      <View style={[styles.inputLine, { borderBottomColor: colors.textLight }]}>
-        <TextInput
-          style={[styles.input, { color: colors.textDark }]}
-          placeholder={placeholder}
-          placeholderTextColor={colors.textDark}
-          onChangeText={(text) => onChange(text)}
-          value={placeholder}
-          clearTextOnFocus
-        />
+      <View style={[styles.inputLine]}>
+        <FormControl isInvalid={isInvalid}>
+          <Input
+            placeholder={placeholder}
+            variant="underlined"
+            fontFamily={MEDIUM}
+            fontSize="sm"
+            color={colors.textDark}
+            value={placeholder}
+            onChangeText={(text) => onChange(text)}
+            clearTextOnFocus
+            borderBottomColor={colors.textLight}
+          />
+          <FormControl.ErrorMessage leftIcon={<WarningOutlineIcon size="xs" />}>
+            Something is wrong.
+          </FormControl.ErrorMessage>
+        </FormControl>
       </View>
     </View>
   );
@@ -44,11 +60,6 @@ const styles = StyleSheet.create({
   inputLine: {
     width: '66%',
     marginLeft: 10,
-    borderBottomWidth: 2,
-  },
-  input: {
-    fontFamily: 'Montserrat_600SemiBold',
-    fontSize: 14,
-    marginLeft: 5,
+    // borderBottomWidth: 2,
   },
 });

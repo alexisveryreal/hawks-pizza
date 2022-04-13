@@ -1,6 +1,7 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { KeyboardAvoidingView, ScrollView } from 'native-base';
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { ProfileTitles } from '../components';
@@ -22,8 +23,14 @@ const Profile = ({ navigation, route }: ProfileScreenProps) => {
     <SafeAreaView
       style={[styles.container, { backgroundColor: colors.background }]}
     >
-      <BackButton navigation={navigation} />
-      <ProfileTitles />
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      >
+        <ScrollView>
+          <BackButton navigation={navigation} />
+          <ProfileTitles />
+        </ScrollView>
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 };

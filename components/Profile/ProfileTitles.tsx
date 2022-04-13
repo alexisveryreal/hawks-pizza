@@ -1,8 +1,10 @@
+import { Button, Center } from 'native-base';
 import React, { useState } from 'react';
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Image, StyleSheet, Text, View } from 'react-native';
 import { useRecoilValue } from 'recoil';
 
 import profileState from '../../atoms/profileAtom';
+import { BOLD } from '../../constants/strings';
 import { useColors } from '../../hooks/useColors';
 import useUpdateProfile from '../../hooks/useUpdateProfile';
 import { Genders } from '../../types/profileTypes';
@@ -12,18 +14,32 @@ import LabeledInput from './LabeledInput';
 const ProfileTitles = () => {
   const profile = useRecoilValue(profileState);
   const [tempProfile, setTempProfile] = useState(profile);
+  const [userError, setUserError] = useState(false);
+  const [emailError, setEmailError] = useState(false);
 
   // console.log("Current profile: ", tempProfile);
 
   const { colors } = useColors();
 
-  const { updateProfile } = useUpdateProfile();
+  const { updateProfile, isLoading } = useUpdateProfile();
 
   const handleChangeUsername = (text: string) => {
+    if (text === '') {
+      setUserError(true);
+    } else {
+      setUserError(false);
+    }
+
     setTempProfile({ ...tempProfile, username: text });
   };
 
   const handleChangeEmail = (text: string) => {
+    if (text === '') {
+      setEmailError(true);
+    } else {
+      setEmailError(false);
+    }
+
     setTempProfile({ ...tempProfile, email: text });
   };
 
@@ -59,6 +75,7 @@ const ProfileTitles = () => {
         label="Username"
         placeholder={tempProfile.username}
         onChange={handleChangeUsername}
+        isInvalid={userError}
       />
       <GenderSelection
         gender={tempProfile.gender}
@@ -68,14 +85,29 @@ const ProfileTitles = () => {
         label="Email"
         placeholder={tempProfile.email}
         onChange={handleChangeEmail}
+        isInvalid={emailError}
       />
-      <TouchableOpacity onPress={() => handleSubmitChanges()}>
-        <View style={[styles.saveWrapper, { backgroundColor: colors.primary }]}>
-          <Text style={[styles.saveText, { color: colors.textDark }]}>
-            Save
-          </Text>
-        </View>
-      </TouchableOpacity>
+      <Center mt={50}>
+        <Button
+          isLoading={isLoading}
+          isDisabled={userError || emailError}
+          size="16"
+          w="90%"
+          borderRadius={50}
+          colorScheme="primary"
+          onPress={() => handleSubmitChanges()}
+          bg="primary.300"
+          _text={{
+            fontFamily: BOLD,
+            fontSize: 14,
+          }}
+          _pressed={{
+            bg: 'primary.100',
+          }}
+        >
+          Save
+        </Button>
+      </Center>
     </View>
   );
 };
@@ -123,18 +155,5 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontFamily: 'Montserrat_600SemiBold',
     paddingTop: 25,
-  },
-  saveWrapper: {
-    marginTop: 50,
-    marginHorizontal: 20,
-    borderRadius: 50,
-    paddingVertical: 25,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  saveText: {
-    fontFamily: 'Montserrat_700Bold',
-    fontSize: 14,
   },
 });

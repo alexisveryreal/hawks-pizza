@@ -6,6 +6,7 @@ import { RecoilRoot } from 'recoil';
 
 import './translations/i18n';
 import NavigationRoot from './navigation/NavigationRoot';
+import theme from './utils/nativeBaseTheme';
 
 // Ignore recoil timer warning
 LogBox.ignoreLogs(['timer']);
@@ -25,7 +26,7 @@ export default function App() {
   return (
     <RecoilRoot>
       <QueryClientProvider client={queryClient}>
-        <NativeBaseProvider>
+        <NativeBaseProvider theme={theme}>
           <NavigationRoot />
         </NativeBaseProvider>
       </QueryClientProvider>
