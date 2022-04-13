@@ -10,6 +10,7 @@ import { useRecoilState } from 'recoil';
 
 import { CategoriesObj } from '../../assets/data/categoriesData';
 import popularData from '../../assets/data/popularData';
+import popularSeaData from '../../assets/data/popularSeaData';
 import popularSodaData from '../../assets/data/popularSodaData';
 import categoryState from '../../atoms/categoriesAtom';
 import popularState from '../../atoms/popularAtom';
@@ -29,8 +30,10 @@ const Categories = () => {
   const handlePopularState = (name: string) => {
     switch (name) {
       case 'Pizza':
-      case 'Seafood':
         setPopularStateData({ kind: 'Pizza', data: popularData });
+        break;
+      case 'Seafood':
+        setPopularStateData({ kind: 'Seafood', data: popularSeaData });
         break;
       case 'Soft Drinks':
         console.log('Setting popular state to sodaData');

@@ -1,6 +1,7 @@
 import { atom } from 'recoil';
 
 import popularData, { PopularData } from '../assets/data/popularData';
+import { PopularSeaData } from '../assets/data/popularSeaData';
 import { PopularSodaData } from '../assets/data/popularSodaData';
 
 export type PopularTypes =
@@ -11,6 +12,10 @@ export type PopularTypes =
   | {
       kind: 'Soda';
       data: PopularSodaData[];
+    }
+  | {
+      kind: 'Seafood';
+      data: PopularSeaData[];
     };
 
 const popularState = atom<PopularTypes>({

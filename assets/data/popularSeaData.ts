@@ -20,6 +20,26 @@ const popularSeaData: PopularSeaData[] = [
     sizeNumber: '16oz',
     deliveryTime: 30,
   },
+  {
+    id: '2',
+    image: require('../images/lobster.png'),
+    title: 'Lobster',
+    rating: '5.0',
+    price: 7.99,
+    sizeName: 'Medium',
+    sizeNumber: '16oz',
+    deliveryTime: 30,
+  },
+  {
+    id: '3',
+    image: require('../images/samon.png'),
+    title: 'Salmon',
+    rating: '5.0',
+    price: 5.99,
+    sizeName: 'Medium',
+    sizeNumber: '16oz',
+    deliveryTime: 30,
+  },
 ];
 
 export default popularSeaData;

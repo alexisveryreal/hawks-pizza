@@ -13,6 +13,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRecoilState } from 'recoil';
 
 import popularData from '../assets/data/popularData';
+import popularSeaData from '../assets/data/popularSeaData';
 import popularSodaData from '../assets/data/popularSodaData';
 import popularState from '../atoms/popularAtom';
 import {
@@ -47,7 +48,8 @@ const Home = ({ navigation, route }: HomeScreenProps) => {
 
   const hasFiltered =
     (popularDataState.data !== popularData &&
-      popularDataState.data !== popularSodaData) ||
+      popularDataState.data !== popularSodaData &&
+      popularDataState.data !== popularSeaData) ||
     notFound;
 
   const { colors } = useColors();
