@@ -35,9 +35,6 @@ export default function App() {
 }
 
 /**
- * TODO: Make Category Cards Clickable
- * * -> Just shows all popular data
- * * ---> Will need to create popular data for seafood and drinks
  * TODO: (In Details Page), Make top right icon save
  * * -> Create a favorites page under hambuger menu
  * TODO: Make Place Order connect with a backend
